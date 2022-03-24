@@ -1,0 +1,26 @@
+<h2>Sidenav</h2>
+<p>
+  Sidenav uses 100vh for its height definition. A story exists in the backlog to
+  generate its height based on container height maximum.
+</p>
+<p>
+  <b>Note:</b> The sidenav you see implemented to the left, in this Sandbox, is
+  using an Angular-customized version that allows it to be fit into the vertical
+  space allowed. This IS a hack, and an enhancement issue has been filed to
+  create a proper/official fix for this problem.
+</p>
+<hr class="boxHr" />
+<div
+  style="width: 600px; height: 300px; overflow-y: scroll; background: white;"
+>
+  <dds-sidenav fixed="true" init="later">
+    <dds-sidenav-menu icon="game-controller" open="true" name="Fun Stuff">
+      <dds-sidenav-item link="https://gather.town/">
+        Gather Town
+      </dds-sidenav-item>
+      <dds-sidenav-item link="https://gettoby.com">
+        Toby Bookmark Start Page
+      </dds-sidenav-item>
+    </dds-sidenav-menu>
+  </dds-sidenav>
+</div>

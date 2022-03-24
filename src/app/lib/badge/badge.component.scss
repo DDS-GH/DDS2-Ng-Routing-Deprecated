@@ -1,0 +1,20 @@
+// Add this class to the containing element that wraps the badge and other element.
+.custom__badge-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+// Add this class to the badge element.
+.custom__badge--positioning {
+  position: absolute;
+  top: 0px;
+  right: -10px;
+}
+
+.custom__badge-button {
+  display: inline-flex;
+  background-color: transparent;
+  border: none;
+  vertical-align: middle;
+  padding: .5rem;
+}

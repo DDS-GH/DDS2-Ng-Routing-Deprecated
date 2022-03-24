@@ -1,0 +1,72 @@
+<div class="dds__dropdown" data-dds="dropdown" id="{{elementId}}">
+  <div class="dds__dropdown__input-container">
+    <label id="{{elementId}}-label" for="{{elementId}}-input">{{label}}</label>
+    <div
+      class="dds__dropdown__input-wrapper"
+      autocomplete="off"
+      role="combobox"
+      aria-haspopup="listbox"
+      [attr.aria-controls]="elementId + '-popup'"
+      aria-expanded="false"
+    >
+      <input
+        id="{{elementId}}-input"
+        name="{{elementId}}"
+        type="text"
+        class="dds__dropdown__input-field"
+        [attr.aria-labelledby]="elementId + '-label ' + elementId + '-helper'"
+        autocomplete="off"
+      />
+      <small id="{{elementId}}-helper" class="dds__input-text__helper">
+        {{helper}}
+      </small>
+      <div id="{{elementId}}-feedback" class="dds__invalid-feedback"></div>
+    </div>
+  </div>
+  <div
+    id="{{elementId}}-popup"
+    class="dds__dropdown__popup dds__dropdown__popup--hidden"
+    role="presentation"
+  >
+    <ul class="dds__dropdown__list" role="listbox" tabindex="-1">
+      <ng-container *ngFor="let group of groups; let g = index">
+        <li *ngIf="!group.hidden" role="presentation">
+          <span
+            *ngIf="group.name"
+            id="{{elementId}}-group-{{g}}"
+            class="dds__dropdown__group-title"
+          >
+            {{group.name}}
+          </span>
+          <ul
+            class="dds__dropdown__group"
+            role="group"
+            [attr.aria-labelledby]="elementId + '-group-' + g"
+          >
+            <ng-container *ngFor="let option of group.options; let o = index">
+              <li
+                *ngIf="!option.hidden"
+                class="dds__dropdown__item"
+                [class.ng__dropdown__item--hidden]="option.stored"
+                role="none"
+              >
+                <button
+                  class="dds__dropdown__item-option"
+                  role="option"
+                  [attr.data-selected]="option.selected === true || option.stored
+                  === true"
+                  tabindex="-1"
+                  [attr.data-value]="option.value"
+                >
+                  <span class="dds__dropdown__item-label">
+                    {{option.name}}
+                  </span>
+                </button>
+              </li>
+            </ng-container>
+          </ul>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>

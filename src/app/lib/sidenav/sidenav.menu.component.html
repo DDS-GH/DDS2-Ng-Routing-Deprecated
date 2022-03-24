@@ -1,0 +1,13 @@
+<ng-template #content><ng-content></ng-content></ng-template>
+<li *ngIf="name" id="{{elementId}}" class="dds__side-nav__group">
+  <button aria-haspopup="true" [attr.aria-expanded]="open">
+    <i *ngIf="icon" class="dds__icon {{icon}}"></i>
+    <span>{{name}}</span>
+  </button>
+  <ul class="dds__side-nav__menu">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </ul>
+</li>
+<ul *ngIf="!name" class="dds__side-nav__menu">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</ul>

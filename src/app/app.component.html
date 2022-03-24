@@ -1,0 +1,51 @@
+<div class="body">
+  <header>
+    <div class="headerRow">
+      <div class="headerCol">
+        <i class="dds__icon dds__icon--brand-dell" style="font-size: 3rem;"></i>
+      </div>
+      <div class="headerCol">
+        <button
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="dds__button"
+          routerLink="/"
+        >
+          Home
+        </button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <nav>
+      <!-- sidebar 1 content -->
+      <dds-sidenav fixed="false" init="later" sticky="true">
+        <dds-sidenav-menu
+          *ngFor="let tag of menuTags; index as t"
+          icon="{{tags[tag]}}"
+          open="true"
+          name="{{tag.toUpperCase()}}"
+          ><!-- TODO open does not seem to work -->
+          <ng-container *ngFor="let item of menuItems; index as i;">
+            <dds-sidenav-item
+              *ngIf="item.tags.includes(tag)"
+              selected="{{showPage===item.text}}"
+              icon="{{item.icon}}"
+              [routerLink]="'/'+item.text.toLowerCase()"
+            >
+              <span>
+                {{item.text}}
+              </span>
+            </dds-sidenav-item>
+          </ng-container>
+        </dds-sidenav-menu>
+      </dds-sidenav>
+    </nav>
+    <!-- <aside>Global Right-side content</aside> -->
+    <!-- Main page content -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+  <footer>footer</footer>
+</div>

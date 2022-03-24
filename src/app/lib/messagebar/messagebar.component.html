@@ -1,0 +1,23 @@
+<div [class.dds__message-bar--global__container]="layout === 'global'">
+  <div
+    id="{{elementId}}"
+    data-dds="message-bar"
+    role="dialog"
+    [attr.aria-describedby]="elementId + 'Content'"
+    [attr.aria-labelledby]="elementId + 'Title'"
+    class="dds__message-bar {{variant}}"
+    [class.dds__message-bar--global]="layout === 'global'"
+    [attr.data-dismissible]="dismissible"
+  >
+    <ng-container *ngIf="icon !== 'false'">
+      <i
+        class="dds__icon dds__message-bar__icon dds__icon--{{icon}}"
+        aria-hidden="true"
+      ></i>
+    </ng-container>
+    <div id="{{elementId}}Content" class="dds__message-bar__content">
+      <b id="{{elementId}}Title">{{title}}</b>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<i 
+  href="javascript:void(0);"
+  id="icon{{elementId}}"
+  class="dds__link--standalone"
+  [attr.aria-describedby]="elementId"
+>
+  <span class="dds__sr-only">tooltip</span>
+  <i class="dds__icon dds__icon--{{icon}}"></i>
+</i>
+<div 
+  id="{{elementId}}"
+  [attr.data-trigger]="'#icon' + elementId"
+  data-dds="tooltip"
+  class="dds__tooltip"
+  role="tooltip"
+>
+  <div class="dds__tooltip__pointer"></div>
+  <div class="dds__tooltip__body">
+      <ng-content></ng-content>
+  </div>
+</div>

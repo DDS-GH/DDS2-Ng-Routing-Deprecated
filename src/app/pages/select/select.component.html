@@ -1,0 +1,21 @@
+        <h2>Select</h2>
+        <div class="dds__row">
+          <div class="dds__col--1 dds__col--sm-6 dds__col--md-6 dds__mb-3">
+            <dds-select
+              label="Select Movie"
+              [(selectOptions)]="selectValue1"
+              [defaultValue]="selectValue1[1]"
+              (optionSelected)="selectOptionSelected($event)"
+            >
+            </dds-select>
+          </div>
+          <div class="dds__col--1 dds__col--sm-6 dds__col--md-6 dds__mb-3">
+            <dds-select
+              label="Select Book"
+              [(selectOptions)]="selectValue2"
+              [defaultValue]="selectValue2[2]"
+              (optionSelected)="selectOptionSelected($event)"
+            >
+            </dds-select>
+          </div>
+        </div>

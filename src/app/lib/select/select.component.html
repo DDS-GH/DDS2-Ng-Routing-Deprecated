@@ -1,0 +1,20 @@
+<div class="dds__select" data-dds="select" id="{{elementId}}">
+  <label id="selectLabel{{elementId}}" [attr.for]="'select' + elementId"
+    >{{label}}</label
+  >
+  <div class="dds__select__wrapper">
+    <select
+      id="select{{elementId}}"
+      (change)="onChange()"
+      class="dds__select__field"
+    >
+      <option
+        *ngFor="let va of selectOptions"
+        value="{{ va }}"
+        [isSelected]="va===defaultValue"
+      >
+        {{ va }}
+      </option>
+    </select>
+  </div>
+</div>

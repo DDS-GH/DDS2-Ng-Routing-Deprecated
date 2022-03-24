@@ -1,0 +1,10 @@
+<button
+  type="{{type}}"
+  [id]="elementId"
+  class="dds__button"
+  [class.attachAction]="action"
+  [class.stateOff]="buttonOn === 'false'"
+  [attr.aria-label]="ariaLabel"
+>
+  <ng-content></ng-content>
+</button>

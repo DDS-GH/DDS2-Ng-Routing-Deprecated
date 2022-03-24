@@ -1,0 +1,26 @@
+<ng-template #content><ng-content></ng-content></ng-template>
+<ul *ngIf="isMissingUl" class="dds__side-nav__menu">
+  <li
+    class="dds__side-nav__item"
+    [class.dds__side-nav__item--selected]="isSelected"
+  >
+    <span>
+      <a href="{{link}}">
+        <i *ngIf="icon" class="dds__icon {{icon}}"></i>
+        <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
+      </a>
+    </span>
+  </li>
+</ul>
+<li
+  *ngIf="!isMissingUl"
+  class="dds__side-nav__item"
+  [class.dds__side-nav__item--selected]="isSelected"
+>
+  <span>
+    <a href="{{link}}">
+      <i *ngIf="icon" class="dds__icon {{icon}}"></i>
+      <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
+    </a>
+  </span>
+</li>

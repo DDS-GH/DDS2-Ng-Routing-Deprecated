@@ -1,0 +1,42 @@
+<div class="dds__tabs__content" #content>
+  <ng-content></ng-content>
+</div>
+<div
+  id="{{elementId}}"
+  class="dds__tabs {{class}}"
+  [class.dds__tabs--contained]="contained"
+  data-dds="tabs"
+>
+  <div class="dds__tabs__list-container">
+    <ul class="dds__tabs__list dds__tabs__list--overflow" role="tablist">
+      <ng-container *ngFor="let tab of labels; index as t;">
+        <li role="none">
+          <button
+            id="{{elementId}}-{{t}}"
+            class="dds__tabs__tab"
+            role="tab"
+            [attr.aria-controls]="elementId + '-' + t + '-pane'"
+            [attr.aria-selected]="t===selected"
+            tabindex="0"
+          >
+            <span class="dds__tabs__tab__label" title="{{tab}}">
+              {{tab}}
+            </span>
+          </button>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="dds__tabs__pane-container">
+    <ng-container *ngFor="let tab of labels; index as t;">
+      <div
+        id="{{elementId}}-{{t}}-pane"
+        class="dds__tabs__pane"
+        role="tabpanel"
+        tabindex="0"
+        [attr.aria-labelledby]="elementId + '-' + t"
+        [attr.aria-hidden]="t!==selected"
+      ></div>
+    </ng-container>
+  </div>
+</div>

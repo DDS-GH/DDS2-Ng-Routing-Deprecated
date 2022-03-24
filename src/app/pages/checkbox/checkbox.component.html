@@ -1,0 +1,23 @@
+<h2>Checkbox</h2>
+<div class="dds__row">
+  <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    <p>
+      Don't forget in Angular to add the FormsModule to your app module, in
+      order to use 2-way binding
+    </p>
+    <div class="dds__checkbox">
+      <label class="dds__checkbox__label" for="checkbox-input-0">
+        <input
+          type="checkbox"
+          tabindex="0"
+          id="checkbox-input-0"
+          name="example-checkbox"
+          class="dds__checkbox__input"
+          [(ngModel)]="checkboxOn"
+        />
+        <span>Dell UltraSharp</span>
+      </label>
+    </div>
+    {{checkboxOn}}
+  </div>
+</div>

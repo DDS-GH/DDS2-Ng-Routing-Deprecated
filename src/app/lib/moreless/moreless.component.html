@@ -1,0 +1,42 @@
+<ng-template #isMore><ng-content select="[is-more]"></ng-content></ng-template>
+<ng-content select="[is-less]"></ng-content>
+<span
+  id="{{elementId}}"
+  data-dds="more-less"
+  [class.dds__more-less--inline]="type==='inline'"
+  [class.dds__more-less--list]="type==='list'"
+>
+  <ng-content select="[is-list]"></ng-content>
+  <span *ngIf="type!=='related'" class="dds__more-less__target">
+    <ng-container *ngTemplateOutlet="isMore"></ng-container>
+  </span>
+  <span
+    *ngIf="type==='bottom'||type==='inline'"
+    class="dds__more-less__ellipsis"
+    >...</span
+  >
+  <button
+    class="dds__more-less__button"
+    [class.dds__more-less__button--standalone]="type!=='inline'"
+    type="button"
+    aria-expanded="false"
+  >
+    <span class="dds__more-less__button--more">
+      <ng-container *ngIf="type==='related'">{{title}}</ng-container>
+      <ng-container *ngIf="type==='bottom'||type==='inline'||type==='list'">
+        {{more}}
+        <span class="dds__more-less--sr">{{srMore}}</span>
+      </ng-container>
+    </span>
+    <span class="dds__more-less__button--less">
+      <ng-container *ngIf="type==='related'">{{title}}</ng-container>
+      <ng-container *ngIf="type==='bottom'||type==='inline'||type==='list'">
+        {{less}}
+        <span class="dds__more-less--sr">{{srLess}}</span>
+      </ng-container>
+    </span>
+  </button>
+  <span *ngIf="type==='related'" class="dds__more-less__target">
+    <ng-container *ngTemplateOutlet="isMore"></ng-container>
+  </span>
+</span>

@@ -1,0 +1,31 @@
+<ng-template #content><ng-content></ng-content></ng-template>
+
+<ng-container *ngIf="has.value">
+  <div id="{{elementId}}" class="custom__badge-wrapper">
+    <button class="custom__badge-button" aria-describedby="badge-on-an-element">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </button>
+    <span
+      id="badge-on-an-element"
+      class="dds__badge dds__badge--mini custom__badge--positioning"
+    >
+      <span class="dds__badge__label">
+        {{value}}
+        <ng-container *ngIf="has.units">
+          <span class="dds__sr-only">{{units}}</span>
+        </ng-container>
+      </span>
+    </span>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!has.value">
+  <span id="{{elementId}}" class="dds__badge {{classList}}">
+    <ng-container *ngIf="has.icon">
+      <i class="dds__icon dds__icon--{{icon}}" aria-hidden="true"></i>
+    </ng-container>
+    <span class="dds__badge__label">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </span>
+  </span>
+</ng-container>

@@ -1,0 +1,36 @@
+<div id="{{elementId}}" class="dds__text-area__container" data-dds="text-area">
+  <div class="dds__text-area__header">
+    <label id="{{labelId}}" for="{{textAreaId}}">
+      <ng-content select="[label-text]"></ng-content>
+    </label>
+    <span
+      class="dds__text-area__counter"
+      [attr.data-sr-label]="srText || '{remaining} characters remaining'"
+    ></span>
+  </div>
+  <div class="dds__text-area__wrapper">
+    <textarea
+      class="dds__text-area"
+      name="{{textAreaId}}"
+      id="{{textAreaId}}"
+      [attr.data-maxlength]="maxLength"
+      [attr.aria-required]="states.required"
+      [attr.aria-labelledby]="helperId"
+      required="{{states.required}}"
+    >
+{{defaultText}}</textarea
+    >
+    <small id="{{helperId}}" class="dds__input-text__helper">
+      <ng-content select="[helper-text]"></ng-content>
+    </small>
+    <div class="dds__invalid-feedback">
+      <ng-content select="[error-text]"></ng-content>
+    </div>
+  </div>
+</div>
+<div tabindex="-1" #textContainer hidden>
+  <ng-content select="[default-text]"></ng-content>
+</div>
+<div tabindex="-1" #srContainer hidden>
+  <ng-content select="[screen-reader-text]"></ng-content>
+</div>

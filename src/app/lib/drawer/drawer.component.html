@@ -1,0 +1,21 @@
+<div
+  class="dds__drawer"
+  aria-hidden="true"
+  data-dds="drawer"
+  [attr.data-trigger]="'#' + elementId + 'Trigger'"
+  id="{{elementId}}"
+>
+  <div class="dds__drawer__overlay" aria-hidden="true"></div>
+  <div class="dds__drawer__container">
+    <div class="dds__drawer__header">
+      <button class="dds__drawer__close">{{backText}}</button>
+    </div>
+    <div class="dds__drawer__body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
+<!-- Button trigger drawer -->
+<a #triggerContainer [id]="elementId + 'Trigger'">
+  <ng-content select="[drawer-trigger]"></ng-content>
+</a>

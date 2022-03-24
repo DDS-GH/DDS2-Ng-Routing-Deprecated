@@ -1,0 +1,16 @@
+<ng-template #content><ng-content></ng-content></ng-template>
+<li *ngIf="separator" class="dds__action-menu__separator" role="separator"></li>
+<li *ngIf="name" id="{{id}}" role="presentation" (click)="onTitleClick()">
+  <span id="{{id}}Group" class="dds__action-menu__group__title">
+    {{name}}
+  </span>
+  <ul role="group" [attr.aria-labelledby]="id +'Group'">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </ul>
+</li>
+<li *ngIf="!name" id="{{id}}" role="presentation">
+  <span id="{{id}}Group" class="dds__action-menu__group__title">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </span>
+  <ul role="group" [attr.aria-labelledby]="id +'Group'"></ul>
+</li>

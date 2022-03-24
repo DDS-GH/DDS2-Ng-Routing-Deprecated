@@ -1,0 +1,153 @@
+<h2>TextInput</h2>
+<div class="dds__container">
+  <dds-form>
+    <div class="dds__row">
+      <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+        <p>
+          All of these text fields are wrapped in a dds-form element.
+        </p>
+      </div>
+    </div>
+    <div class="dds__row">
+      <div class="dds__col--1 dds__col--sm-3 dds__col--md-6">
+        <dds-textinput
+          elementId="ddsTextInput"
+          iconStart="user"
+          label="Basic, with class applied"
+          placeholder="Supply Cat Food"
+          feedback="oh is that a broken picture frame?"
+          value="Mrrrow"
+          required="true"
+          classList="dds__input-text__container--sm"
+        >
+        </dds-textinput>
+      </div>
+      <div class="dds__col--1 dds__col--sm-3 dds__col--md-6">
+        <dds-textinput
+          elementId="ddsTextInput2"
+          label="Basic, with class applied"
+          placeholder="Please deliver"
+          feedback="looks uninterested"
+          value="Mrrrow?"
+          required="true"
+          classList="dds__input-text__container--sm"
+        >
+        </dds-textinput>
+      </div>
+    </div>
+    <div class="dds__row">
+      <div class="dds__col--1 dds__col--sm-3 dds__col--md-6">
+        <dds-textinput
+          elementId="ddsTextInputRow2"
+          iconStart="weight-bell"
+          label="Tight grid row 2 field 1"
+          placeholder="Supply Cat Food"
+          feedback="oh is that a broken picture frame?"
+          value="Meow!"
+          required="true"
+          classList="dds__input-text__container--sm"
+        >
+        </dds-textinput>
+      </div>
+      <div class="dds__col--1 dds__col--sm-3 dds__col--md-6">
+        <dds-textinput
+          elementId="ddsTextInput2Row2"
+          label="Tight grid row 2 field 2"
+          placeholder="Please deliver"
+          feedback="looks uninterested"
+          value="Meeow?!"
+          required="true"
+          classList="dds__input-text__container--sm"
+        >
+        </dds-textinput>
+      </div>
+    </div>
+    <div class="dds__row">
+      <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+        <hr />
+        <dds-textinput
+          elementId="ddsTextInputHiss"
+          label="with Button"
+          placeholder="Supply Cat Food"
+          helper="Small kitty warm kitty little balls of fur"
+          value="Hiss"
+          button="Purrrr"
+        >
+        </dds-textinput>
+        <hr />
+
+        <dds-textinput
+          elementId="ddsTextInputPassword"
+          type="password"
+          label="Password"
+          placeholder="Claw your carpet"
+          helper="too hot lasers are tiny mice"
+          feedback="break a planter, eat own hair, hiss, chirp at birds"
+          sr-hide="Show Password"
+          sr-show="Hide Password"
+          hide="Hide"
+          show="Show"
+          minlength="2"
+          maxlength="10"
+          required="true"
+        >
+        </dds-textinput>
+        <hr />
+
+        <dds-textinput
+          elementId="ddsTextInputTel"
+          type="tel"
+          label="Phone"
+          placeholder="Order Mor Cat Food"
+          helper="then scratch her face for hiiiiiiiiii feed me now"
+          feedback="being petted morning beauty routine of licking self."
+          mask="(999) 999-9999"
+          required="true"
+        >
+        </dds-textinput>
+        <hr />
+
+        <dds-textinput
+          elementId="ddsTextInputExperiment"
+          label="Icon Button (EXPERIMENT)"
+          placeholder="hanging around eating catnip"
+          helper="Snuggles up to shoulders or knees and purrs you to sleep"
+          icons="close-x, search, airplane"
+          iconClickable="true"
+          (onIconClick)="textInputIconClick($event)"
+        >
+        </dds-textinput>
+        <hr />
+
+        <dds-button
+          elementId="ddsTextInputSubmit"
+          ariaLabel="Submit the Form"
+          type="submit"
+        >
+          Submit
+        </dds-button>
+      </div>
+    </div>
+  </dds-form>
+  <div class="dds__row">
+    <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+      <hr class="boxHr" />
+      <dds-form elementId="liveValid">
+        <dds-textinput
+          elementId="experimentLiveValidation"
+          label="Live Validation (EXPERIMENT)"
+          placeholder="Please let me outside pouty face yay!"
+          helper="Eat plants, meow, and throw up because i ate plants"
+          feedback="Sleep sleep on dog bed, force dog to sleep on floor, or that box?"
+          icons="{{liveIcons}}"
+          iconClickable="true"
+          minlength="2"
+          maxlength="10"
+          (onIconClick)="textInputIconClick($event)"
+          (onKeyup)="textInputOnKeyup($event)"
+        >
+        </dds-textinput>
+      </dds-form>
+    </div>
+  </div>
+</div>
