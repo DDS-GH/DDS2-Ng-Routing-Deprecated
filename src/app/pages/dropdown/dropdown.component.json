@@ -1,0 +1,54 @@
+[
+  {
+    "hidden": false,
+    "options": [
+      {
+        "name": "Alpha Item 0",
+        "value": "Alpha Item 00",
+        "selected": false
+      },
+      {
+        "name": "Not Shown Item 0",
+        "value": "999",
+        "selected": false,
+        "hidden": true
+      },
+      {
+        "name": "Alpha Item 1",
+        "value": "Alpha Item 11",
+        "selected": false
+      },
+      {
+        "name": "Not Shown Item 1",
+        "value": "9992",
+        "selected": false,
+        "hidden": true
+      },
+      {
+        "name": "Alpha Item 2",
+        "value": "Alpha Item 22",
+        "selected": false
+      }
+    ]
+  },
+  {
+    "name": "Other Stuff",
+    "options": [
+      {
+        "name": "Beta Item 0",
+        "value": "Beta Item 00",
+        "selected": false
+      },
+      {
+        "name": "Beta Item 1",
+        "value": "Beta Item 11",
+        "selected": false
+      },
+      {
+        "name": "Beta Item 2",
+        "value": "Beta Item 22",
+        "selected": false
+      }
+    ]
+  }
+]

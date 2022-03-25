@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core";
-import { arrayAdd, arrayRemove } from "../../lib/helpers/dds.helpers";
+import { Component, OnInit } from '@angular/core';
+import { arrayAdd, arrayRemove } from '../../lib/helpers/dds.helpers';
 
 @Component({
-  selector: "app-dropdown",
-  templateUrl: "./dropdown.component.html"
+  selector: 'app-dropdown',
+  templateUrl: './dropdown.component.html',
 })
 export class DropdownPageComponent implements OnInit {
   private dropdownBase: Array<any> = [
@@ -11,68 +11,68 @@ export class DropdownPageComponent implements OnInit {
       hidden: false,
       options: [
         {
-          name: "Alpha Item 0",
-          value: "Alpha Item 00", // to be used after v2.5.1
-          selected: false
-        },
-        {
-          name: "Not Shown Item 0",
-          value: "999",
+          name: 'Alpha Item 0',
+          value: 'Alpha Item 00', // to be used after v2.5.1
           selected: false,
-          hidden: true
         },
         {
-          name: "Alpha Item 1",
-          value: "Alpha Item 11",
-          selected: false
-        },
-        {
-          name: "Not Shown Item 1",
-          value: "9992",
+          name: 'Not Shown Item 0',
+          value: '999',
           selected: false,
-          hidden: true
+          hidden: true,
         },
         {
-          name: "Alpha Item 2",
-          value: "Alpha Item 22",
-          selected: false
-        }
-      ]
+          name: 'Alpha Item 1',
+          value: 'Alpha Item 11',
+          selected: false,
+        },
+        {
+          name: 'Not Shown Item 1',
+          value: '9992',
+          selected: false,
+          hidden: true,
+        },
+        {
+          name: 'Alpha Item 2',
+          value: 'Alpha Item 22',
+          selected: false,
+        },
+      ],
     },
     {
-      name: "Other Stuff",
+      name: 'Other Stuff',
       options: [
         {
-          name: "Beta Item 0",
-          value: "Beta Item 00",
-          selected: false
+          name: 'Beta Item 0',
+          value: 'Beta Item 00',
+          selected: false,
         },
         {
-          name: "Beta Item 1",
-          value: "Beta Item 11",
-          selected: false
+          name: 'Beta Item 1',
+          value: 'Beta Item 11',
+          selected: false,
         },
         {
-          name: "Beta Item 2",
-          value: "Beta Item 22",
-          selected: false
-        }
-      ]
-    }
+          name: 'Beta Item 2',
+          value: 'Beta Item 22',
+          selected: false,
+        },
+      ],
+    },
   ];
   public dropdownData: Array<any> = [
     {
       stored: [],
-      groups: this.dropdownBase
+      groups: this.dropdownBase,
     },
     {
       stored: [],
-      groups: this.dropdownBase
+      groups: this.dropdownBase,
     },
     {
       stored: [],
-      groups: this.dropdownBase
-    }
+      groups: this.dropdownBase,
+    },
   ];
   public showTags: boolean = false;
 
@@ -109,11 +109,11 @@ export class DropdownPageComponent implements OnInit {
       this.dropdownData[1].groups = JSON.stringify([
         {
           name: `New Data`,
-          options: newData.items
-        }
+          options: newData.items,
+        },
       ]);
       console.log(newData);
-    }
+    },
   };
 
   matchSelectionsWithNewData = (index: number, e: string): any => {
@@ -133,7 +133,7 @@ export class DropdownPageComponent implements OnInit {
             rememberThese.push({
               name: storedOption,
               selected: true,
-              stored: true
+              stored: true,
             });
           }
         } else {
@@ -147,16 +147,16 @@ export class DropdownPageComponent implements OnInit {
               name: storedOption.name,
               value: storedOption.value,
               selected: true,
-              stored: true
+              stored: true,
             });
           }
         }
       });
       const compiledNewData = [
         {
-          name: "Results for " + e,
-          options: [...randomItems.items, ...rememberThese]
-        }
+          name: 'Results for ' + e,
+          options: [...randomItems.items, ...rememberThese],
+        },
       ];
       this.dropdownData[index].groups = JSON.stringify(compiledNewData);
     }, 500);
@@ -174,7 +174,7 @@ export class DropdownPageComponent implements OnInit {
     const randomItems = [];
     let usingValuesOnOptions: boolean = false;
     if (!this.dropdownData[index].stored) {
-      console.log("does this ever fire");
+      console.log('does this ever fire');
       this.dropdownData[index].stored = [];
     }
     if (typeof this.dropdownData[index].stored !== `string`) {
@@ -195,7 +195,7 @@ export class DropdownPageComponent implements OnInit {
         }
         randomItems.push({
           name: itemName,
-          selected: selected
+          selected: selected,
         });
         if (selected) {
           selectedItems.push(itemName);
@@ -213,19 +213,19 @@ export class DropdownPageComponent implements OnInit {
         randomItems.push({
           name: itemName,
           value: itemValue,
-          selected: selected
+          selected: selected,
         });
         if (selected) {
           selectedItems.push({
             text: itemName,
-            value: itemValue
+            value: itemValue,
           });
         }
       }
     }
     const rObj: any = {
       items: randomItems,
-      selection: selectedItems
+      selection: selectedItems,
     };
     return rObj;
   }

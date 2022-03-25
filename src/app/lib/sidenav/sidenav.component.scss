@@ -3,7 +3,7 @@
   z-index: 1;
   bottom: -2px;
   height: 50px;
-  right: 23px;
+  right: 18px;
   background: white;
   padding-top: 1rem;
   width: 96%;
@@ -17,5 +17,5 @@
 .dds__sidenav--sticky-hidden {
   cursor: default;
   visibility: hidden;
-  border:1px solid red; // hack
+  border: 30px solid red; // hack
 }
