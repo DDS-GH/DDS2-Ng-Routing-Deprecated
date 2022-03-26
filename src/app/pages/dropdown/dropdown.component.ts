@@ -74,7 +74,6 @@ export class DropdownPageComponent implements OnInit {
       groups: this.dropdownBase,
     },
   ];
-  public showTags: boolean = false;
 
   // @ts-ignore
   ngOnInit(): void {
