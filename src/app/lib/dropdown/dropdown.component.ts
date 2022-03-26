@@ -22,7 +22,6 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
   @Input() selectedLabel: string = `selected`;
   @Input() srClearLabel: string = `clear selected items`;
   @Input() useBackend: any = `false`;
-  @Input() onKeyUp: any;
   @Input() selection: string = `single`;
   @Output() onKeyUp: EventEmitter<string> = new EventEmitter<string>();
   @Output() optionSelected: EventEmitter<object> = new EventEmitter<object>();

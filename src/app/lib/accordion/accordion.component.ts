@@ -14,8 +14,8 @@ import { AccordionItem } from "./directives/accordion-item.directive";
 })
 export class AccordionComponent extends DdsComponent implements OnInit {
   @ContentChildren(AccordionItem) items: QueryList<AccordionItem> | undefined;
-  @Input() controls: boolean = false;
-  @Input() texts: object = {
+  @Input() controls: any = `false`;
+  @Input() texts: any = {
     itemCollapsed: `item collapsed`,
     itemExpanded: `item expanded`,
     itemsCollapsed: `items collapsed`,

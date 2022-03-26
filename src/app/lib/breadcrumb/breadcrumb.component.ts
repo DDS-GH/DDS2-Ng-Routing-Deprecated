@@ -11,6 +11,7 @@ export class BreadcrumbComponent extends DdsComponent implements OnInit {
   @Input() elementId: string;
   @Input() icon: string = `home`;
   @Input() data: any;
+  @Input() show: boolean = true;
   public items: Array<any> = [];
 
   ngOnInit() {

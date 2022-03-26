@@ -1,6 +1,6 @@
-<div class="dds__dropdown" data-dds="dropdown" id="{{elementId}}">
+<div class="dds__dropdown" data-dds="dropdown" [attr.id]="elementId">
   <div class="dds__dropdown__input-container">
-    <label id="{{elementId}}-label" for="{{elementId}}-input">{{label}}</label>
+    <label [attr.id]="elementId + '-label'" [attr.for]="elementId + '-input'">{{label}}</label>
     <div
       class="dds__dropdown__input-wrapper"
       autocomplete="off"
@@ -10,30 +10,30 @@
       aria-expanded="false"
     >
       <input
-        id="{{elementId}}-input"
-        name="{{elementId}}"
+      [attr.id]="elementId + '-input'"
+        [attr.name]="elementId"
         type="text"
         class="dds__dropdown__input-field"
         [attr.aria-labelledby]="elementId + '-label ' + elementId + '-helper'"
         autocomplete="off"
       />
-      <small id="{{elementId}}-helper" class="dds__input-text__helper">
+      <small [attr.id]="elementId + '-helper'" class="dds__input-text__helper">
         {{helper}}
       </small>
-      <div id="{{elementId}}-feedback" class="dds__invalid-feedback"></div>
+      <div [attr.id]="elementId + '-feedback'" class="dds__invalid-feedback"></div>
     </div>
   </div>
   <div
-    id="{{elementId}}-popup"
+    [attr.id]="elementId + '-popup'"
     class="dds__dropdown__popup dds__dropdown__popup--hidden"
     role="presentation"
   >
-    <ul class="dds__dropdown__list" role="listbox" tabindex="-1">
+    <ul class="dds__dropdown__list" role="listbox" tabindex="-1" [attr.aria-labelledby]="elementId + '-label'">
       <ng-container *ngFor="let group of groups; let g = index">
         <li *ngIf="!group.hidden" role="presentation">
           <span
             *ngIf="group.name"
-            id="{{elementId}}-group-{{g}}"
+            [attr.id]="elementId + '-group-' + g"
             class="dds__dropdown__group-title"
           >
             {{group.name}}

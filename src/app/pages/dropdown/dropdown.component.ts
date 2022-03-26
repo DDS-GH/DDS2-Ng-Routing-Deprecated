@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { arrayAdd, arrayRemove } from '../../lib/helpers/dds.helpers';
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { arrayAdd, arrayRemove } from "../../lib/helpers/dds.helpers";
 
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
 })
 export class DropdownPageComponent implements OnInit {
+  @ViewChild('multipleDropdown') multipleDropdown: ElementRef<HTMLElement>;
+  private clearedRelistener: any;
   private dropdownBase: Array<any> = [
     {
       hidden: false,
@@ -74,6 +76,7 @@ export class DropdownPageComponent implements OnInit {
       groups: this.dropdownBase,
     },
   ];
+  public showTags: boolean = false;
 
   // @ts-ignore
   ngOnInit(): void {
@@ -102,16 +105,30 @@ export class DropdownPageComponent implements OnInit {
     keyUp: (index: number, e: any) => {
       this.matchSelectionsWithNewData(index, e);
     },
-    externalUpdate: (e: any) => {
+    externalUpdate: () => {
+      this.multipleDropdown[`ddsComponent`].clearSelection();
       const newData = this.dropdownRandomItems(`New Data`, 1, false, 99, 101);
       this.dropdownData[1].stored = newData.selection;
+      this.multipleDropdown[`ddsComponent`].dispose();
       this.dropdownData[1].groups = JSON.stringify([
         {
           name: `New Data`,
           options: newData.items,
         },
       ]);
-      console.log(newData);
+      setTimeout(() => {
+        // @ts-ignore
+        this.multipleDropdown.initializeNow();
+        if (!this.clearedRelistener) {
+          this.clearedRelistener = this.multipleDropdown[`ddsElement`].addEventListener(`ddsDropdownSelectionChangeEvent`, (e: any) => {
+            if (
+              this.multipleDropdown[`ddsComponent`].getSelection().length === 0
+            ) {
+              this.handleDropdown.clear(1, null);
+            }
+          });
+        }
+      });
     },
   };
 
@@ -173,7 +190,6 @@ export class DropdownPageComponent implements OnInit {
     const randomItems = [];
     let usingValuesOnOptions: boolean = false;
     if (!this.dropdownData[index].stored) {
-      console.log('does this ever fire');
       this.dropdownData[index].stored = [];
     }
     if (typeof this.dropdownData[index].stored !== `string`) {

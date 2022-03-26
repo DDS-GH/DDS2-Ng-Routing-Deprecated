@@ -11,8 +11,8 @@ export class ModalComponent extends DdsComponent {
   @ViewChild("triggerContainer") triggerContainer: ElementRef<HTMLElement>;
   @Input() elementId: string;
   @Input() backdrop: any;
-  private modalTitleId: string;
-  private modalTriggerId: string;
+  public modalTitleId: string;
+  public modalTriggerId: string;
 
   ngOnInit() {
     super.ngOnInit();

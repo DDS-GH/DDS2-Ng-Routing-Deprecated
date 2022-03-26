@@ -14,8 +14,8 @@ const icons: any = {
   styleUrls: [`./sidenav.component.scss`]
 })
 export class SidenavComponent extends DdsComponent {
-  @Input() fixed: boolean = false;
-  @Input() sticky: boolean = false;
+  @Input() fixed: any = `false`;
+  @Input() sticky: any = `false`;
   public states: any = {
     open: false
   };

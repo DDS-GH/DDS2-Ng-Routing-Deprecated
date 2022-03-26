@@ -5,4 +5,6 @@ import { Component } from "@angular/core";
   templateUrl: "./checkbox.component.html"
 })
 // @ts-ignore
-export class CheckboxPageComponent {}
+export class CheckboxPageComponent {
+    public checkboxOn: boolean = false;
+}

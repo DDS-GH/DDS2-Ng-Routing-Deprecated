@@ -9,7 +9,9 @@ import {
 // import { <Component> } from @dds/components;  You would use this if you were using the node module for DDS
 declare const DDS: any; // Use declare if you import via CDN. Regular Angular (node_modules) usage would be via an import
 
-@Component({})
+@Component({
+    template: ``
+})
 export class DdsComponent implements OnInit, AfterViewInit {
   @Input() elementId: string = ``;
   @Input() init: string = `now`;
@@ -79,13 +81,15 @@ export class DdsComponent implements OnInit, AfterViewInit {
   };
 
   initializeLater = () => {
-    const ddsCom: string = this.parseInitializer(`component`);
+      const ddsCom: string = this.parseInitializer(`component`);
+      console.log(`waiting for `, ddsCom);
     // const ddsSel: string = this.parseInitializer(`selector`);
     // console.log(ddsSel);
     const waitForElements: Array<ObserverDef> = [
       {
         selector: `#${this.elementId}`,
         callback: (elem: any): void => {
+            console.log(`found `, elem);
           this.ddsComponent = new DDS[ddsCom](elem, this.ddsOptions);
         }
       }
