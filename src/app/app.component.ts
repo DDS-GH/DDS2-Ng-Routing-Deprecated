@@ -1,10 +1,16 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Router, Event, NavigationStart, NavigationEnd, NavigationError} from '@angular/router';
+import { AfterViewInit, Component, OnInit } from "@angular/core";
+import {
+  Router,
+  Event,
+  NavigationStart,
+  NavigationEnd,
+  NavigationError
+} from "@angular/router";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit, AfterViewInit {
   public menuTags: Array<string> = [];
@@ -17,7 +23,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     navigation: `chat-bot`,
     search: `search`,
     secondary: `award-certificate`,
-    simple: `cube`,
+    simple: `cube`
   };
   public currentRoute: string = ``;
 
@@ -25,120 +31,119 @@ export class AppComponent implements OnInit, AfterViewInit {
     {
       icon: `card-swipe-left`,
       text: `Sidenav`,
-      tags: [`all`, `layout`, `navigation`],
+      tags: [`all`, `layout`, `navigation`]
     },
     {
       icon: `disc-software`,
       text: `Radio`,
-      tags: [`all`, `input`, `simple`],
+      tags: [`all`, `input`, `simple`]
     },
     {
       icon: `card-info`,
       text: `TextArea`,
-      tags: [`all`, `input`],
+      tags: [`all`, `input`]
     },
     {
       icon: `clone`,
       text: `Modal`,
-      tags: [`all`, `layout`, `secondary`],
+      tags: [`all`, `layout`, `secondary`]
     },
     {
       icon: `device-data-center`,
       text: `Select`,
-      tags: [`all`, `input`],
+      tags: [`all`, `input`]
     },
     {
       icon: `comment`,
       text: `Tooltip`,
-      tags: [`all`, `info`],
+      tags: [`all`, `info`]
     },
     {
       icon: `collapse-down-sqr`,
       text: `Accordion`,
-      tags: [`all`, `layout`],
+      tags: [`all`, `layout`]
     },
     {
       icon: `card-swipe-right`,
       text: `Drawer`,
-      tags: [`all`, `layout`, `secondary`],
+      tags: [`all`, `layout`, `secondary`]
     },
     {
       icon: `bolt`,
       text: `ActionMenu`,
-      tags: [`all`, `input`],
+      tags: [`all`, `input`]
     },
     {
       icon: `fingerprint`,
       text: `Button`,
-      tags: [`all`, `input`, `simple`],
+      tags: [`all`, `input`, `simple`]
     },
     {
       icon: `stack`,
       text: `Dropdown`,
-      tags: [`all`, `input`, `search`],
+      tags: [`all`, `input`, `search`]
     },
     {
       icon: `alert-check-sqr`,
       text: `Checkbox`,
-      tags: [`all`, `input`, `simple`],
+      tags: [`all`, `input`, `simple`]
     },
     {
       icon: `shield-check`,
       text: `Badge`,
-      tags: [`all`, `info`, `simple`],
+      tags: [`all`, `info`, `simple`]
     },
     {
       icon: `app-window`,
       text: `MessageBar`,
-      tags: [`all`, `info`, `secondary`],
+      tags: [`all`, `info`, `secondary`]
     },
     {
       icon: `ellipsis`,
       text: `Breadcrumb`,
-      tags: [`all`, `layout`, `navigation`],
+      tags: [`all`, `layout`, `navigation`]
     },
     {
       icon: `tag`,
       text: `Tag`,
-      tags: [`all`, `input`, `info`],
+      tags: [`all`, `input`, `info`]
     },
     {
       icon: `app-window`,
       text: `Tabs`,
-      tags: [`all`, `layout`],
+      tags: [`all`, `layout`]
     },
     {
       icon: `pencil`,
       text: `TextInput`,
-      tags: [`all`, `input`, `search`],
+      tags: [`all`, `input`, `search`]
     },
     {
       icon: `full-screen`,
       text: `MoreLess`,
-      tags: [`all`, `layout`, `info`],
-    },
+      tags: [`all`, `layout`, `info`]
+    }
   ];
 
   constructor(private router: Router) {
     this.currentRoute = "";
     this.router.events.subscribe((event: Event) => {
-        if (event instanceof NavigationStart) {
-            // Show progress spinner or progress bar
-            console.info('Route change detected');
-        }
+      if (event instanceof NavigationStart) {
+        // Show progress spinner or progress bar
+        // console.info('Route change detected');
+      }
 
-        if (event instanceof NavigationEnd) {
-            // Hide progress spinner or progress bar
-            this.currentRoute = event.url.replace('/', '');
-            console.info(event);
-        }
+      if (event instanceof NavigationEnd) {
+        // Hide progress spinner or progress bar
+        this.currentRoute = event.url.replace("/", "");
+        // console.info(event);
+      }
 
-        if (event instanceof NavigationError) {
-             // Hide progress spinner or progress bar
-
-            // Present error to user
-            console.error(event.error);
-        }
+      if (event instanceof NavigationError) {
+        // Hide progress spinner or progress bar
+        // Present error to user
+        // console.error(event.error);
+      }
     });
   }
 
@@ -164,7 +169,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   menuAction() {
     // complex calculation
-    this.router.navigate(['/accordion']);
+    this.router.navigate(["/accordion"]);
   }
 
   sortMenu() {
@@ -172,7 +177,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.menuItems = [
       ...this.menuItems.sort((a, b) =>
         a.text > b.text ? 1 : b.text > a.text ? -1 : 0
-      ),
+      )
     ];
     // sort tags into a unique array
     this.menuItems.forEach((mi) => {
@@ -184,7 +189,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
     // alpha-sort tags
     this.menuTags = [
-      ...this.menuTags.sort((a, b) => (a > b ? 1 : b > a ? -1 : 0)),
+      ...this.menuTags.sort((a, b) => (a > b ? 1 : b > a ? -1 : 0))
     ];
     // distribute items according to tag
     this.menuTags.forEach((tag) => {
