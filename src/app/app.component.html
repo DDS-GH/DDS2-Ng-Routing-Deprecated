@@ -7,34 +7,67 @@
       <div class="headerCol">
         <button
           routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact: true}"
-          class="dds__button"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="dds__button dds__button--sm"
           routerLink="/"
         >
           Home
         </button>
+        <dds-actionmenu alignment="end">
+          <div action-trigger>
+            <button type="button" class="dds__button dds__button--sm">
+              Menu
+            </button>
+          </div>
+          <dds-actionmenu-menu elementId="amMenu1" name="Pages">
+            <dds-actionmenu-item elementId="amAction1" icon="copy-alt">
+              A Cool Page
+            </dds-actionmenu-item>
+          </dds-actionmenu-menu>
+
+          <dds-actionmenu-menu elementId="amCheck" separator="true">
+            Settings
+          </dds-actionmenu-menu>
+          <dds-actionmenu-item
+            elementId="viewRows"
+            checkbox="true"
+            icon="view-row"
+            value="rows"
+          >
+            Setting A
+          </dds-actionmenu-item>
+          <dds-actionmenu-item
+            elementId="viewCols"
+            checkbox="true"
+            checked="true"
+            icon="view-column"
+            value="columns"
+          >
+            Setting B
+          </dds-actionmenu-item>
+        </dds-actionmenu>
       </div>
     </div>
-  </header>
-  <main>
+  </-header>
+  <main id="bodyMain">
     <nav>
       <!-- sidebar 1 content -->
       <dds-sidenav fixed="false" init="later" sticky="true">
         <dds-sidenav-menu
           *ngFor="let tag of menuTags; index as t"
-          icon="{{tags[tag]}}"
+          icon="{{ tags[tag] }}"
           open="true"
-          name="{{tag.toUpperCase()}}"
+          name="{{ tag.toUpperCase() }}"
           ><!-- TODO open does not seem to work -->
-          <ng-container *ngFor="let item of menuItems; index as i;">
+          <ng-container *ngFor="let item of menuItems; index as i">
             <dds-sidenav-item
               *ngIf="item.tags.includes(tag)"
-              selected="{{showPage===item.text}}"
-              icon="{{item.icon}}"
-              [routerLink]="'/'+item.text.toLowerCase()"
+              selected="{{ showPage === item.text }}"
+              icon="{{ item.icon }}"
+              [routerLink]="'/' + item.text.toLowerCase()"
             >
               <span>
-                {{item.text}}
+                {{ item.text }}
               </span>
             </dds-sidenav-item>
           </ng-container>
