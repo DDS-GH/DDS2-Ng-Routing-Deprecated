@@ -20,8 +20,12 @@
             </button>
           </div>
           <dds-actionmenu-menu elementId="amMenu1" name="Pages">
-            <dds-actionmenu-item elementId="amAction1" icon="copy-alt">
-              A Cool Page
+            <dds-actionmenu-item
+              elementId="amAction1"
+              icon="airplane"
+              (click)="menuAction()"
+            >
+              Accordion
             </dds-actionmenu-item>
           </dds-actionmenu-menu>
 
@@ -48,7 +52,7 @@
         </dds-actionmenu>
       </div>
     </div>
-  </-header>
+  </header>
   <main id="bodyMain">
     <nav>
       <!-- sidebar 1 content -->
@@ -62,7 +66,7 @@
           <ng-container *ngFor="let item of menuItems; index as i">
             <dds-sidenav-item
               *ngIf="item.tags.includes(tag)"
-              selected="{{ showPage === item.text }}"
+              [selected]="currentRoute === item.text.toLowerCase()"
               icon="{{ item.icon }}"
               [routerLink]="'/' + item.text.toLowerCase()"
             >

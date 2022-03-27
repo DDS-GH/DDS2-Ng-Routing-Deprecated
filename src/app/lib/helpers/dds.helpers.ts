@@ -180,6 +180,7 @@ export const parseData = (data) => {
       data.replace(/\\'/g, "@p0z").replace(/'/g, '"').replace(/@p0z/g, "'")
     );
   } catch (e) {
+    console.error(e);
     data = [];
   }
   return data;

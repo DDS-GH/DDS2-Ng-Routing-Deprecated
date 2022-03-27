@@ -1,11 +1,12 @@
-import { Component } from "@angular/core";
+import { Component, ElementRef, ViewChild } from "@angular/core";
 
 @Component({
   selector: "app-modal",
   templateUrl: "./modal.component.html"
 })
 export class ModalPageComponent {
+  @ViewChild(`myModal`) myModal: ElementRef<HTMLElement>
   openModal(e: any) {
-    alert(`not this.modalComponent.openModal(e);`);
+    this.myModal[`ddsComponent`].open();
   }
 }

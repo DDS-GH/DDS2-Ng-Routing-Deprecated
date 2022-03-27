@@ -1,3 +1,5 @@
+// this file is used in the lib/sidenav wrapper, to allow for the sticky fix/hack
+
 const screen: any = {
   xs: 0,
   sm: 480,
@@ -10,11 +12,13 @@ const screen: any = {
   xl5: 3840
 };
 
-// // observe window resize
-// window.addEventListener('resize', handleResize);
-
-// // initial call
-// handleResize();
+// within your component:
+/*
+    window.addEventListener(
+      "resize",
+      debounce(() => this.handleResize())
+    );
+*/
 
 // calculate size
 export const handleResize = (): string => {

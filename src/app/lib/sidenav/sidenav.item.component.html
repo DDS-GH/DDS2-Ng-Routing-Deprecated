@@ -2,10 +2,10 @@
 <ul *ngIf="isMissingUl" class="dds__side-nav__menu">
   <li
     class="dds__side-nav__item"
-    [class.dds__side-nav__item--selected]="isSelected"
+    [class.dds__side-nav__item--selected]="selected===true"
   >
     <span>
-      <a href="{{link}}">
+      <a [href]="link">
         <i *ngIf="icon" class="dds__icon {{icon}}"></i>
         <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
       </a>
@@ -15,10 +15,10 @@
 <li
   *ngIf="!isMissingUl"
   class="dds__side-nav__item"
-  [class.dds__side-nav__item--selected]="isSelected"
+  [class.dds__side-nav__item--selected]="selected===true"
 >
   <span>
-    <a href="{{link}}">
+    <a [href]="link">
       <i *ngIf="icon" class="dds__icon {{icon}}"></i>
       <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
     </a>

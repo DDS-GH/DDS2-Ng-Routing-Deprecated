@@ -23,7 +23,6 @@ export class SidenavItemComponent implements OnChanges {
   @Input() selected: string;
   @Input() link: string;
   @Input() icon: string;
-  public isSelected: boolean;
   public isMissingUl: boolean = false; // not working
 
   constructor(private elRef: ElementRef) {}
@@ -35,14 +34,13 @@ export class SidenavItemComponent implements OnChanges {
     }
 
     this.elementId = setElementId(this.elementId);
-    this.isSelected = stringToBoolean(this.selected);
     this.link = ddsLink(this.link);
     this.icon = ddsIcon(this.icon);
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (hasChanges(changes[`selected`])) {
-      this.isSelected = stringToBoolean(this.selected);
-    }
-  }
+  // ngOnChanges(changes: SimpleChanges) {
+  //   if (hasChanges(changes[`selected`])) {
+  //     this.isSelected = stringToBoolean(this.selected);
+  //   }
+  // }
 }

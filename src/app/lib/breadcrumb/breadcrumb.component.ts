@@ -17,13 +17,10 @@ export class BreadcrumbComponent extends DdsComponent implements OnInit {
   ngOnInit() {
     super.ngOnInit();
     this.ddsInitializer = `Breadcrumb`;
-    if (this.data) {
-      this.data = parseData(this.data);
-      this.data.forEach((item: any) => {
-        this.items.push({
-          link: item.href,
-          name: item.text
-        });
+    for (let [key, value] of Object.entries(this.data)) {
+      this.items.push({
+        link: value["link"],
+        name: value["name"]
       });
     }
   }

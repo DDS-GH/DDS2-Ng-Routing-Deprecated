@@ -1,46 +1,46 @@
-        <h2>Modal</h2>
-        <div class="dds__row">
-          <div class="dds__col--2 dds__col--sm-12 dds__col--md-12 dds__mb-3">
-            This Angular wrapper has an option for <i>backdrop</i> that is
-            outside of the DDS Design standard.
-          </div>
-        </div>
-        <div class="dds__row">
-          <div class="dds__col--2 dds__col--sm-6 dds__col--md-6 dds__mb-3">
-            <button
-              role="button"
-              class="dds__button dds__button--primary"
-              (click)="openModal($event)"
-            >
-              External Open
-            </button>
-          </div>
-          <div class="dds__col--2 dds__col--sm-6 dds__col--md-6 dds__mb-3">
-            <dds-modal elementId="fromageId" backdrop="true">
-              <div modal-title>Saveur de fromage</div>
-              <div modal-body>
-                Queso when the cheese comes out everybody's happy jarlsberg.
-                Roquefort cheesecake cheddar cheese and wine cheeseburger
-                caerphilly queso cheesy feet. Lancashire taleggio melted cheese
-                who moved my cheese blue castello pecorino.
-              </div>
-              <div modal-footer>
-                <button
-                  class="dds__button dds__button--secondary"
-                  data-dismiss="dds__modal"
-                >
-                  Non
-                </button>
-                <button class="dds__button dds__button--primary">
-                  Oui
-                </button>
-              </div>
-              <span modal-trigger>
-                <button role="button" class="dds__button dds__button--primary">
-                  Internal Open
-                </button>
-                &nbsp;
-              </span>
-            </dds-modal>
-          </div>
-        </div>
+<h2>Modal</h2>
+<div class="dds__row">
+  <div class="dds__col--2 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    This Angular wrapper has an option for <i>backdrop</i> that is
+    outside of the DDS Design standard.
+  </div>
+</div>
+<div class="dds__row">
+  <div class="dds__col--2 dds__col--sm-6 dds__col--md-6 dds__mb-3">
+    <button
+      role="button"
+      class="dds__button dds__button--primary"
+      (click)="openModal($event)"
+    >
+      External Open
+    </button>
+  </div>
+  <div class="dds__col--2 dds__col--sm-6 dds__col--md-6 dds__mb-3">
+    <dds-modal elementId="fromageId" backdrop="true" #myModal>
+      <div modal-title>Saveur de fromage</div>
+      <div modal-body>
+        Queso when the cheese comes out everybody's happy jarlsberg.
+        Roquefort cheesecake cheddar cheese and wine cheeseburger
+        caerphilly queso cheesy feet. Lancashire taleggio melted cheese
+        who moved my cheese blue castello pecorino.
+      </div>
+      <div modal-footer>
+        <button
+          class="dds__button dds__button--secondary"
+          data-dismiss="dds__modal"
+        >
+          Non
+        </button>
+        <button class="dds__button dds__button--primary">
+          Oui
+        </button>
+      </div>
+      <span modal-trigger>
+        <button role="button" class="dds__button dds__button--primary">
+          Internal Open
+        </button>
+        &nbsp;
+      </span>
+    </dds-modal>
+  </div>
+</div>
