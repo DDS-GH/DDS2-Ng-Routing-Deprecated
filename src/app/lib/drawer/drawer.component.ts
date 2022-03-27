@@ -9,7 +9,7 @@ import { DdsComponent } from "../helpers/dds.component";
 export class DrawerComponent extends DdsComponent {
   @ViewChild("triggerContainer") triggerContainer: ElementRef<HTMLElement>;
   @Input() elementId: string;
-  @Input() icon: string = ``;
+  @Input() icon: string = ``; // changing the close icon of a drawer is not design-approv
   @Input() backText: string = `Back`;
 
   ngOnInit() {
