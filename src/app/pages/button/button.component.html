@@ -1,56 +1,8 @@
-        <h2>Button</h2>
-        <div class="dds__row">
-          <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
-            <dds-button
-              elementId="anyOldButton"
-              ariaLabel="Screen Reader Message"
-            >
-              Any Old Button
-            </dds-button>
-            <hr />
-            <p>
-              Below is an unfinished experiment to get Button and ActionMenu to
-              work together. Please disregard.
-            </p>
-            <dds-button
-              elementId="testButton"
-              action="amlinked"
-              ariaLabel="Screen Reader Message"
-            >
-              {{splitButtonValue}}
-            </dds-button>
-            <dds-actionmenu
-              elementId="amlinked"
-              button="testButton"
-              alignment="end"
-            >
-              <div action-trigger>
-                <button
-                  type="button"
-                  class="dds__button dds__button--secondary"
-                >
-                  DoesntMatter
-                </button>
-              </div>
-              <dds-actionmenu-menu elementId="amMenu1" name="Actions">
-                <dds-actionmenu-item
-                  elementId="am1Action1"
-                  icon="copy-alt"
-                  (click)="actionMenuAction('Charlie')"
-                >
-                  Charlie
-                </dds-actionmenu-item>
-                <dds-actionmenu-item
-                  elementId="am1Action2"
-                  icon="copy-alt"
-                  (click)="actionMenuAction('Daniels')"
-                >
-                  Daniels
-                </dds-actionmenu-item>
-              </dds-actionmenu-menu>
-            </dds-actionmenu>
-          </div>
-          <div
-            class="dds__col--1 dds__col--sm-6 dds__col--md-6 dds__mb-3"
-          ></div>
-        </div>
+<h2>Button</h2>
+<div class="dds__row">
+  <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    <dds-button elementId="anyOldButton" ariaLabel="Screen Reader Message">
+      Any Old Button
+    </dds-button>
+  </div>
+</div>

@@ -1,15 +1,15 @@
-import { Component, ElementRef, ViewChild, Input } from "@angular/core";
-import { DdsComponent } from "../helpers/dds.component";
+import { Component, ElementRef, ViewChild, Input } from '@angular/core';
+import { DdsComponent } from '../helpers/dds.component';
 
 @Component({
   selector: `dds-drawer`,
   templateUrl: `./drawer.component.html`,
-  styleUrls: [`./drawer.component.scss`]
+  styleUrls: [`./drawer.component.scss`],
 })
 export class DrawerComponent extends DdsComponent {
-  @ViewChild("triggerContainer") triggerContainer: ElementRef<HTMLElement>;
+  @ViewChild('triggerContainer') triggerContainer: ElementRef<HTMLElement>;
   @Input() elementId: string;
-  @Input() icon: string = ``; // changing the close icon of a drawer is not design-approv
+  @Input() icon: string = ``; // changing the close icon of a drawer is not design-approved
   @Input() backText: string = `Back`;
 
   ngOnInit() {
