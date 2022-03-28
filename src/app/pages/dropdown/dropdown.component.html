@@ -19,6 +19,13 @@
 </div>
 <div class="dds__row">
   <div class="boxControl dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    <h3>Backend Data</h3>
+    <p>
+      Below is an successful <i>experiment</i> to adapt the Dropdown to work
+      against backend data, so text searches done in its input field then
+      recreate the dropdown with the new data, and a page-level memory is kept
+      to remember previously-selected options.
+    </p>
     <dds-button
       elementId="dropdownUpdate"
       ariaLabel="Update Data in dropdown"
@@ -52,10 +59,15 @@
     <ng-container *ngFor="let tag of dropdownData[1].stored">
       <dds-tag
         (onDismiss)="multipleDropdown.deselect($event)"
-        (click)="handleTagClick(1, $event, multipleDropdown, {value:tag.value, text: tag.text})"
-        value="{{tag.value}}"
+        (click)="
+          handleTagClick(1, $event, multipleDropdown, {
+            value: tag.value,
+            text: tag.text
+          })
+        "
+        value="{{ tag.value }}"
       >
-        {{tag.text}}
+        {{ tag.text }}
       </dds-tag>
     </ng-container>
   </div>
@@ -84,11 +96,33 @@
     <ng-container *ngFor="let tag of dropdownData[2].stored">
       <dds-tag
         (onDismiss)="secondMultiple.deselect($event)"
-        (click)="handleTagClick(2, $event, secondMultiple, {value:tag.value, text: tag.text})"
-        value="{{tag.value}}"
+        (click)="
+          handleTagClick(2, $event, secondMultiple, {
+            value: tag.value,
+            text: tag.text
+          })
+        "
+        value="{{ tag.value }}"
       >
-        {{tag.text}}
+        {{ tag.text }}
       </dds-tag>
     </ng-container>
+  </div>
+  <div class="dds__row">
+    <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+      <h3>Other Experiments</h3>
+      <ul>
+        <li>
+          <a href="https://codepen.io/DorkForce/pen/mdqKQPj?editors=1011">
+            DDS2 Dropdown Test: Select All
+          </a>
+        </li>
+        <li>
+          <a href="https://codepen.io/DorkForce/pen/rNYYrQX?editors=1010">
+            DDS2 Ticket #288, Dropdown methods and events
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
