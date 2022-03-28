@@ -102,14 +102,14 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
         .replace(/\\'/g, "@p0z")
         .replace(/'/g, '"')
         .replace(/@p0z/g, "'");
-    }
-    try {
-      this.groups = JSON.parse(this.groups);
-    } catch (e) {
-      console.error(e.message);
-      this.label = `Error parsing Dropdown Data`;
-      this.groups = [];
-      this.ddsInitializer = ``; // prevents Dropdown initialization
+      try {
+        this.groups = JSON.parse(this.groups);
+      } catch (e) {
+        console.error(e.message);
+        this.label = `Error parsing Dropdown Data`;
+        this.groups = [];
+        this.ddsInitializer = ``; // prevents Dropdown initialization
+      }
     }
   }
   ngOnChanges(changes: SimpleChanges) {
