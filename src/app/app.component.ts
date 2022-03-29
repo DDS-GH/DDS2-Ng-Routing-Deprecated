@@ -19,8 +19,6 @@ import {
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  @ViewChild(`mainContent`) mainContent: ElementRef<HTMLElement>;
-  @ViewChild(`mainNav`) mainNav: ElementRef<HTMLElement>;
   public menuTags: Array<string> = [];
   public menuSorted: Array<any> = [];
   public tags: any = {

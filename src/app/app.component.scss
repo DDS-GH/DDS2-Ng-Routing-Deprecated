@@ -34,6 +34,9 @@ footer {
   align-items: center;
   gap: 0.625rem;
 }
+main {
+  overflow: hidden;
+}
 
 main nav {
   position: sticky;
@@ -56,4 +59,5 @@ main nav {
 
 .content {
   width: 100%;
+  overflow-y: auto;
 }
