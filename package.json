@@ -1,5 +1,5 @@
 {
-  "name": "chore-adding-workaround-for-ticket319",
+  "name": "messagebar-update",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -47,5 +47,5 @@
     "typescript": "4.1.5"
   },
   "keywords": [],
-  "description": ""
+  "description": "Confirming that MB functions appropriately during usage."
 }

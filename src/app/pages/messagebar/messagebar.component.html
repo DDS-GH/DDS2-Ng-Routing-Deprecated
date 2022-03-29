@@ -1,15 +1,17 @@
 <h2>MessageBar</h2>
+<div style="display: flex; gap: 1rem;">
+  <dds-button (click)="update()">Update the MessageBar</dds-button>
+  <dds-button (click)="hide()">Hide the MessageBar</dds-button>
+  <dds-button (click)="show()">Show the MessageBar</dds-button>
+</div>
 <dds-messagebar
+  #ddsMbInstance
   elementId="ddsMessageBar"
-  title="Notice:"
-  dismissible="true"
-  layout="global"
-  icon="airplane"
-  variant="error"
+  [title]="mb.title"
+  [dismissible]="mb.dismissible"
+  [layout]="mb.layout"
+  [icon]="mb.icon"
+  [variant]="mb.variant"
 >
-  This is a sample MessageBar. The <b>icon</b> parameter can be set to
-  <b>false</b>.<br />
-  <a href="javascript:void(0);">
-    Some Sample Link
-  </a>
+  {{mb.body}}
 </dds-messagebar>

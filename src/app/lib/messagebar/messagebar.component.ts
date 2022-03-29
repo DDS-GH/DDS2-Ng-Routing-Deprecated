@@ -7,17 +7,16 @@ import { stringToBoolean } from "../helpers/dds.helpers";
   templateUrl: `./messagebar.component.html`
 })
 export class MessageBarComponent extends DdsComponent implements OnInit {
-  @Input() elementId: string;
-  @Input() title: string;
-  @Input() icon: string;
+  @Input() title: string = ``;
+  @Input() icon: string = ``;
   @Input() variant: string = `informative`;
-  @Input() dismissible: any = `true`;
+  @Input() dismissible: boolean = `true`;
   @Input() layout: "contextual" | "global" = "contextual";
 
-  ngOnInit() {
+  // @ts-ignore
+  ngOnInit(): void {
     super.ngOnInit();
     this.ddsInitializer = `MessageBar`;
-    this.dismissible = stringToBoolean(this.dismissible);
     if (!this.icon) {
       switch (this.variant) {
         case "informative":

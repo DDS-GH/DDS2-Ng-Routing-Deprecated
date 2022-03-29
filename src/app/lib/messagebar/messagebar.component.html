@@ -7,7 +7,7 @@
     [attr.aria-labelledby]="elementId + 'Title'"
     class="dds__message-bar {{variant}}"
     [class.dds__message-bar--global]="layout === 'global'"
-    [attr.data-dismissible]="dismissible"
+    [attr.data-dismissible]="dismissible === true"
   >
     <ng-container *ngIf="icon !== 'false'">
       <i
