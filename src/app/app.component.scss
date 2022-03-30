@@ -71,12 +71,12 @@ main nav {
 }
 
 .sandboxLogoContainer {
-  height: 0px;
-  overflow-y: hidden;
+  height: 30px;
+  overflow: hi;
 }
 
 .sandboxLogo {
   font-size: 8rem;
-  height: 40px;
-  margin-top:-85px;
+  position: relative;
+  top: -50px;
 }

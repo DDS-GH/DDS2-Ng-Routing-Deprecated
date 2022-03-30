@@ -1,11 +1,5 @@
 <h2>Modal</h2>
 <div class="dds__row">
-  <div class="dds__col--2 dds__col--sm-12 dds__col--md-12 dds__mb-3">
-    This Angular wrapper has an option for <i>backdrop</i> that is
-    outside of the DDS Design standard.
-  </div>
-</div>
-<div class="dds__row">
   <div class="dds__col--2 dds__col--sm-6 dds__col--md-6 dds__mb-3">
     <button
       role="button"
@@ -16,7 +10,7 @@
     </button>
   </div>
   <div class="dds__col--2 dds__col--sm-6 dds__col--md-6 dds__mb-3">
-    <dds-modal elementId="fromageId" backdrop="true" #myModal>
+    <dds-modal #cheeseModal elementId="fromageId" backdrop="false">
       <div modal-title>Saveur de fromage</div>
       <div modal-body>
         Queso when the cheese comes out everybody's happy jarlsberg.

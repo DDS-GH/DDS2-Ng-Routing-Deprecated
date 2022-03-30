@@ -1,14 +1,14 @@
 <div 
-    id="{{elementId}}"
+    [id]="elementId"
     role="dialog"
-    [attr.data-trigger]="'#' + modalTriggerId"
+    [attr.data-trigger]="'#' + elementId + 'Trigger'"
     data-dds="modal"
     class="dds__modal"
-    [attr.aria-labelledby]="modalTitleId"
+    [attr.aria-labelledby]="elementId + 'Title'"
   >
   <div class="dds__modal__content">
     <div class="dds__modal__header">
-      <h3 class="dds__modal__title" id="{{modalTitleId}}">
+      <h3 class="dds__modal__title" [id]="elementId + 'Title'">
         <ng-content select="[modal-title]"></ng-content>
       </h3>
     </div>
@@ -21,6 +21,6 @@
   </div>
 </div>
 <!-- Button trigger modal -->
-<a #triggerContainer id="{{modalTriggerId}}">
+<a #triggerContainer [id]="elementId + 'Trigger'">
     <ng-content select="[modal-trigger]"></ng-content>
 </a>

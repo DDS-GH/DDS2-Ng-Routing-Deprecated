@@ -5,8 +5,8 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
   templateUrl: "./modal.component.html"
 })
 export class ModalPageComponent {
-  @ViewChild(`myModal`) myModal: ElementRef<HTMLElement>
+  @ViewChild(`cheeseModal`) cheeseModal: ElementRef<HTMLElement>
   openModal(e: any) {
-    this.myModal[`ddsComponent`].open();
+    this.cheeseModal[`ddsComponent`].open();
   }
 }
