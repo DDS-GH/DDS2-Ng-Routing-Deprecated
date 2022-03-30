@@ -69,3 +69,14 @@ main nav {
     background: transparent !important;
   }
 }
+
+.sandboxLogoContainer {
+  height: 0px;
+  overflow-y: hidden;
+}
+
+.sandboxLogo {
+  font-size: 8rem;
+  height: 40px;
+  margin-top:-85px;
+}
