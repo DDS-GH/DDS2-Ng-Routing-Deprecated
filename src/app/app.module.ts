@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
+import { ReactiveFormsModule } from '@angular/forms';
 
 // sandbox pages
 import { AppComponent } from "./app.component";
@@ -131,7 +132,8 @@ const directives = [IsSelectedDirective];
     RouterModule.forRoot(appRoutes),
     AccordionModule,
     ActionMenuModule,
-    SidenavModule
+    SidenavModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

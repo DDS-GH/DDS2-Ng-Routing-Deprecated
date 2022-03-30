@@ -2,16 +2,16 @@
   <ng-content></ng-content>
 </span>
 <div
-  id="{{elementId}}"
-  class="dds__input-text__container {{classList}}"
+  id="{{ elementId }}"
+  class="dds__input-text__container {{ classList }}"
   [attr.data-dds]="dataDds"
 >
-  <label id="{{elementId}}-label" for="{{elementId}}-input"
-    >{{label}}{{required ? '' : optionalText}}</label
+  <label id="{{ elementId }}-label" for="{{ elementId }}-input"
+    >{{ label }}{{ required ? '' : optionalText }}</label
   >
-  <ng-container *ngIf="type==='password'">
+  <ng-container *ngIf="type === 'password'">
     <button type="button" class="dds__input__action dds__input__action--switch">
-      {{show}}
+      {{ show }}
     </button>
   </ng-container>
   <div
@@ -19,17 +19,17 @@
     [class.dds__input-text__wrapper--button]="button"
   >
     <i
-      class="dds__icon dds__icon--{{iconStart}} dds__input-text__icon--start"
+      class="dds__icon dds__icon--{{ iconStart }} dds__input-text__icon--start"
     ></i>
     <input
-      type="{{type}}"
+      type="{{ type }}"
       class="dds__input-text"
       [disabled]="disabled"
-      placeholder="{{placeholder}}"
-      name="{{elementId}}-input"
-      id="{{elementId}}-input"
+      placeholder="{{ placeholder }}"
+      name="{{ elementId }}-input"
+      id="{{ elementId }}-input"
       [attr.aria-labelledby]="elementId + '-label' + elementId + '-helper'"
-      value="{{value}}"
+      value="{{ value }}"
       [required]="required"
       [attr.maxlength]="maxlength"
       [attr.minlength]="minlength"
@@ -38,10 +38,12 @@
     />
     <ng-container *ngFor="let icon of iconList; index as i">
       <i
-        tabindex="{{iconClickable ? 0 : -1}}"
+        tabindex="{{ iconClickable ? 0 : -1 }}"
         (click)="handleIconClick($event)"
         [attr.data-type]="icon"
-        class="dds__icon dds__icon--{{icon}} dds__input-text__icon--end dds__textinput__icon--index{{i}}"
+        class="dds__icon dds__icon--{{
+          icon
+        }} dds__input-text__icon--end dds__textinput__icon--index{{ i }}"
         [class.dds__textinput__icon--embedded]="iconClickable"
         style="position: absolute !important;"
         [attr.aria-label]="label + ' ' + icon"
@@ -53,13 +55,13 @@
       class="dds__button dds__button--primary dds__button--lg"
       type="submit"
     >
-      {{button}}
+      {{ button }}
     </button>
-    <small id="{{elementId}}-helper" class="dds__input-text__helper">
-      {{helper}}
+    <small id="{{ elementId }}-helper" class="dds__input-text__helper">
+      {{ helper }}
     </small>
-    <div id="{{elementId}}-feedback" class="dds__invalid-feedback">
-      {{feedback}}
+    <div id="{{ elementId }}-feedback" class="dds__invalid-feedback">
+      {{ feedback }}
     </div>
   </div>
 </div>
