@@ -2,7 +2,8 @@
 <ul *ngIf="isMissingUl" class="dds__side-nav__menu">
   <li
     class="dds__side-nav__item"
-    [class.dds__side-nav__item--selected]="selected===true"
+    [class.dds__side-nav__item--selected]="selected === true"
+    [class.disabled]="disabled === true"
   >
     <span>
       <a [href]="link">
@@ -15,7 +16,8 @@
 <li
   *ngIf="!isMissingUl"
   class="dds__side-nav__item"
-  [class.dds__side-nav__item--selected]="selected===true"
+  [class.dds__side-nav__item--selected]="selected === true"
+  [class.disabled]="disabled === true"
 >
   <span>
     <a [href]="link">

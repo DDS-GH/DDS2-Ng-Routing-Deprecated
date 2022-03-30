@@ -1,3 +1,11 @@
 .dds__side-nav__item::marker {
   content: none;
 }
+
+.disabled {
+  background-color: darkgray;
+  a:hover {
+    cursor: no-drop;
+    background-color: darkgray;
+  }
+}
