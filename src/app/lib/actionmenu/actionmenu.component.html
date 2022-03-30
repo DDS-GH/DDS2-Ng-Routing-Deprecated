@@ -6,14 +6,7 @@
   [attr.data-trigger]="'#' + elementId + 'Trigger'"
 >
   <div [id]="elementId + 'Trigger'">
-    <div *ngIf="!button">
-      <ng-content select="[action-trigger]"></ng-content>
-    </div>
-    <div *ngIf="button">
-      <button class="dds__button dds__button-primary">
-        <i class="dds__icon {{ chevron }}"></i>
-      </button>
-    </div>
+    <ng-content select="[action-trigger]"></ng-content>
   </div>
   <div
     class="dds__action-menu__container"

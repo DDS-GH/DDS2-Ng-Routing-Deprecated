@@ -8,18 +8,17 @@
 main {
   display: flex;
   flex-direction: row;
-  padding: 0.1rem;
   flex: 1 1 auto;
   position: relative; /* ?? */
   overflow-y: auto;
 }
 
-header,
 footer {
   min-height: 3rem;
   padding: 1rem;
   display: flex;
   align-items: center;
+  border-top: 1px solid lightgray;
 }
 
 .headerRow {
@@ -27,6 +26,7 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-grow: 1 2 auto;
+  padding-right: 1rem;
 }
 
 .headerCol {
@@ -34,6 +34,7 @@ footer {
   align-items: center;
   gap: 0.625rem;
 }
+
 main {
   overflow: hidden;
 }
@@ -60,4 +61,11 @@ main nav {
 .content {
   width: 100%;
   overflow-y: auto;
+}
+
+.customHeaderButton {
+  padding: 0 !important;
+  &:hover {
+    background: transparent !important;
+  }
 }

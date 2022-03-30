@@ -11,6 +11,7 @@ export class BadgeComponent extends DdsComponent {
   @Input() icon: string = ``;
   @Input() value: string = ``;
   @Input() units: string = ``;
+  @Input() pointer: boolean = false;
   public has: any = {
     icon: false,
     value: false,

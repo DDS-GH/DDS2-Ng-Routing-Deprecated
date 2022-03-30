@@ -18,7 +18,7 @@ export class TextInputComponent extends DdsComponent implements OnChanges {
   @Output() onKeyup: EventEmitter<object> = new EventEmitter<object>();
   @Input() type: string = `text`;
   @Input() value: string;
-  @Input() label: string;
+  @Input() label: string = ``;
   @Input() placeholder: string;
   @Input() helper: string;
   @Input() feedback: string;

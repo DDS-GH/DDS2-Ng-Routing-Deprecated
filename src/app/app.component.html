@@ -1,22 +1,54 @@
 <div class="body">
-  <header>
+  <app-header>
     <div class="headerRow">
       <div class="headerCol">
-        <i class="dds__icon dds__icon--brand-dell" style="font-size: 3rem;"></i>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <i
+            class="dds__icon dds__icon--brand-dell"
+            style="font-size: 2.5rem;"
+          ></i>
+        </a>
+      </div>
+      <div class="headerCol">
+        <dds-textinput
+          style="top: 4px; position:relative;"
+          elementId="fakeSearch"
+          icons="search"
+          iconClickable="true"
+          required="true"
+          classList="dds__input-text__container--sm"
+          (onIconClick)="fakeSearch($event)"
+        >
+        </dds-textinput>
       </div>
       <div class="headerCol">
         <button
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="dds__button dds__button--sm"
-          routerLink="/"
+          class="
+            customHeaderButton
+            dds__button dds__button--secondary dds__button--sm
+          "
+          style="border:0;"
         >
-          Home
+          <dds-badge value="4" units="items" pointer>
+            <i class="dds__icon dds__icon--cart"></i>
+          </dds-badge>
         </button>
-        <dds-actionmenu alignment="end">
+        <dds-actionmenu alignment="end" button="true">
           <div action-trigger>
-            <button type="button" class="dds__button dds__button--sm">
-              Menu
+            <button
+              class="
+                customHeaderButton
+                dds__button dds__button--secondary dds__button--sm
+              "
+              style="border:0;"
+            >
+              <dds-badge value="12" units="items" pointer>
+                <i class="dds__icon dds__icon--user"></i>
+              </dds-badge>
             </button>
           </div>
           <dds-actionmenu-menu elementId="amMenu1" name="Pages">
@@ -52,7 +84,7 @@
         </dds-actionmenu>
       </div>
     </div>
-  </header>
+  </app-header>
   <main id="bodyMain">
     <nav>
       <!-- sidebar 1 content -->

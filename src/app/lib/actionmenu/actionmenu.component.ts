@@ -7,7 +7,6 @@ import {
   Input,
 } from '@angular/core';
 import { DdsComponent } from '../helpers/dds.component';
-import { ddsIcon } from '../helpers/dds.helpers';
 import { MenuService, toState } from './menu.service';
 import { Subscription } from 'rxjs';
 
