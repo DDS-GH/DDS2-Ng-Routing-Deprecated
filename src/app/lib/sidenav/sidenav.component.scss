@@ -19,3 +19,11 @@
   visibility: hidden;
   border: 30px solid red; // hack
 }
+
+@media only screen and (max-width: 480px) {
+  .dds__sidenav--sticky i {
+    padding: 1rem 0 1rem 1rem;
+    background-color: white;
+    border-radius: 4rem;
+  }
+}
