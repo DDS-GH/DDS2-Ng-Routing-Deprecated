@@ -32,8 +32,9 @@ export class TextAreaComponent extends DdsComponent {
 
   ngAfterViewInit() {
     super.ngAfterViewInit();
-    this.defaultText =
-      this.textContainer && this.textContainer.nativeElement.innerText;
-    this.srText = this.srContainer && this.srContainer.nativeElement.innerText;
+    setTimeout(() => {
+      this.defaultText = this.textContainer?.nativeElement.innerText;
+      this.srText = this.srContainer?.nativeElement.innerText;
+    })
   }
 }

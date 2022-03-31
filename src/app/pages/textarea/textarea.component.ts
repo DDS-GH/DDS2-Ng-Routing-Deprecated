@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: "./textarea.component.html"
+  templateUrl: './textarea.component.html',
 })
 export class TextAreaPageComponent {
-  public textareaText: string = `You can get my logo from facebook something summery`;
+  public textareaText: string = `Get my logo from facebook something summery`;
 }

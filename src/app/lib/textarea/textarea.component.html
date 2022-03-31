@@ -1,6 +1,10 @@
-<div id="{{elementId}}" class="dds__text-area__container" data-dds="text-area">
+<div
+  id="{{ elementId }}"
+  class="dds__text-area__container"
+  data-dds="text-area"
+>
   <div class="dds__text-area__header">
-    <label id="{{labelId}}" for="{{textAreaId}}">
+    <label id="{{ labelId }}" for="{{ textAreaId }}">
       <ng-content select="[label-text]"></ng-content>
     </label>
     <span
@@ -11,16 +15,15 @@
   <div class="dds__text-area__wrapper">
     <textarea
       class="dds__text-area"
-      name="{{textAreaId}}"
-      id="{{textAreaId}}"
+      name="{{ textAreaId }}"
+      id="{{ textAreaId }}"
       [attr.data-maxlength]="maxLength"
       [attr.aria-required]="states.required"
       [attr.aria-labelledby]="helperId"
-      required="{{states.required}}"
-    >
-{{defaultText}}</textarea
-    >
-    <small id="{{helperId}}" class="dds__input-text__helper">
+      required="{{ states.required }}"
+      >{{ defaultText }}
+    </textarea>
+    <small id="{{ helperId }}" class="dds__input-text__helper">
       <ng-content select="[helper-text]"></ng-content>
     </small>
     <div class="dds__invalid-feedback">
