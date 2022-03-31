@@ -1,20 +1,21 @@
-import { Component, AfterViewInit, Input, OnInit } from '@angular/core';
+import { Component, AfterViewInit, Input, OnInit } from "@angular/core";
 import {
   createObserver,
   pascalDash,
   ObserverDef,
-  setElementId,
-} from './dds.helpers';
+  setElementId
+} from "./dds.helpers";
 
 // import { <Component> } from @dds/components;  You would use this if you were using the node module for DDS
 declare const DDS: any; // Use declare if you import via CDN. Regular Angular (node_modules) usage would be via an import
 
 @Component({
-  template: ``,
+  template: ``
 })
 export class DdsComponent implements OnInit, AfterViewInit {
   @Input() elementId: string = ``;
   @Input() init: string = `now`;
+  @Input() class: string = ``;
 
   public ddsInitializer: any;
   public ddsOptions: any;
@@ -35,7 +36,7 @@ export class DdsComponent implements OnInit, AfterViewInit {
     if (this.ddsInitializer) {
       if (this.init === `now`) {
         this.initializeNow();
-      } else {
+      } else if (this.init !== `manual`) {
         this.initializeLater();
       }
     }
@@ -47,7 +48,7 @@ export class DdsComponent implements OnInit, AfterViewInit {
   parseInitializer = (parm: string) => {
     let rValues = {
       component: ``,
-      selector: ``,
+      selector: ``
     };
     if (typeof this.ddsInitializer === `string`) {
       rValues.component = this.ddsInitializer;
@@ -83,18 +84,18 @@ export class DdsComponent implements OnInit, AfterViewInit {
   initializeLater = () => {
     const ddsCom: string = this.parseInitializer(`component`);
     // const ddsSel: string = this.parseInitializer(`selector`);
-    // console.log(ddsSel);
-    const waitForElements: Array<ObserverDef> = [
+
+    const observerDefs: Array<ObserverDef> = [
       {
         selector: `#${this.elementId}`,
         callback: (elem: any): void => {
           this.ddsComponent = new DDS[ddsCom](elem, this.ddsOptions);
-        },
-      },
+        }
+      }
     ];
 
     if (!this.observers) {
-      this.observers = createObserver(waitForElements);
+      this.observers = createObserver(observerDefs);
     }
   };
 }

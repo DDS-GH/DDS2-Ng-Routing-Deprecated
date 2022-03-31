@@ -3,20 +3,20 @@
     <div class="headerRow">
       <div class="headerCol">
         <div class="sandboxLogoContainer">
-        <a
-          routerLink="/"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          <i
-            class="dds__icon dds__icon--brand-delltechnologies sandboxLogo"
-          ></i>
-        </a>
+          <a
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <i
+              class="dds__icon dds__icon--brand-delltechnologies sandboxLogo"
+            ></i>
+          </a>
         </div>
       </div>
       <div class="headerCol">
         <dds-textinput
-          style="top: 4px; position:relative;"
+          style="top: 4px; position: relative;"
           elementId="fakeSearch"
           icons="search"
           iconClickable="true"
@@ -28,11 +28,8 @@
       </div>
       <div class="headerCol">
         <button
-          class="
-            customHeaderButton
-            dds__button dds__button--secondary dds__button--sm
-          "
-          style="border:0;"
+          class="customHeaderButton dds__button dds__button--secondary dds__button--sm"
+          style="border: 0;"
         >
           <dds-badge value="4" units="items" pointer>
             <i class="dds__icon dds__icon--cart"></i>
@@ -41,11 +38,8 @@
         <dds-actionmenu alignment="end" button="true">
           <div action-trigger>
             <button
-              class="
-                customHeaderButton
-                dds__button dds__button--secondary dds__button--sm
-              "
-              style="border:0;"
+              class="customHeaderButton dds__button dds__button--secondary dds__button--sm"
+              style="border: 0;"
             >
               <dds-badge value="12" units="items" pointer>
                 <i class="dds__icon dds__icon--user"></i>
@@ -89,7 +83,13 @@
   <main id="bodyMain">
     <nav>
       <!-- sidebar 1 content -->
-      <dds-sidenav fixed="false" init="later" sticky="true">
+      <dds-sidenav
+        #sideNav
+        elementId="boxSidenav"
+        fixed="false"
+        init="manual"
+        sticky="true"
+      >
         <dds-sidenav-menu
           *ngFor="let tag of menuTags; index as t"
           icon="{{ tags[tag] }}"

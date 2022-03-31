@@ -1,5 +1,5 @@
 {
-  "name": "messagebar-update",
+  "name": "adding-init-component-manually",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -47,5 +47,5 @@
     "typescript": "4.1.5"
   },
   "keywords": [],
-  "description": "Confirming that MB functions appropriately during usage."
+  "description": ""
 }

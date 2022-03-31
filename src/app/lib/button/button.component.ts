@@ -7,8 +7,7 @@ import { DdsComponent } from "../helpers/dds.component";
   styleUrls: ["./button.component.scss"]
 })
 export class ButtonComponent extends DdsComponent {
-  @Input() elementId: string;
-  @Input() ariaLabel: string;
-  @Input() action: string;
+  @Input() ariaLabel: string = ``;
+  @Input() action: string = ``;
   @Input() type: string = `text`;
 }

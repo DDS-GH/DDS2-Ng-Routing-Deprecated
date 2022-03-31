@@ -2,10 +2,13 @@
 <h1>README</h1>
 <h2 class="boxH3">Disclaimer</h2>
 <p>
-  This sandbox is version-controlled (<a href="https://github.com/DDS-GH/DDS2-Ng-Routing" target="blank">https://github.com/DDS-GH/DDS2-Ng-Routing</a>), and has been created as a result of
-  demand, as well as in response to tickets filed for solving specific problems.
-  There are occasionally oddities, and experiments shown that can and in some
-  instances should be ignored. Please
+  This sandbox is version-controlled (<a
+    href="https://github.com/DDS-GH/DDS2-Ng-Routing"
+    target="blank"
+    >https://github.com/DDS-GH/DDS2-Ng-Routing</a
+  >), and has been created as a result of demand, as well as in response to
+  tickets filed for solving specific problems. There are occasionally oddities,
+  and experiments shown that can and in some instances should be ignored. Please
   <a
     target="blank"
     href="https://forms.office.com/Pages/ResponsePage.aspx?id=mhlclKKDgE6fjFqRvldS3Tu72-e1EktEmC896wPSUmFUOUcwSE9NMVBLQkVONzk1SUVZNllWMUtMWiQlQCN0PWcu"
@@ -14,7 +17,9 @@
   the DDS2 Support and Automation team for further information.
 </p>
 <p>
-  Please remember that this sample Angular app is not actually supported, while at the same time is used in creating sample code that helps answer questions and solve issues with the core and vanilla DDS2 library.
+  Please remember that this sample Angular app is not actually supported, while
+  at the same time is used in creating sample code that helps answer questions
+  and solve issues with the core and vanilla DDS2 library.
 </p>
 <h3 class="boxH3">Notes</h3>
 <h4 class="boxH4">Shell Inheritance</h4>
@@ -30,8 +35,10 @@
     generated for all linked/child components.
   </li>
   <li>
-    init: "now" | "later" = "now"; Instructs the shell component to initialize
-    during AfterViewInit (now), or at some point via mutationObserver (later)
+    init: "now" | "later" | "manual" = "now"; Instructs the shell component to
+    initialize during AfterViewInit (now), or at some point via mutationObserver
+    (later), or manually from the parent component (manual) by calling its
+    method, initializeNow()
   </li>
 </ul>
 
