@@ -2,7 +2,6 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from "@angular/core";
 import * as data from "./ticket319.component.json";
 
 @Component({
-  selector: "app-ticket319",
   templateUrl: "./ticket319.component.html"
 })
 export class Ticket319Component implements AfterViewInit {

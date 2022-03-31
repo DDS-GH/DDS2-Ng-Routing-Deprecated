@@ -70,14 +70,17 @@ export const setElementId = (elId: string, elName = `el`): string => {
   return elId;
 };
 
-export const stringToBoolean = (thisState) => {
-  if (thisState === "1" || thisState === "true") {
+export const stringToBoolean = (thisState: boolean | string) => {
+  if (typeof thisState === `boolean`) {
+    return thisState;
+  }
+  if (thisState === `1` || thisState === `true`) {
     return true;
   }
   return false;
 };
 
-export const pascalDash = function (key) {
+export const pascalDash = function (key: string) {
   return key.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 };
 

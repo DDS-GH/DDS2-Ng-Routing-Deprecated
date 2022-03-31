@@ -2,7 +2,6 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
 import { randomName } from "../../utilities/mock";
 
 @Component({
-  selector: "app-messagebar",
   templateUrl: "./messagebar.component.html"
 })
 export class MessageBarPageComponent {

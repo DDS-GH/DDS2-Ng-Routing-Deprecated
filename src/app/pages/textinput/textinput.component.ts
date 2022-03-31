@@ -1,8 +1,7 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-textinput',
-  templateUrl: './textinput.component.html',
+  templateUrl: "./textinput.component.html"
 })
 // @ts-ignore
 export class TextInputPageComponent implements AfterViewInit {
@@ -26,7 +25,7 @@ export class TextInputPageComponent implements AfterViewInit {
     if (e.type === this.closeIcon) {
       // @ts-ignore
       document.getElementById(`${e.id}-input`).value = ``;
-      this.liveIcons = this.liveIcons.replace(this.closeIcon, '');
+      this.liveIcons = this.liveIcons.replace(this.closeIcon, "");
     }
   }
 
@@ -34,7 +33,7 @@ export class TextInputPageComponent implements AfterViewInit {
     if (e && e.length > 0) {
       this.liveIcons = this.closeIcon;
     } else {
-      this.liveIcons = this.liveIcons.replace(this.closeIcon, '');
+      this.liveIcons = this.liveIcons.replace(this.closeIcon, "");
     }
 
     // @ts-ignore

@@ -1,14 +1,14 @@
-import { Component, ElementRef, ViewChild, Input } from '@angular/core';
-import { DdsComponent } from '../helpers/dds.component';
-import { stringToBoolean } from '../helpers/dds.helpers';
+import { Component, ElementRef, ViewChild, Input } from "@angular/core";
+import { DdsComponent } from "../helpers/dds.component";
+import { stringToBoolean } from "../helpers/dds.helpers";
 
 @Component({
   selector: `dds-modal`,
   templateUrl: `./modal.component.html`,
-  styleUrls: [`./modal.component.scss`],
+  styleUrls: [`./modal.component.scss`]
 })
 export class ModalComponent extends DdsComponent {
-  @ViewChild('triggerContainer') triggerContainer: ElementRef<HTMLElement>;
+  @ViewChild("triggerContainer") triggerContainer!: ElementRef<HTMLElement>;
   @Input() backdrop: any; // Allows close-on-backdrop; not Design-approved
 
   // @ts-ignore

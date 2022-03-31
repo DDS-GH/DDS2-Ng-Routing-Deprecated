@@ -12,6 +12,7 @@ import {
   NavigationEnd,
   NavigationError
 } from "@angular/router";
+import * as menuItems from "./app.component.menu.json";
 
 @Component({
   selector: "app-root",
@@ -19,7 +20,7 @@ import {
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  @ViewChild(`sideNav`) sideNav: ElementRef<HTMLElement>;
+  @ViewChild(`sideNav`) sideNav!: ElementRef<HTMLElement>;
   public menuTags: Array<string> = [];
   public menuSorted: Array<any> = [];
   public tags: any = {
@@ -33,103 +34,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     simple: `cube`
   };
   public currentRoute: string = ``;
-  private menuItems = [
-    {
-      icon: `card-swipe-left`,
-      text: `Sidenav`,
-      tags: [`all`, `layout`, `navigation`]
-    },
-    {
-      icon: `disc-software`,
-      text: `Radio`,
-      tags: [`all`, `input`, `simple`]
-    },
-    {
-      icon: `card-info`,
-      text: `TextArea`,
-      tags: [`all`, `input`]
-    },
-    {
-      icon: `clone`,
-      text: `Modal`,
-      tags: [`all`, `layout`, `secondary`]
-    },
-    {
-      icon: `device-data-center`,
-      text: `Select`,
-      tags: [`all`, `input`]
-    },
-    {
-      icon: `comment`,
-      text: `Tooltip`,
-      tags: [`all`, `info`]
-    },
-    {
-      icon: `collapse-down-sqr`,
-      text: `Accordion`,
-      tags: [`all`, `layout`]
-    },
-    {
-      icon: `card-swipe-right`,
-      text: `Drawer`,
-      tags: [`all`, `layout`, `secondary`]
-    },
-    {
-      icon: `bolt`,
-      text: `ActionMenu`,
-      tags: [`all`, `input`]
-    },
-    {
-      icon: `fingerprint`,
-      text: `Button`,
-      tags: [`all`, `input`, `simple`]
-    },
-    {
-      icon: `stack`,
-      text: `Dropdown`,
-      tags: [`all`, `input`, `search`]
-    },
-    {
-      icon: `alert-check-sqr`,
-      text: `Checkbox`,
-      tags: [`all`, `input`, `simple`]
-    },
-    {
-      icon: `shield-check`,
-      text: `Badge`,
-      tags: [`all`, `info`, `simple`]
-    },
-    {
-      icon: `app-window`,
-      text: `MessageBar`,
-      tags: [`all`, `info`, `secondary`]
-    },
-    {
-      icon: `ellipsis`,
-      text: `Breadcrumb`,
-      tags: [`all`, `layout`, `navigation`]
-    },
-    {
-      icon: `tag`,
-      text: `Tag`,
-      tags: [`all`, `input`, `info`]
-    },
-    {
-      icon: `app-window`,
-      text: `Tabs`,
-      tags: [`all`, `layout`]
-    },
-    {
-      icon: `pencil`,
-      text: `TextInput`,
-      tags: [`all`, `input`, `search`]
-    },
-    {
-      icon: `full-screen`,
-      text: `MoreLess`,
-      tags: [`all`, `layout`, `info`]
-    }
-  ];
+  private menuItems = menuItems;
 
   constructor(private router: Router) {
     this.currentRoute = "";

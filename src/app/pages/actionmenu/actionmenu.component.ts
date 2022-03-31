@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "app-actionmenu",
   templateUrl: "./actionmenu.component.html"
 })
 // @ts-ignore

@@ -10,12 +10,13 @@ export class MessageBarComponent extends DdsComponent implements OnInit {
   @Input() title: string = ``;
   @Input() icon: string = ``;
   @Input() variant: string = `informative`;
-  @Input() dismissible: boolean = `true`;
+  @Input() dismissible: any = `true`;
   @Input() layout: "contextual" | "global" = "contextual";
 
   // @ts-ignore
   ngOnInit(): void {
     super.ngOnInit();
+    this.dismissible = stringToBoolean(this.dismissible);
     this.ddsInitializer = `MessageBar`;
     if (!this.icon) {
       switch (this.variant) {

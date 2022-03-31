@@ -2,7 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from "@angular/forms";
 
 // sandbox pages
 import { AppComponent } from "./app.component";
@@ -20,6 +20,7 @@ import { ModalPageComponent } from "./pages/modal/modal.component";
 import { MoreLessPageComponent } from "./pages/moreless/moreless.component";
 import { SelectPageComponent } from "./pages/select/select.component";
 import { SidenavPageComponent } from "./pages/sidenav/sidenav.component";
+import { TablePageComponent } from "./pages/table/table.component";
 import { TabsPageComponent } from "./pages/tabs/tabs.component";
 import { TagPageComponent } from "./pages/tag/tag.component";
 import { TextAreaPageComponent } from "./pages/textarea/textarea.component";
@@ -44,6 +45,7 @@ import { ModalComponent } from "./lib/modal/modal.component";
 import { MoreLessComponent } from "./lib/moreless/moreless.component";
 import { SelectComponent } from "./lib/select/select.component";
 import { SidenavModule } from "./lib/sidenav/sidenav.module";
+import { TableComponent } from "./lib/table/table.component";
 import { TabsComponent } from "./lib/tabs/tabs.component";
 import { TagComponent } from "./lib/tag/tag.component";
 import { TextAreaComponent } from "./lib/textarea/textarea.component";
@@ -70,6 +72,7 @@ const appRoutes: Routes = [
   { path: "radio", component: RadioPageComponent },
   { path: "select", component: SelectPageComponent },
   { path: "sidenav", component: SidenavPageComponent },
+  { path: "table", component: TablePageComponent },
   { path: "tabs", component: TabsPageComponent },
   { path: "tag", component: TagPageComponent },
   { path: "textarea", component: TextAreaPageComponent },
@@ -90,6 +93,7 @@ const components = [
   ModalComponent,
   MoreLessComponent,
   SelectComponent,
+  TableComponent,
   TabsComponent,
   TagComponent,
   TextAreaComponent,
@@ -114,6 +118,7 @@ const pages = [
   RadioPageComponent,
   SelectPageComponent,
   SidenavPageComponent,
+  TablePageComponent,
   TabsPageComponent,
   TagPageComponent,
   TextAreaPageComponent,

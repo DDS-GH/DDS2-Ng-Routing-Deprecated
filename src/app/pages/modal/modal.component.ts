@@ -1,14 +1,14 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from "@angular/core";
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
+  templateUrl: "./modal.component.html"
 })
 export class ModalPageComponent {
-  @ViewChild(`cheeseModal`) cheeseModal: ElementRef<HTMLElement>;
+  @ViewChild(`cheeseModal`) cheeseModal!: ElementRef<HTMLElement>;
 
   open(e: any) {
-    this.cheeseModal[`ddsComponent`].open();
+    // @ts-ignore
+    this.cheeseModal.ddsComponent.open();
   }
 
   close(e: any) {
@@ -17,6 +17,7 @@ export class ModalPageComponent {
     } else {
       console.info(`Oui`);
     }
-    this.cheeseModal[`ddsComponent`].close();
+    // @ts-ignore
+    this.cheeseModal.ddsComponent.close();
   }
 }
