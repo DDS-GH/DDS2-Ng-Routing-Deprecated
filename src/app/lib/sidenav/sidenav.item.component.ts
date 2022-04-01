@@ -1,44 +1,34 @@
-import {
-  Component,
-  Input,
-  ElementRef,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
-import {
-  setElementId,
-  stringToBoolean,
-  hasChanges,
-  ddsIcon,
-  ddsLink,
-} from '../helpers/dds.helpers';
+import { Component, Input, ElementRef, OnChanges } from "@angular/core";
+import { stringToBoolean, ddsIcon, ddsLink } from "../helpers/dds.helpers";
 
 @Component({
   selector: `dds-sidenav-item`,
   templateUrl: `./sidenav.item.component.html`,
-  styleUrls: [`./sidenav.item.component.scss`],
+  styleUrls: [`./sidenav.item.component.scss`]
 })
-export class SidenavItemComponent implements OnChanges {
-  @Input() elementId: string;
-  @Input() link: string;
-  @Input() icon: string;
-  @Input() selected: any = false;
-  @Input() disabled: any = false;
-  public isMissingUl: any = false; // not working. I don't remember what this meant, now either
+export class SidenavItemComponent {
+  @Input() link: string = ``;
+  @Input() icon: string = ``;
+  @Input() svg: any = `false`;
+  @Input() selected: any = `false`;
+  @Input() disabled: any = `false`;
+  public isMissingUl: boolean = false; // not working. I don't remember what this meant, now either
 
   constructor(private elRef: ElementRef) {}
 
   ngOnInit() {
     this.selected = stringToBoolean(this.selected);
     this.disabled = stringToBoolean(this.disabled);
+    this.svg = stringToBoolean(this.svg);
     const parentEl = this.elRef.nativeElement.parentElement;
     if (parentEl) {
       this.isMissingUl = parentEl.nodeName.toLowerCase() === `ul`;
     }
 
-    this.elementId = setElementId(this.elementId);
     this.link = ddsLink(this.link);
-    this.icon = ddsIcon(this.icon);
+    if (this.icon.length > 0) {
+      this.icon = ddsIcon(this.icon);
+    }
   }
 
   // ngOnChanges(changes: SimpleChanges) {

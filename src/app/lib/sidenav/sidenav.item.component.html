@@ -7,7 +7,15 @@
   >
     <span>
       <a [href]="link">
-        <i *ngIf="icon" class="dds__icon {{icon}}"></i>
+        <i *ngIf="icon && !svg" class="dds__icon {{icon}}"></i>
+        <svg
+          *ngIf="icon && svg"
+          aria-hidden="true"
+          preserveAspectRatio="xMinYMin meet"
+          viewBox="0 0 32 32"
+        >
+          <use [attr.xlink:href]="'#' + icon"></use>
+        </svg>
         <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
       </a>
     </span>
@@ -21,7 +29,15 @@
 >
   <span>
     <a [href]="link">
-      <i *ngIf="icon" class="dds__icon {{icon}}"></i>
+      <i *ngIf="icon && !svg" class="dds__icon {{icon}}"></i>
+      <svg
+        *ngIf="icon && svg"
+        aria-hidden="true"
+        preserveAspectRatio="xMinYMin meet"
+        viewBox="0 0 32 32"
+      >
+        <use [attr.xlink:href]="'#' + icon"></use>
+      </svg>
       <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
     </a>
   </span>

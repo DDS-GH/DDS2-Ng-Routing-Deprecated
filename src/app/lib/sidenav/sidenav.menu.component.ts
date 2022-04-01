@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { setElementId, stringToBoolean, ddsIcon } from "../helpers/dds.helpers";
+import { stringToBoolean, ddsIcon } from "../helpers/dds.helpers";
 
 @Component({
   selector: `dds-sidenav-menu`,
@@ -7,15 +7,16 @@ import { setElementId, stringToBoolean, ddsIcon } from "../helpers/dds.helpers";
   styleUrls: [`./sidenav.menu.component.scss`]
 })
 export class SidenavMenuComponent {
-  @Input() elementId: string;
-  @Input() openState: string;
-  @Input() icon: string;
-  @Input() name: string;
-  private open: boolean;
+  @Input() openState: any = `false`;
+  @Input() icon: string = ``;
+  @Input() name: string = ``;
+  @Input() svg: any = `false`;
 
   ngOnInit() {
-    this.elementId = setElementId(this.elementId);
-    this.open = stringToBoolean(this.openState);
-    this.icon = ddsIcon(this.icon);
+    this.openState = stringToBoolean(this.openState);
+    this.svg = stringToBoolean(this.svg);
+    if (this.icon.length > 0) {
+      this.icon = ddsIcon(this.icon);
+    }
   }
 }
