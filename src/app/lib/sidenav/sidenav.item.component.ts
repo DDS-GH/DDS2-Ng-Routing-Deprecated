@@ -1,17 +1,24 @@
-import { Component, Input, ElementRef, OnChanges } from "@angular/core";
-import { stringToBoolean, ddsIcon, ddsLink } from "../helpers/dds.helpers";
+import {
+  Component,
+  Input,
+  ElementRef,
+  OnInit,
+  AfterViewInit
+} from "@angular/core";
+import { stringToBoolean, ddsLink } from "../helpers/dds.helpers";
 
 @Component({
   selector: `dds-sidenav-item`,
   templateUrl: `./sidenav.item.component.html`,
   styleUrls: [`./sidenav.item.component.scss`]
 })
-export class SidenavItemComponent {
+export class SidenavItemComponent implements OnInit, AfterViewInit {
   @Input() link: string = ``;
   @Input() icon: string = ``;
   @Input() svg: any = `false`;
   @Input() selected: any = `false`;
   @Input() disabled: any = `false`;
+  @Input() viewbox: any = ``;
   public isMissingUl: boolean = false; // not working. I don't remember what this meant, now either
 
   constructor(private elRef: ElementRef) {}
@@ -24,10 +31,14 @@ export class SidenavItemComponent {
     if (parentEl) {
       this.isMissingUl = parentEl.nodeName.toLowerCase() === `ul`;
     }
-
     this.link = ddsLink(this.link);
-    if (this.icon.length > 0) {
-      this.icon = ddsIcon(this.icon);
+  }
+
+  ngAfterViewInit(): void {
+    if (this.viewbox) {
+      this.elRef.nativeElement
+        .querySelector(`svg`)
+        .setAttribute(`viewBox`, this.viewbox);
     }
   }
 

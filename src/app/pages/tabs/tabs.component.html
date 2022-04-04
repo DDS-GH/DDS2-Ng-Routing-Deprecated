@@ -1,68 +1,57 @@
-        <h2>Tabs</h2>
-        <div class="dds__row">
-          <div
-            class="boxControl dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3"
-          >
-            <dds-button
-              elementId="selectTab3"
-              ariaLabel="Select Tab Externally"
-              (click)="tabsSelect(2)"
-            >
-              Select Tab 3
-            </dds-button>
-          </div>
-        </div>
-        <div class="dds__row">
-          <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
-            <dds-tabs
-              id="ddsTabsContainer"
-              elementId="ddsTabs"
-              labels="Doctor Who, Simpsons, Holy Grail"
-              selected="2"
-              contained="false"
-              class="dds__tabs--mobile-stacked"
-            >
-              <div
-                icon="airplane"
-                image="https://picsum.photos/seed/picsum/60/50"
-              >
-                Annihilate? No. No violence. I won't stand for it. Not now, not
-                ever, do you understand me?! I'm the Doctor, the Oncoming Storm
-                - and you basically meant beat them in a football match, didn't
-                you?
-              </div>
-              <div image="https://picsum.photos/seed/picsum/60/50">
-                <p>
-                  Inflammable means flammable? What a country. But, Aquaman, you
-                  cannot marry a woman without gills. You're from two different
-                  worlds… Oh, I've wasted my life.
-                </p>
-                <p>
-                  I didn't get rich by signing checks. Fat Tony is a cancer on
-                  this fair city! He is the cancer and I am the…uh…what cures
-                  cancer? Bart, with $10,000 we'd be millionaires! We could buy
-                  all kinds of useful things like…love!
-                </p>
-              </div>
-              <div
-                icon="alarm-bell"
-                image="https://picsum.photos/seed/picsum/60/50"
-              >
-                <p>
-                  I have to push the pram a lot. Found them? In Mercia?! The
-                  coconut's tropical! Why do you think that she is a witch? The
-                  Knights Who Say Ni demand a sacrifice! Oh, ow! Where'd you get
-                  the coconuts?
-                </p>
+<h2>Tabs</h2>
+<div class="dds__row">
+  <div class="boxControl dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    <dds-button
+      elementId="selectTab3"
+      ariaLabel="Select Tab Externally"
+      (click)="tabsSelect(2)"
+    >
+      Select Tab 3
+    </dds-button>
+  </div>
+</div>
+<div class="dds__row">
+  <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    <dds-tabs
+      id="ddsTabsContainer"
+      elementId="ddsTabs"
+      labels="Doctor Who, Simpsons, Holy Grail"
+      selected="2"
+      contained="false"
+      classList="dds__tabs--mobile-stacked"
+    >
+      <div icon="airplane" image="https://picsum.photos/seed/picsum/60/50">
+        Annihilate? No. No violence. I won't stand for it. Not now, not ever, do
+        you understand me?! I'm the Doctor, the Oncoming Storm - and you
+        basically meant beat them in a football match, didn't you?
+      </div>
+      <div image="https://picsum.photos/seed/picsum/60/50">
+        <p>
+          Inflammable means flammable? What a country. But, Aquaman, you cannot
+          marry a woman without gills. You're from two different worlds… Oh,
+          I've wasted my life.
+        </p>
+        <p>
+          I didn't get rich by signing checks. Fat Tony is a cancer on this fair
+          city! He is the cancer and I am the…uh…what cures cancer? Bart, with
+          $10,000 we'd be millionaires! We could buy all kinds of useful things
+          like…love!
+        </p>
+      </div>
+      <div icon="alarm-bell" image="https://picsum.photos/seed/picsum/60/50">
+        <p>
+          I have to push the pram a lot. Found them? In Mercia?! The coconut's
+          tropical! Why do you think that she is a witch? The Knights Who Say Ni
+          demand a sacrifice! Oh, ow! Where'd you get the coconuts?
+        </p>
 
-                <p>
-                  But you are dressed as one… We found them. Shut up! Will you
-                  shut up?! Listen. Strange women lying in ponds distributing
-                  swords is no basis for a system of government. Supreme
-                  executive power derives from a mandate from the masses, not
-                  from some farcical aquatic ceremony.
-                </p>
-              </div>
-            </dds-tabs>
-          </div>
-        </div>
+        <p>
+          But you are dressed as one… We found them. Shut up! Will you shut up?!
+          Listen. Strange women lying in ponds distributing swords is no basis
+          for a system of government. Supreme executive power derives from a
+          mandate from the masses, not from some farcical aquatic ceremony.
+        </p>
+      </div>
+    </dds-tabs>
+  </div>
+</div>

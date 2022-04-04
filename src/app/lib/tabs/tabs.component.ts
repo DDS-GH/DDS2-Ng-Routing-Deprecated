@@ -9,7 +9,6 @@ import { stringToBoolean } from "../helpers/dds.helpers";
 })
 export class TabsComponent extends DdsComponent {
   @ViewChild("content") content: ElementRef<HTMLElement>;
-  @Input() elementId: string;
   @Input() contained: any;
   @Input() labels: any;
   @Input() selected: any;

@@ -8,7 +8,6 @@ import { parseData } from "../helpers/dds.helpers";
   styleUrls: [`./breadcrumb.component.scss`]
 })
 export class BreadcrumbComponent extends DdsComponent implements OnInit {
-  @Input() elementId: string;
   @Input() icon: string = `home`;
   @Input() data: any;
   @Input() show: boolean = true;

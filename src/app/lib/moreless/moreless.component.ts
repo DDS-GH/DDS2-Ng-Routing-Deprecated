@@ -6,12 +6,11 @@ import { DdsComponent } from "../helpers/dds.component";
   templateUrl: `./moreless.component.html`
 })
 export class MoreLessComponent extends DdsComponent {
-  @Input() elementId: string;
-  @Input() title: string;
+  @Input() title: string = ``;
   @Input() more: string = `View More`;
   @Input() less: string = `View Less`;
-  @Input() srMore: string;
-  @Input() srLess: string;
+  @Input() srMore: string = ``;
+  @Input() srLess: string = ``;
   @Input() type: "related" | "list" | "bottom" | "inline" = "related";
 
   ngOnInit() {
