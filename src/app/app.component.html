@@ -92,7 +92,7 @@
       >
         <dds-sidenav-menu
           *ngFor="let tag of menuTags; index as t"
-          icon="{{ tags[tag] }}"
+          icon="dds__icon--{{ tags[tag] }}"
           open="true"
           name="{{ tag.toUpperCase() }}"
           ><!-- TODO open does not seem to work -->
@@ -100,7 +100,7 @@
             <dds-sidenav-item
               *ngIf="item.tags.includes(tag)"
               [selected]="currentRoute === item.text.toLowerCase()"
-              icon="{{ item.icon }}"
+              icon="dds__icon--{{ item.icon }}"
               [routerLink]="'/' + item.text.toLowerCase()"
             >
               <span>

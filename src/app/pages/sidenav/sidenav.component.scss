@@ -1,0 +1,8 @@
+#customIcon {
+  fill: transparent;
+  stroke-width: 1px;
+}
+
+::ng-deep.customIcon {
+  display:none !important;
+}
