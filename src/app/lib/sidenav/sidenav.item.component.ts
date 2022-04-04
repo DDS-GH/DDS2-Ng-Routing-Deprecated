@@ -1,5 +1,5 @@
-import { Component, Input, ElementRef, OnChanges } from "@angular/core";
-import { stringToBoolean, ddsIcon, ddsLink } from "../helpers/dds.helpers";
+import { Component, Input, ElementRef } from "@angular/core";
+import { stringToBoolean, ddsLink } from "../helpers/dds.helpers";
 
 @Component({
   selector: `dds-sidenav-item`,
@@ -26,9 +26,6 @@ export class SidenavItemComponent {
     }
 
     this.link = ddsLink(this.link);
-    if (this.icon.length > 0) {
-      this.icon = ddsIcon(this.icon);
-    }
   }
 
   // ngOnChanges(changes: SimpleChanges) {

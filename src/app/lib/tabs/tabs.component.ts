@@ -13,7 +13,7 @@ export class TabsComponent extends DdsComponent {
   @Input() contained: any;
   @Input() labels: any;
   @Input() selected: any;
-  @Input() class: any;
+  @Input() classList: any;
 
   ngOnInit() {
     super.ngOnInit();

@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { stringToBoolean, ddsIcon } from "../helpers/dds.helpers";
+import { stringToBoolean } from "../helpers/dds.helpers";
 
 @Component({
   selector: `dds-sidenav-menu`,
@@ -15,8 +15,5 @@ export class SidenavMenuComponent {
   ngOnInit() {
     this.openState = stringToBoolean(this.openState);
     this.svg = stringToBoolean(this.svg);
-    if (this.icon.length > 0) {
-      this.icon = ddsIcon(this.icon);
-    }
   }
 }

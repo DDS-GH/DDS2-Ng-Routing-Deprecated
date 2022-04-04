@@ -15,6 +15,7 @@ declare const DDS: any; // Use declare if you import via CDN. Regular Angular (n
 export class DdsComponent implements OnInit, AfterViewInit {
   @Input() elementId: string = ``;
   @Input() init: string = `now`;
+  @Input() classList: string = ``;
   @Input() class: string = ``;
 
   public ddsInitializer: any;
