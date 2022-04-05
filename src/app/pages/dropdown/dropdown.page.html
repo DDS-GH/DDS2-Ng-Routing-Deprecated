@@ -1,0 +1,39 @@
+<h2>Dropdown</h2>
+<div class="dds__row">
+  <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    <p>
+      Dropdowns can also be used in the Filter pattern; please see more examples
+      of that usage under <a routerLink="/filter">Filter</a>.
+    </p>
+    <dds-dropdown
+      elementId="ddsDropdownSimple"
+      label="Simple Dropdown Example"
+      helper="Helper Text"
+      selection="single"
+      [groups]="dropdownData.groups"
+    >
+    </dds-dropdown>
+  </div>
+</div>
+<div class="dds__row">
+  <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    <h3>Other Experiments</h3>
+    <ul>
+      <li>
+        <a href="https://codepen.io/DorkForce/pen/mdqKQPj?editors=1011">
+          DDS2 Dropdown Test: Select All
+        </a>
+      </li>
+      <li>
+        <a href="https://codepen.io/DorkForce/pen/rNYYrQX?editors=1010">
+          DDS2 Ticket #288, Dropdown methods and events
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="'/ticket319'">
+          Ticket319: Dropdown Inside an Accordion
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

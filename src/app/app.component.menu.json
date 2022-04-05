@@ -5,6 +5,11 @@
     "tags": ["all", "layout", "navigation"]
   },
   {
+    "icon": "filter",
+    "text": "Filter",
+    "tags": ["all", "search", "input", "patterns"]
+  },
+  {
     "icon": "disc-software",
     "text": "Radio",
     "tags": ["all", "input", "simple"]

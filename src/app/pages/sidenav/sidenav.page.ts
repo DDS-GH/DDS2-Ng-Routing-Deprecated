@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 
 @Component({
-  templateUrl: "./sidenav.component.html",
-  styleUrls: ["./sidenav.component.scss"]
+  templateUrl: "./sidenav.page.html",
+  styleUrls: ["./sidenav.page.scss"]
 })
 // @ts-ignore
 export class SidenavPageComponent {}

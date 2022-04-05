@@ -1,8 +1,8 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from "@angular/core";
-import * as data from "./ticket319.component.json";
+import * as data from "./ticket319.page.json";
 
 @Component({
-  templateUrl: "./ticket319.component.html"
+  templateUrl: "./ticket319.page.html"
 })
 export class Ticket319Component implements AfterViewInit {
   @ViewChild("ddAccordion") ddAccordion: ElementRef<HTMLElement> | undefined;

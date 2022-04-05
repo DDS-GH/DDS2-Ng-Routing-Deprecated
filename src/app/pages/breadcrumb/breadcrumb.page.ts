@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import * as data from "./breadcrumb.json";
+import * as data from "./breadcrumb.page.json";
 
 @Component({
-  templateUrl: "./breadcrumb.component.html"
+  templateUrl: "./breadcrumb.page.html"
 })
 export class BreadcrumbPageComponent implements OnInit {
   public bcData: JSON;

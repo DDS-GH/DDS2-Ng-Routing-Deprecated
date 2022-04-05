@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
 import { randomName } from "../../utilities/mock";
 
 @Component({
-  templateUrl: "./messagebar.component.html"
+  templateUrl: "./messagebar.page.html"
 })
 export class MessageBarPageComponent {
   // @ts-ignore

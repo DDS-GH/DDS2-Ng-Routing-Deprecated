@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-  templateUrl: "./checkbox.component.html"
+  templateUrl: "./checkbox.page.html"
 })
 // @ts-ignore
 export class CheckboxPageComponent {

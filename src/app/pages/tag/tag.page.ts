@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
 @Component({
-  templateUrl: "./tag.component.html"
+  templateUrl: "./tag.page.html"
 })
 export class TagPageComponent {}

@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit } from "@angular/core";
 
 @Component({
-  templateUrl: "./textinput.component.html"
+  templateUrl: "./textinput.page.html"
 })
 // @ts-ignore
 export class TextInputPageComponent implements AfterViewInit {

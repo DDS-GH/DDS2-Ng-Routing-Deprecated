@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
 @Component({
-  templateUrl: "./radio.component.html"
+  templateUrl: "./radio.page.html"
 })
 export class RadioPageComponent {}
