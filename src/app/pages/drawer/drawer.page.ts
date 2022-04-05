@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef } from "@angular/core";
 
 @Component({
-  templateUrl: "./drawer.component.html"
+  templateUrl: "./drawer.page.html"
 })
 export class DrawerPageComponent {
   @ViewChild(`myDrawer`) myDrawer: ElementRef<HTMLElement>;

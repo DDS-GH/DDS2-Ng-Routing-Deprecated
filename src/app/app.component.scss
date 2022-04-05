@@ -44,16 +44,24 @@ main nav {
   top: 0;
 }
 
-::ng-deep.boxH3 {
+::ng-deep .content > .dds__container > ng-component > h2,
+::ng-deep .content > .dds__container > ng-component > div > div > h2 {
+  color: darkgray;
+}
+
+::ng-deep .content > .dds__container > ng-component > h3,
+::ng-deep .content > .dds__container > ng-component > div > div > h3 {
   text-align: right;
 }
 
-::ng-deep.boxH4 {
+::ng-deep .content > .dds__container > ng-component > h4,
+::ng-deep .content > .dds__container > ng-component > div > div > h4 {
   margin-top: 2rem;
   border-bottom: 2px dashed gray;
 }
 
-::ng-deep.boxHr {
+::ng-deep .content > .dds__container > ng-component > hr,
+::ng-deep .content > .dds__container > ng-component > div > div > hr {
   border-top: 2px dashed darkgray;
   border-bottom: 2px dotted lightgray;
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  templateUrl: "./select.component.html"
+  templateUrl: "./select.page.html"
 })
 export class SelectPageComponent implements OnInit {
   public selectValue1: Array<string> = [`Loading...`];

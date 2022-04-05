@@ -6,29 +6,30 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 // sandbox pages
 import { AppComponent } from "./app.component";
-import { HomePageComponent } from "./pages/home/home.component";
-import { AccordionPageComponent } from "./pages/accordion/accordion.component";
-import { ActionMenuPageComponent } from "./pages/actionmenu/actionmenu.component";
-import { BadgePageComponent } from "./pages/badge/badge.component";
-import { BreadcrumbPageComponent } from "./pages/breadcrumb/breadcrumb.component";
-import { ButtonPageComponent } from "./pages/button/button.component";
-import { DrawerPageComponent } from "./pages/drawer/drawer.component";
-import { DropdownPageComponent } from "./pages/dropdown/dropdown.component";
-import { FormPageComponent } from "./pages/form/form.component";
-import { MessageBarPageComponent } from "./pages/messagebar/messagebar.component";
-import { ModalPageComponent } from "./pages/modal/modal.component";
-import { MoreLessPageComponent } from "./pages/moreless/moreless.component";
-import { SelectPageComponent } from "./pages/select/select.component";
-import { SidenavPageComponent } from "./pages/sidenav/sidenav.component";
-import { TablePageComponent } from "./pages/table/table.component";
-import { TabsPageComponent } from "./pages/tabs/tabs.component";
-import { TagPageComponent } from "./pages/tag/tag.component";
-import { TextAreaPageComponent } from "./pages/textarea/textarea.component";
-import { TextInputPageComponent } from "./pages/textinput/textinput.component";
-import { TooltipPageComponent } from "./pages/tooltip/tooltip.component";
-import { CheckboxPageComponent } from "./pages/checkbox/checkbox.component";
-import { RadioPageComponent } from "./pages/radio/radio.component";
-import { Ticket319Component } from "./pages/dropdown/inside-accordion/ticket319.component";
+import { HomePageComponent } from "./pages/home/home.page";
+import { AccordionPageComponent } from "./pages/accordion/accordion.page";
+import { ActionMenuPageComponent } from "./pages/actionmenu/actionmenu.page";
+import { BadgePageComponent } from "./pages/badge/badge.page";
+import { BreadcrumbPageComponent } from "./pages/breadcrumb/breadcrumb.page";
+import { ButtonPageComponent } from "./pages/button/button.page";
+import { CheckboxPageComponent } from "./pages/checkbox/checkbox.page";
+import { DrawerPageComponent } from "./pages/drawer/drawer.page";
+import { DropdownPageComponent } from "./pages/dropdown/dropdown.page";
+import { FilterPageComponent } from "./pages/filter/filter.page";
+import { FormPageComponent } from "./pages/form/form.page";
+import { MessageBarPageComponent } from "./pages/messagebar/messagebar.page";
+import { ModalPageComponent } from "./pages/modal/modal.page";
+import { MoreLessPageComponent } from "./pages/moreless/moreless.page";
+import { SelectPageComponent } from "./pages/select/select.page";
+import { SidenavPageComponent } from "./pages/sidenav/sidenav.page";
+import { TablePageComponent } from "./pages/table/table.page";
+import { TabsPageComponent } from "./pages/tabs/tabs.page";
+import { TagPageComponent } from "./pages/tag/tag.page";
+import { TextAreaPageComponent } from "./pages/textarea/textarea.page";
+import { TextInputPageComponent } from "./pages/textinput/textinput.page";
+import { TooltipPageComponent } from "./pages/tooltip/tooltip.page";
+import { RadioPageComponent } from "./pages/radio/radio.page";
+import { Ticket319Component } from "./pages/dropdown/inside-accordion/ticket319.page";
 
 // library components
 import { AccordionModule } from "./lib/accordion/accordion.module";
@@ -66,6 +67,7 @@ const appRoutes: Routes = [
   { path: "drawer", component: DrawerPageComponent },
   { path: "dropdown", component: DropdownPageComponent },
   { path: "form", component: FormPageComponent },
+  { path: "filter", component: FilterPageComponent },
   { path: "messagebar", component: MessageBarPageComponent },
   { path: "modal", component: ModalPageComponent },
   { path: "moreless", component: MoreLessPageComponent },
@@ -111,6 +113,7 @@ const pages = [
   CheckboxPageComponent,
   DrawerPageComponent,
   DropdownPageComponent,
+  FilterPageComponent,
   FormPageComponent,
   MessageBarPageComponent,
   ModalPageComponent,

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-  templateUrl: "./tabs.component.html"
+  templateUrl: "./tabs.page.html"
 })
 export class TabsPageComponent {
   tabsSelect(tabIndex: number) {

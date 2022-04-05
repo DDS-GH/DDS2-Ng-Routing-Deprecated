@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
 @Component({
-  templateUrl: "./moreless.component.html"
+  templateUrl: "./moreless.page.html"
 })
 export class MoreLessPageComponent {}

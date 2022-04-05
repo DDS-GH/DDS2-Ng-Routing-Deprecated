@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
 @Component({
-  templateUrl: "./tooltip.component.html"
+  templateUrl: "./tooltip.page.html"
 })
 export class TooltipPageComponent {}

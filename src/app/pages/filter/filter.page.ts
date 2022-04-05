@@ -1,88 +1,22 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { arrayAdd, arrayRemove } from "../../lib/helpers/dds.helpers";
+import * as filterData from "./filter.page.json";
 
 @Component({
-  templateUrl: "./dropdown.component.html"
+  templateUrl: "./filter.page.html"
 })
-export class DropdownPageComponent implements OnInit {
-  @ViewChild("multipleDropdown") multipleDropdown: ElementRef<HTMLElement>;
+export class FilterPageComponent implements OnInit {
+  @ViewChild("filter0") filter0: ElementRef<HTMLElement>;
   private clearedRelistener: any;
-  private dropdownBase: Array<any> = [
-    {
-      hidden: false,
-      options: [
-        {
-          name: "Alpha Item 0",
-          value: "Alpha Item 00", // to be used after v2.5.1
-          selected: false
-        },
-        {
-          name: "Not Shown Item 0",
-          value: "999",
-          selected: false,
-          hidden: true
-        },
-        {
-          name: "Alpha Item 1",
-          value: "Alpha Item 11",
-          selected: false
-        },
-        {
-          name: "Not Shown Item 1",
-          value: "9992",
-          selected: false,
-          hidden: true
-        },
-        {
-          name: "Alpha Item 2",
-          value: "Alpha Item 22",
-          selected: false
-        }
-      ]
-    },
-    {
-      name: "Other Stuff",
-      options: [
-        {
-          name: "Beta Item 0",
-          value: "Beta Item 00",
-          selected: false
-        },
-        {
-          name: "Beta Item 1",
-          value: "Beta Item 11",
-          selected: false
-        },
-        {
-          name: "Beta Item 2",
-          value: "Beta Item 22",
-          selected: false
-        }
-      ]
-    }
-  ];
-  public dropdownData: Array<any> = [
-    {
-      stored: [],
-      groups: this.dropdownBase
-    },
-    {
-      stored: [],
-      groups: this.dropdownBase
-    },
-    {
-      stored: [],
-      groups: this.dropdownBase
-    }
-  ];
+  public dropdownData: Array<any> = filterData;
   public showTags: boolean = false;
 
   // @ts-ignore
   ngOnInit(): void {
-    this.dropdownData.forEach((ddata: any) => {
-      // I shouldn't have to stringify but Sandbox is removing JSON formatting for the data
-      ddata.groups = JSON.stringify(ddata.groups);
-    });
+    // this.dropdownData.forEach((ddata: any) => {
+    //   // I shouldn't have to stringify but Sandbox is removing JSON formatting for the data
+    //   ddata.groups = JSON.stringify(ddata.groups);
+    // });
   }
 
   handleDropdown = {
@@ -105,11 +39,11 @@ export class DropdownPageComponent implements OnInit {
       this.matchSelectionsWithNewData(index, e);
     },
     externalUpdate: () => {
-      this.multipleDropdown[`ddsComponent`].clearSelection();
+      this.filter0.ddsComponent.clearSelection();
       const newData = this.dropdownRandomItems(`New Data`, 1, false, 99, 101);
-      this.dropdownData[1].stored = newData.selection;
-      this.multipleDropdown[`ddsComponent`].dispose();
-      this.dropdownData[1].groups = JSON.stringify([
+      this.dropdownData[0].stored = newData.selection;
+      this.filter0.ddsComponent.dispose();
+      this.dropdownData[0].groups = JSON.stringify([
         {
           name: `New Data`,
           options: newData.items
@@ -117,17 +51,16 @@ export class DropdownPageComponent implements OnInit {
       ]);
       setTimeout(() => {
         // @ts-ignore
-        this.multipleDropdown.initializeNow();
+        this.filter0.initializeNow();
         if (!this.clearedRelistener) {
-          this.clearedRelistener = this.multipleDropdown[
-            `ddsElement`
-          ].addEventListener(`ddsDropdownSelectionChangeEvent`, (e: any) => {
-            if (
-              this.multipleDropdown[`ddsComponent`].getSelection().length === 0
-            ) {
-              this.handleDropdown.clear(1, null);
+          this.clearedRelistener = this.filter0.ddsElement.addEventListener(
+            `ddsDropdownSelectionChangeEvent`,
+            (e: any) => {
+              if (this.filter0.ddsComponent.getSelection().length === 0) {
+                this.handleDropdown.clear(1, null);
+              }
             }
-          });
+          );
         }
       });
     }

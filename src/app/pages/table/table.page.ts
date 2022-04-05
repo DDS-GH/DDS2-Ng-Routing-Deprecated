@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-  templateUrl: "./table.component.html"
+  templateUrl: "./table.page.html"
 })
 export class TablePageComponent {
   public config: any = {

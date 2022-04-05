@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
 
 @Component({
-  templateUrl: "./modal.component.html"
+  templateUrl: "./modal.page.html"
 })
 export class ModalPageComponent {
   @ViewChild(`cheeseModal`) cheeseModal!: ElementRef<HTMLElement>;

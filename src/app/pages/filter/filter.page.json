@@ -1,0 +1,77 @@
+[
+  {
+    "stored": [],
+    "groups": [
+      {
+        "hidden": false,
+        "options": [
+          {
+            "name": "meow for food",
+            "value": "cat10",
+            "selected": false
+          },
+          {
+            "name": "human fills food",
+            "value": "cat10",
+            "selected": false
+          },
+          {
+            "name": "meow for food again",
+            "value": "cat11",
+            "selected": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "stored": [],
+    "groups": [
+      {
+        "hidden": false,
+        "options": [
+          {
+            "name": "Scream at 4 am",
+            "value": "cat07",
+            "selected": false
+          },
+          {
+            "name": "nap all day",
+            "value": "cat08",
+            "selected": false
+          },
+          {
+            "name": "edge of bath",
+            "value": "cat09",
+            "selected": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "stored": [],
+    "groups": [
+      {
+        "hidden": false,
+        "options": [
+          {
+            "name": "Chase ball of string",
+            "value": "cat02",
+            "selected": false
+          },
+          {
+            "name": "Lick face hiss at owner",
+            "value": "cat03",
+            "selected": false
+          },
+          {
+            "name": "Where is it?",
+            "value": "cat04",
+            "selected": false
+          }
+        ]
+      }
+    ]
+  }
+]
