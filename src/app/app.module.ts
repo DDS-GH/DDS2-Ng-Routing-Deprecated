@@ -47,7 +47,7 @@ import { MoreLessComponent } from "./lib/moreless/moreless.component";
 import { SelectComponent } from "./lib/select/select.component";
 import { SidenavModule } from "./lib/sidenav/sidenav.module";
 import { TableComponent } from "./lib/table/table.component";
-import { TabsComponent } from "./lib/tabs/tabs.component";
+import { TabsModule } from "./lib/tabs/tabs.module";
 import { TagComponent } from "./lib/tag/tag.component";
 import { TextAreaComponent } from "./lib/textarea/textarea.component";
 import { TextInputComponent } from "./lib/textinput/textinput.component";
@@ -96,7 +96,6 @@ const components = [
   MoreLessComponent,
   SelectComponent,
   TableComponent,
-  TabsComponent,
   TagComponent,
   TextAreaComponent,
   TextInputComponent,
@@ -141,6 +140,7 @@ const directives = [IsSelectedDirective];
     AccordionModule,
     ActionMenuModule,
     SidenavModule,
+    TabsModule,
     ReactiveFormsModule
   ],
   providers: [],

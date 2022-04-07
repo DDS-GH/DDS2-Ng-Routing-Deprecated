@@ -1,0 +1,19 @@
+<li role="none">
+  <button
+    [id]="id"
+    class="dds__tabs__tab"
+    [class.dds__tabs__tab--with-image]="image"
+    role="tab"
+    [attr.aria-controls]="paneId"
+    [attr.aria-selected]="selected"
+    [tabindex]="index"
+  >
+    <i *ngIf="icon" [ngClass]="tabIconClasses"></i>
+    <span class="dds__tabs__tab__image" *ngIf="image">
+      <img [src]="image" />
+    </span>
+    <span class="dds__tabs__tab__label" [title]="title">
+      {{ title }}
+    </span>
+  </button>
+</li>

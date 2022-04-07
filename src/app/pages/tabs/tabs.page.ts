@@ -1,11 +1,13 @@
-import { Component } from "@angular/core";
+import { Component, ElementRef, ViewChild } from "@angular/core";
 
 @Component({
   templateUrl: "./tabs.page.html"
 })
 export class TabsPageComponent {
+  @ViewChild("catTabs") catTabs: ElementRef<HTMLElement>;
+
   tabsSelect(tabIndex: number) {
-    // @ts-ignore
-    document.getElementById(`ddsTabs`).Tabs.setActiveTab(tabIndex);
+    this.catTabs.ddsComponent.setActiveTab(tabIndex);
+    // this also works: document.getElementById(`kittyTabs`).Tabs.setActiveTab(tabIndex);
   }
 }

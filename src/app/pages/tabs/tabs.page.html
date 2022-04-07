@@ -17,46 +17,49 @@
 </div>
 <div class="dds__row">
   <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
-    <dds-tabs
-      id="ddsTabsContainer"
-      elementId="ddsTabs"
-      labels="Doctor Who, Simpsons, Holy Grail"
-      selected="2"
-      contained="false"
-      classList="dds__tabs--mobile-stacked"
-    >
-      <div icon="airplane" image="https://picsum.photos/seed/picsum/60/50">
-        Annihilate? No. No violence. I won't stand for it. Not now, not ever, do
-        you understand me?! I'm the Doctor, the Oncoming Storm - and you
-        basically meant beat them in a football match, didn't you?
-      </div>
-      <div image="https://picsum.photos/seed/picsum/60/50">
+    <dds-tabs #catTabs elementId="kittyTabs">
+      <dds-tab
+        id="tab-0"
+        title="kitty ipsum"
+        [selected]="true"
+        icon="copy-alt"
+      ></dds-tab>
+      <dds-tab-pane id="tab-pane-0" tabId="tab-0" [hidden]="false">
         <p>
-          Inflammable means flammable? What a country. But, Aquaman, you cannot
-          marry a woman without gills. You're from two different worlds… Oh,
-          I've wasted my life.
+          Find empty spot in cupboard and sleep all day jump on fridge and skid
+          on floor, crash into wall cat milk copy park pee walk owner escape
+          bored tired cage droppings sick vet vomit, for lick human with
+          sandpaper tongue.
         </p>
-        <p>
-          I didn't get rich by signing checks. Fat Tony is a cancer on this fair
-          city! He is the cancer and I am the…uh…what cures cancer? Bart, with
-          $10,000 we'd be millionaires! We could buy all kinds of useful things
-          like…love!
-        </p>
-      </div>
-      <div icon="alarm-bell" image="https://picsum.photos/seed/picsum/60/50">
-        <p>
-          I have to push the pram a lot. Found them? In Mercia?! The coconut's
-          tropical! Why do you think that she is a witch? The Knights Who Say Ni
-          demand a sacrifice! Oh, ow! Where'd you get the coconuts?
-        </p>
+      </dds-tab-pane>
 
+      <dds-tab
+        id="tab-1"
+        title="Imma lion"
+        image="https://picsum.photos/id/1074/60/50"
+      ></dds-tab>
+      <dds-tab-pane id="tab-pane-1" tabId="tab-1" [hidden]="true">
         <p>
-          But you are dressed as one… We found them. Shut up! Will you shut up?!
-          Listen. Strange women lying in ponds distributing swords is no basis
-          for a system of government. Supreme executive power derives from a
-          mandate from the masses, not from some farcical aquatic ceremony.
+          Sit in window and stare oooh, a bird, yum. Whenever a door is opened,
+          rush in before the human chew iPad power cord, yet meow meow, i tell
+          my human instantly break out into full speed gallop across the house
+          for no reason.
         </p>
-      </div>
+      </dds-tab-pane>
+
+      <dds-tab id="tab-2" title="lick, lick, lick"></dds-tab>
+      <dds-tab-pane id="tab-pane-2" tabId="tab-2" [hidden]="true">
+        <p>
+          More napping, more napping all the napping is exhausting meow meow
+          mama but lie in the sink all day hunt anything i bet my nine lives on
+          you-oooo-ooo-hooo why dog in house? i'm the sole ruler of this home
+          and its inhabitants smelly, stupid dogs, inferior furballs time for
+          night-hunt, human freakout, jump on human and sleep on her all night
+          long be long in the bed, purr in the morning and then give a bite to
+          every human around for not waking up request food, purr loud scratch
+          the walls, the floor, the windows, the humans.
+        </p>
+      </dds-tab-pane>
     </dds-tabs>
   </div>
 </div>
