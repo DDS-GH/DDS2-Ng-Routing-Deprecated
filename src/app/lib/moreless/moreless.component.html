@@ -1,8 +1,9 @@
 <ng-template #isMore><ng-content select="[is-more]"></ng-content></ng-template>
 <ng-content select="[is-less]"></ng-content>
 <span
-  id="{{elementId}}"
+  [id]="elementId"
   data-dds="more-less"
+  class="{{classList}}"
   [class.dds__more-less--inline]="type==='inline'"
   [class.dds__more-less--list]="type==='list'"
 >

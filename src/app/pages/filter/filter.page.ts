@@ -3,7 +3,8 @@ import { arrayAdd, arrayRemove } from "../../lib/helpers/dds.helpers";
 import * as filterData from "./filter.page.json";
 
 @Component({
-  templateUrl: "./filter.page.html"
+  templateUrl: "./filter.page.html",
+  styleUrls: ["./filter.page.scss"]
 })
 export class FilterPageComponent implements OnInit {
   @ViewChild("filter0") filter0: ElementRef<HTMLElement>;
