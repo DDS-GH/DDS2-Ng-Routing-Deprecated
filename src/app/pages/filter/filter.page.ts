@@ -41,6 +41,7 @@ export class FilterPageComponent implements OnInit {
     this.dropdownData[0].stored = [];
     this.dropdownData[1].stored = [];
     this.dropdownData[2].stored = [];
+    this.checkForNoResults();
   }
 
   handleDropdown = {
