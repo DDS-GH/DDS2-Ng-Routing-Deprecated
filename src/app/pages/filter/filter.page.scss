@@ -7,6 +7,6 @@
   }
 }
 
-.tagContainer dds-tag {
-  margin: 0 0.625rem 0.625rem 0;
+::ng-deep .tagContainer dds-tag div {
+  margin: 0 0.3rem 0.3rem 0;
 }
