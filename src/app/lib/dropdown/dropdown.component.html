@@ -1,6 +1,8 @@
 <div class="dds__dropdown" data-dds="dropdown" [attr.id]="elementId">
   <div class="dds__dropdown__input-container">
-    <label [attr.id]="elementId + '-label'" [attr.for]="elementId + '-input'">{{label}}</label>
+    <label [attr.id]="elementId + '-label'" [attr.for]="elementId + '-input'"
+      >{{label}}</label
+    >
     <div
       class="dds__dropdown__input-wrapper"
       autocomplete="off"
@@ -9,18 +11,40 @@
       [attr.aria-controls]="elementId + '-popup'"
       aria-expanded="false"
     >
+      <i
+        *ngIf="warning"
+        tabindex="-1"
+        class="dds__icon dds__icon--alert-notice dds__input-text__icon--end warningIcon"
+        style="position: absolute !important;"
+      ></i>
       <input
-      [attr.id]="elementId + '-input'"
+        [attr.id]="elementId + '-input'"
         [attr.name]="elementId"
         type="text"
         class="dds__dropdown__input-field"
+        [class.warning]="warning"
         [attr.aria-labelledby]="elementId + '-label ' + elementId + '-helper'"
         autocomplete="off"
       />
-      <small [attr.id]="elementId + '-helper'" class="dds__input-text__helper">
+
+      <small
+        *ngIf="!warning"
+        [attr.id]="elementId + '-helper'"
+        class="dds__input-text__helper"
+      >
         {{helper}}
       </small>
-      <div [attr.id]="elementId + '-feedback'" class="dds__invalid-feedback"></div>
+      <small
+        *ngIf="warning"
+        [attr.id]="elementId + '-helper'"
+        class="dds__input-text__helper warningMessage"
+      >
+        {{warning}}
+      </small>
+      <div
+        [attr.id]="elementId + '-feedback'"
+        class="dds__invalid-feedback"
+      ></div>
     </div>
   </div>
   <div
@@ -28,7 +52,12 @@
     class="dds__dropdown__popup dds__dropdown__popup--hidden"
     role="presentation"
   >
-    <ul class="dds__dropdown__list" role="listbox" tabindex="-1" [attr.aria-labelledby]="elementId + '-label'">
+    <ul
+      class="dds__dropdown__list"
+      role="listbox"
+      tabindex="-1"
+      [attr.aria-labelledby]="elementId + '-label'"
+    >
       <ng-container *ngFor="let group of groups; let g = index">
         <li *ngIf="!group.hidden" role="presentation">
           <span

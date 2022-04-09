@@ -8,9 +8,12 @@ import * as filterData from "./filter.page.json";
 })
 export class FilterPageComponent implements OnInit {
   @ViewChild("filter0") filter0: ElementRef<HTMLElement>;
+  @ViewChild("filter1") filter1: ElementRef<HTMLElement>;
+  @ViewChild("filter2") filter2: ElementRef<HTMLElement>;
   private clearedRelistener: any;
   public dropdownData: Array<any> = filterData;
   public showTags: boolean = false;
+  public dogHouseWarning: string = ``;
 
   // @ts-ignore
   ngOnInit(): void {
@@ -20,21 +23,44 @@ export class FilterPageComponent implements OnInit {
     // });
   }
 
+  checkForNoResults() {
+    this.dogHouseWarning = ``;
+    this.dropdownData.forEach((ddd: any) => {
+      ddd.stored.forEach((storedSelection: any) => {
+        if (storedSelection.value && storedSelection.value === `cat07`) {
+          this.dogHouseWarning = `No results for some of the selected filters`;
+        }
+      });
+    });
+  }
+
+  clearAllFilters() {
+    this.filter0.ddsComponent.clearSelection();
+    this.filter1.ddsComponent.clearSelection();
+    this.filter2.ddsComponent.clearSelection();
+    this.dropdownData[0].stored = [];
+    this.dropdownData[1].stored = [];
+    this.dropdownData[2].stored = [];
+  }
+
   handleDropdown = {
     clear: (index: number, e: any) => {
       this.dropdownData[index].stored = [];
+      this.checkForNoResults();
     },
     select: (index: number, e: any) => {
       this.dropdownData[index].stored = arrayAdd(
         this.dropdownData[index].stored,
         e
       );
+      this.checkForNoResults();
     },
     deselect: (index: number, e: any) => {
       this.dropdownData[index].stored = arrayRemove(
         this.dropdownData[index].stored,
         e
       );
+      this.checkForNoResults();
     },
     keyUp: (index: number, e: any) => {
       this.matchSelectionsWithNewData(index, e);

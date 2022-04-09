@@ -23,6 +23,7 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
   @Input() srClearLabel: string = `clear selected items`;
   @Input() useBackend: any = `false`;
   @Input() selection: string = `single`;
+  @Input() warning: string = ``;
   @Output() onKeyUp: EventEmitter<string> = new EventEmitter<string>();
   @Output() optionSelected: EventEmitter<object> = new EventEmitter<object>();
   @Output() optionDeselected: EventEmitter<object> = new EventEmitter<object>();
@@ -60,8 +61,11 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
         dropdownNotice.innerText = this.noOptionsLabel;
       }
     };
-    const handleClear = () => {
-      this.optionsCleared.emit(this.ddsComponent.getValue());
+    const handleClear = (e: any) => {
+      if (!e.target.title) {
+        // the "X" button doesn't have a title, but the button itself does
+        this.optionsCleared.emit(this.ddsComponent.getValue());
+      }
     };
     const handleKeyUp = debounce(() => handleUpFinal());
     const handleKeyDown = throttle((e) => handleDownFinal(e));
@@ -114,6 +118,7 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (
+      changes.groups &&
       !changes.groups.firstChange &&
       changes.groups.currentValue !== changes.groups.previousValue
     ) {

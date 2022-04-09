@@ -158,6 +158,7 @@
       selectedLabel="Selected"
       srClearLabel="Get rid of selection"
       label="why dog in house?"
+      [warning]="dogHouseWarning"
     >
     </dds-dropdown>
   </div>
@@ -178,7 +179,12 @@
   </div>
 </div>
 <div class="dds__row">
-  <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+  <div
+    *ngIf="dropdownData[0].stored.length > 0 || dropdownData[1].stored.length > 0 || dropdownData[2].stored.length > 0"
+    class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3 tagContainer"
+  >
+    Filter Results ({{ dropdownData[0].stored.length +
+    dropdownData[1].stored.length + dropdownData[2].stored.length }}):
     <ng-container *ngFor="let tag of dropdownData[0].stored">
       <dds-tag
         (onDismiss)="filter0.deselect($event)"
@@ -221,5 +227,12 @@
         {{ tag.text }}
       </dds-tag>
     </ng-container>
+    <button
+      class="dds__button dds__button--tertiary"
+      (click)="clearAllFilters()"
+    >
+      Clear All
+    </button>
   </div>
 </div>
+<div style="height: 400px;"></div>
