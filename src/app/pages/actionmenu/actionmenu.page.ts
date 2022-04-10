@@ -6,6 +6,6 @@ import { Component } from "@angular/core";
 // @ts-ignore
 export class ActionMenuPageComponent {
   actionMenuAction(e: any) {
-    console.log("action menu value chosen: " + e);
+    console.info("action menu value chosen: " + e);
   }
 }

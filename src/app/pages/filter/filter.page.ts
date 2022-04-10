@@ -67,6 +67,8 @@ export class FilterPageComponent implements OnInit {
       this.matchSelectionsWithNewData(index, e);
     },
     externalUpdate: () => {
+      // might reinvestigate this function; the handleDropdown.clear within it is brittle,
+      // and with 2.7.2+ the Dropdown mutationObservers have a bounce for performance
       this.filter0.ddsComponent.clearSelection();
       const newData = this.dropdownRandomItems(`New Data`, 1, false, 99, 101);
       this.dropdownData[0].stored = newData.selection;
@@ -85,7 +87,7 @@ export class FilterPageComponent implements OnInit {
             `ddsDropdownSelectionChangeEvent`,
             (e: any) => {
               if (this.filter0.ddsComponent.getSelection().length === 0) {
-                this.handleDropdown.clear(1, null);
+                this.handleDropdown.clear(0, null);
               }
             }
           );

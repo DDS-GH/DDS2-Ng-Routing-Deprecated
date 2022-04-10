@@ -15,7 +15,7 @@ export class TextInputPageComponent implements AfterViewInit {
     // if (this.liveValidFormEl) {
     //   this.liveValidFormEl.addEventListener("submit", (event) => {
     //     // stop form submission
-    //     console.log("stopped");
+    //     console.info("stopped");
     //     event.preventDefault();
     //   });
     // }

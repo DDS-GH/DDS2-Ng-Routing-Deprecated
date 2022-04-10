@@ -28,6 +28,7 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
   @Output() optionSelected: EventEmitter<object> = new EventEmitter<object>();
   @Output() optionDeselected: EventEmitter<object> = new EventEmitter<object>();
   @Output() optionsCleared: EventEmitter<string> = new EventEmitter<string>();
+  private listeners: Array<any> = [];
 
   ngOnInit() {
     super.ngOnInit();
@@ -69,35 +70,40 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
     };
     const handleKeyUp = debounce(() => handleUpFinal());
     const handleKeyDown = throttle((e) => handleDownFinal(e));
-    if (this.useBackend) {
+    if (this.useBackend && !this.listeners.includes(`backendKeys`)) {
+      this.listeners.push(`backendKeys`);
       dropdownInput.addEventListener(`keyup`, handleKeyUp);
       dropdownInput.addEventListener(`keydown`, handleKeyDown);
     }
-    if (dropdownClear) {
+    if (dropdownClear && !this.listeners.includes(`dropdownClear`)) {
+      this.listeners.push(`dropdownClear`);
       dropdownClear.addEventListener(`click`, handleClear);
     }
-    this.ddsElement.addEventListener(`click`, (e) => {
-      if (
-        e.target.classList &&
-        e.target.classList.contains(`dds__dropdown__item-option`)
-      ) {
-        const dataValue = e.target.getAttribute("data-value");
-        let valueToSubmit: any;
-        if (dataValue) {
-          valueToSubmit = {
-            value: dataValue,
-            text: e.target.innerText.trim()
-          };
-        } else {
-          valueToSubmit = e.target.innerText.trim();
+    if (!this.listeners.includes(`clicking`)) {
+      this.listeners.push(`clicking`);
+      this.ddsElement.addEventListener(`click`, (e) => {
+        if (
+          e.target.classList &&
+          e.target.classList.contains(`dds__dropdown__item-option`)
+        ) {
+          const dataValue = e.target.getAttribute("data-value");
+          let valueToSubmit: any;
+          if (dataValue) {
+            valueToSubmit = {
+              value: dataValue,
+              text: e.target.innerText.trim()
+            };
+          } else {
+            valueToSubmit = e.target.innerText.trim();
+          }
+          if (!stringToBoolean(e.target.getAttribute(`data-selected`))) {
+            this.optionDeselected.emit(valueToSubmit);
+          } else {
+            this.optionSelected.emit(valueToSubmit);
+          }
         }
-        if (!stringToBoolean(e.target.getAttribute(`data-selected`))) {
-          this.optionDeselected.emit(valueToSubmit);
-        } else {
-          this.optionSelected.emit(valueToSubmit);
-        }
-      }
-    });
+      });
+    }
   }
 
   parseData() {
