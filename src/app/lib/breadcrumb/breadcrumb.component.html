@@ -1,4 +1,9 @@
-<nav id="{{elementId}}" data-dds="breadcrumb" aria-label="breadcrumb">
+<nav
+  id="{{elementId}}"
+  data-dds="breadcrumb"
+  aria-label="breadcrumb"
+  [ngClass]="classList"
+>
   <ol id="list-{{show}}" class="dds__breadcrumb">
     <li *ngFor="let item of items; let i = index" class="dds__breadcrumb__item">
       <a href="item.link">

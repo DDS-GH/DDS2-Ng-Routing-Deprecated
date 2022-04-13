@@ -1,4 +1,8 @@
-<div class="dds__dropdown" data-dds="dropdown" [attr.id]="elementId">
+<div
+  class="dds__dropdown {{classList}}"
+  data-dds="dropdown"
+  [attr.id]="elementId"
+>
   <div class="dds__dropdown__input-container">
     <label [attr.id]="elementId + '-label'" [attr.for]="elementId + '-input'"
       >{{label}}</label

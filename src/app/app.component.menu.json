@@ -10,6 +10,11 @@
     "tags": ["all", "search", "input", "patterns"]
   },
   {
+    "icon": "clipboard",
+    "text": "Form",
+    "tags": ["all", "search", "input"]
+  },
+  {
     "icon": "disc-software",
     "text": "Radio",
     "tags": ["all", "input", "simple"]

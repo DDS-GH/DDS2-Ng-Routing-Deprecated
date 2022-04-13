@@ -5,7 +5,7 @@
     role="dialog"
     [attr.aria-describedby]="elementId + 'Content'"
     [attr.aria-labelledby]="elementId + 'Title'"
-    class="dds__message-bar {{variant}}"
+    class="dds__message-bar {{variant}} {{classList}}"
     [class.dds__message-bar--global]="layout === 'global'"
     [attr.data-dismissible]="dismissible === true"
   >

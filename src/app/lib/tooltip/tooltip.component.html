@@ -1,13 +1,13 @@
-<i 
+<i
   href="javascript:void(0);"
   id="icon{{elementId}}"
-  class="dds__link--standalone"
+  class="dds__link--standalone {{classList}}"
   [attr.aria-describedby]="elementId"
 >
   <span class="dds__sr-only">tooltip</span>
   <i class="dds__icon dds__icon--{{icon}}"></i>
 </i>
-<div 
+<div
   id="{{elementId}}"
   [attr.data-trigger]="'#icon' + elementId"
   data-dds="tooltip"
@@ -16,6 +16,6 @@
 >
   <div class="dds__tooltip__pointer"></div>
   <div class="dds__tooltip__body">
-      <ng-content></ng-content>
+    <ng-content></ng-content>
   </div>
 </div>

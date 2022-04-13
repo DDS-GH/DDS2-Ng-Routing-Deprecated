@@ -1,7 +1,11 @@
 <div *ngIf="sticky==='true'" class="dds__sidenav--sticky">
   <i (click)="toggle()" class="dds__icon {{stickyIcon}}"></i>
 </div>
-<section class="dds__side-nav__wrapper" data-dds="side-nav" id="{{elementId}}">
+<section
+  class="dds__side-nav__wrapper {{classList}}"
+  data-dds="side-nav"
+  id="{{elementId}}"
+>
   <nav class="dds__side-nav" aria-label="Main Navigation">
     <ng-content></ng-content>
     <dds-sidenav-item
