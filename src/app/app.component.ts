@@ -99,7 +99,7 @@ export class AppComponent implements OnInit, AfterViewInit {
           nonJsonMenu.push({
             icon: this.menuItems[key].icon,
             text: this.menuItems[key].text,
-            tags: [`all`],
+            tags: this.menuItems[key].,
           });
         }
       });
