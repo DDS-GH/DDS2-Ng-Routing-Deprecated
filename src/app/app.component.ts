@@ -3,21 +3,21 @@ import {
   Component,
   ElementRef,
   OnInit,
-  ViewChild,
-} from '@angular/core';
+  ViewChild
+} from "@angular/core";
 import {
   Router,
   Event,
   NavigationStart,
   NavigationEnd,
-  NavigationError,
-} from '@angular/router';
-import * as menuItems from './app.component.menu.json';
+  NavigationError
+} from "@angular/router";
+import * as menuItems from "./app.component.menu.json";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild(`sideNav`) sideNav!: ElementRef<HTMLElement>;
@@ -32,13 +32,13 @@ export class AppComponent implements OnInit, AfterViewInit {
     patterns: `microchip`,
     search: `search`,
     secondary: `award-certificate`,
-    simple: `cube`,
+    simple: `cube`
   };
   public currentRoute: string = ``;
   private menuItems: any = menuItems;
 
   constructor(private router: Router) {
-    this.currentRoute = '';
+    this.currentRoute = "";
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         // Show progress spinner or progress bar
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
       if (event instanceof NavigationEnd) {
         // Hide progress spinner or progress bar
-        this.currentRoute = event.url.replace('/', '');
+        this.currentRoute = event.url.replace("/", "");
         // console.info(event);
       }
 
@@ -88,7 +88,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   menuAction() {
     // complex calculation
-    this.router.navigate(['/accordion']);
+    this.router.navigate(["/accordion"]);
   }
 
   sortMenu() {
@@ -99,18 +99,17 @@ export class AppComponent implements OnInit, AfterViewInit {
           nonJsonMenu.push({
             icon: this.menuItems[key].icon,
             text: this.menuItems[key].text,
-            tags: this.menuItems[key].tags,
+            tags: this.menuItems[key].tags
           });
         }
       });
-      console.log(nonJsonMenu);
       this.menuItems = nonJsonMenu;
     }
     // alpha-sort menuItems
     this.menuItems = [
       ...this.menuItems.sort((a, b) =>
         a.text > b.text ? 1 : b.text > a.text ? -1 : 0
-      ),
+      )
     ];
     // sort tags into a unique array
     this.menuItems.forEach((mi) => {
@@ -122,7 +121,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
     // alpha-sort tags
     this.menuTags = [
-      ...this.menuTags.sort((a, b) => (a > b ? 1 : b > a ? -1 : 0)),
+      ...this.menuTags.sort((a, b) => (a > b ? 1 : b > a ? -1 : 0))
     ];
     // distribute items according to tag
     // this.menuTags.forEach((tag) => {
@@ -132,12 +131,25 @@ export class AppComponent implements OnInit, AfterViewInit {
     //     }
     //   });
     // });
-    console.log(this.menuTags);
   }
 
   fakeSearch(e: any) {
     if (e.value) {
       alert(`You searched for ${e.value}`);
     }
+  }
+
+  menuToggle(e: any) {
+    const clas = e.target.classList;
+    const open = `dds__icon--close-x`;
+    const clos = `dds__icon--menu-closed`;
+    if (clas.contains(open)) {
+      clas.add(clos);
+      clas.remove(open);
+    } else {
+      clas.remove(clos);
+      clas.add(open);
+    }
+    this.sideNav.toggle();
   }
 }

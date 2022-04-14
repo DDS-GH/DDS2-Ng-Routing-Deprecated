@@ -2,6 +2,11 @@
   <app-header>
     <div class="headerRow">
       <div class="headerCol">
+        <div class="sandboxMenuContainer">
+          <a (click)="menuToggle($event)">
+            <i class="dds__icon dds__icon--menu-closed"></i>
+          </a>
+        </div>
         <div class="sandboxLogoContainer">
           <a
             routerLink="/"

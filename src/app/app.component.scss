@@ -78,6 +78,14 @@ main nav {
   }
 }
 
+.sandboxMenuContainer {
+  padding: 0 0.7rem;
+  cursor: pointer;
+  -moz-transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
 .sandboxLogoContainer {
   height: 30px;
   overflow: hidden;
@@ -95,8 +103,20 @@ main nav {
   }
 }
 
-@media only screen and (mi-width: 768px) {
+@media only screen and (min-width: 768px) {
   .searchCol dds-textinput {
     min-width: 400px;
   }
 }
+
+@media only screen and (min-width: 480px) {
+  .sandboxMenuContainer {
+    display: none;
+  }
+}
+
+.rotate90 {
+  color: blue;
+  rotate: 90deg;
+}
+
