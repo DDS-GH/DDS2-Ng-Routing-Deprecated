@@ -24,19 +24,19 @@ import { Subscription } from "rxjs";
   styleUrls: [`./actionmenu.item.component.scss`]
 })
 export class ActionMenuItemComponent implements OnChanges, OnInit, OnDestroy {
-  @Input() id: string;
-  @Input() selected: string;
-  @Input() link: string;
-  @Input() icon: string;
-  @Input() checkbox: boolean = false;
-  @Input() checked: boolean = false;
+  @Input() id: string = ``;
+  @Input() selected: string = ``;
+  @Input() link: string = ``;
+  @Input() icon: string = ``;
+  @Input() checkbox: any = false;
+  @Input() checked: any = false;
   @Input() value: any = "";
   @Output() onChecked: EventEmitter<string> = new EventEmitter<string>();
-  public isSelected: boolean;
-  private menuService: MenuService;
-  private parentId: string;
+  public isSelected: boolean = false;
+//   private menuService: MenuService;
+//   private parentId: string;
   message: any;
-  subscription: Subscription;
+  subscription!: Subscription;
 
   constructor(private menuState: MenuService) {}
 
@@ -55,7 +55,7 @@ export class ActionMenuItemComponent implements OnChanges, OnInit, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (hasChanges(changes.selected)) {
+    if (hasChanges(changes[`selected`])) {
       this.isSelected = stringToBoolean(this.selected);
     }
   }

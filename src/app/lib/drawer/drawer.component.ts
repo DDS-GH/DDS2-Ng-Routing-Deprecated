@@ -7,16 +7,16 @@ import { DdsComponent } from "../helpers/dds.component";
   styleUrls: [`./drawer.component.scss`]
 })
 export class DrawerComponent extends DdsComponent {
-  @ViewChild("triggerContainer") triggerContainer: ElementRef<HTMLElement>;
+  @ViewChild("triggerContainer") triggerContainer!: ElementRef<HTMLElement>;
   @Input() icon: string = ``; // changing the close icon of a drawer is not design-approved
   @Input() backText: string = `Back`;
 
-  ngOnInit() {
+  override ngOnInit() {
     super.ngOnInit();
     this.ddsInitializer = `Drawer`;
   }
 
-  ngAfterViewInit() {
+  override ngAfterViewInit() {
     super.ngAfterViewInit();
     if (this.icon) {
       this.ddsElement.querySelector(

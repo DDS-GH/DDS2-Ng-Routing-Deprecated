@@ -7,11 +7,10 @@ import { DdsComponent } from "../helpers/dds.component";
   styleUrls: ["./badge.component.scss"]
 })
 export class BadgeComponent extends DdsComponent {
-  @Input() classList: string = ``;
   @Input() icon: string = ``;
   @Input() value: string = ``;
   @Input() units: string = ``;
-  @Input() pointer: boolean = false;
+  @Input() pointer: any = false;
   public has: any = {
     icon: false,
     value: false,

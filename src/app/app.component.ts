@@ -35,7 +35,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     simple: `cube`
   };
   public currentRoute: string = ``;
-  private menuItems: any = menuItems;
+  public menuItems: any = menuItems;
 
   constructor(private router: Router) {
     this.currentRoute = "";
@@ -71,7 +71,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     "init" property to "manual" and then just calling initializeNow
     whenever you like */
     if (this.sideNav) {
-      this.sideNav.initializeNow();
+        // @ts-ignore
+        this.sideNav.initializeNow();
     }
     // console.clear();
     // let baseStyles = [
@@ -107,13 +108,13 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
     // alpha-sort menuItems
     this.menuItems = [
-      ...this.menuItems.sort((a, b) =>
+      ...this.menuItems.sort((a: any, b: any) =>
         a.text > b.text ? 1 : b.text > a.text ? -1 : 0
       )
     ];
     // sort tags into a unique array
-    this.menuItems.forEach((mi) => {
-      mi.tags.forEach((tag) => {
+    this.menuItems.forEach((mi: any) => {
+      mi.tags.forEach((tag: any) => {
         if (!this.menuTags.includes(tag)) {
           this.menuTags.push(tag);
         }
@@ -150,6 +151,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       clas.remove(clos);
       clas.add(open);
     }
+    // @ts-ignore
     this.sideNav.toggle();
   }
 }

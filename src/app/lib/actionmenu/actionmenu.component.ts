@@ -19,18 +19,18 @@ export class ActionMenuComponent
   extends DdsComponent
   implements OnInit, OnDestroy
 {
-  @Input() button: string;
+  @Input() button: string = ``;
   @Input() alignment: 'start' | 'end' = 'start';
-  private menuService: MenuService;
-  private subscription: Subscription;
-  private wasInside: boolean = false;
-  private chevron: string;
+  private menuService!: MenuService;
+  private subscription!: Subscription;
+//   private wasInside: boolean = false;
+//   private chevron: string;
 
   constructor(private eRef: ElementRef, private menuState: MenuService) {
     super();
   }
 
-  ngOnInit() {
+  override ngOnInit() {
     super.ngOnInit();
     this.ddsInitializer = `ActionMenu`;
     this.ddsOptions = {

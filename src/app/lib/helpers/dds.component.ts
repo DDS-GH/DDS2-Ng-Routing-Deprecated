@@ -16,9 +16,9 @@ export class DdsComponent implements OnInit, AfterViewInit {
   @Input() elementId: string = ``;
   @Input() init: string = `now`;
   @Input() classList: string = ``;
+  @Input() ddsOptions: any;
 
   public ddsInitializer: any;
-  public ddsOptions: any;
   public ddsElement: any;
   public ddsComponent: any;
   private observers: Array<any> | undefined;

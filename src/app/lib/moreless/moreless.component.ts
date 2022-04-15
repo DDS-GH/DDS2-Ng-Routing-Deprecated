@@ -13,7 +13,7 @@ export class MoreLessComponent extends DdsComponent {
   @Input() srLess: string = ``;
   @Input() type: "related" | "list" | "bottom" | "inline" = "related";
 
-  ngOnInit() {
+  override ngOnInit() {
     super.ngOnInit();
     this.ddsInitializer = `MoreLess`;
     if (this.srMore && !this.srLess) {

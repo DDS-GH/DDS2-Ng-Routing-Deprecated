@@ -1,48 +1,49 @@
 <h2>Accordion</h2>
 
 <dds-accordion
-  ddsOptions="{independent: false; srExpandAll: 'is expanded', srCollapseAll: 'is collapsed'}"
+  independent="false"
   controls="true"
 >
   <dds-accordion-item
+    id="item{{i}}"
     title="Accordion #{{i}}"
     *ngFor="let item of [1,2,3]; index as i; first as isFirst"
     expanded="{{isFirst}}"
     disabled="{{!isFirst && i % 2 === 0 ? true : false}}"
   >
-    <ng-template accordionContent>
+    <!-- <ng-template accordionContent> -->
       {{i+1}}. Queso when the cheese comes out everybody's happy jarlsberg.
       Roquefort cheesecake cheddar cheese and wine cheeseburger caerphilly queso
       cheesy feet. Lancashire taleggio melted cheese who moved my cheese blue
       castello pecorino cheese strings babybel. Taleggio squirty cheese cheesy
       feet cow cheese and biscuits queso melted cheese stinking bishop. Cow
       goat.
-    </ng-template>
+    <!-- </ng-template> -->
   </dds-accordion-item>
 </dds-accordion>
 
 <hr class="exampleSeparator" />
 
-<dds-accordion ddsOptions="{independent: true}" elementId="george">
-  <dds-accordion-item title="Multi-Level Example">
-    <ng-template accordionContent>
+<dds-accordion independent="true" elementId="george">
+  <dds-accordion-item title="Multi-Level Example" id="multi1">
+    <!-- <ng-template accordionContent> -->
       You can put in a second accordion:
       <dds-accordion elementId="harry">
-        <dds-accordion-item title="Multi-Level Example">
-          <ng-template accordionContent>
+        <dds-accordion-item title="Multi-Level Example" id="multi2">
+          <!-- <ng-template accordionContent> -->
             <ul>
               <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
               <li>Aliquam tincidunt mauris eu risus.</li>
               <li>Vestibulum auctor dapibus neque.</li>
             </ul>
-          </ng-template>
+          <!-- </ng-template> -->
         </dds-accordion-item>
       </dds-accordion>
-    </ng-template>
+    <!-- </ng-template> -->
   </dds-accordion-item>
-  <dds-accordion-item title="YA Item">
-    <ng-template accordionContent>
+  <dds-accordion-item title="YA Item" id="yanother">
+    <!-- <ng-template accordionContent> -->
       Whatchoolookinat, Willis?
-    </ng-template>
+    <!-- </ng-template> -->
   </dds-accordion-item>
 </dds-accordion>
