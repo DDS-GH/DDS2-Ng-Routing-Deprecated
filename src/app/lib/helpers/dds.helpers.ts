@@ -1,4 +1,4 @@
-const foundEls = []; // keeps a log of elements that are found and initialized, so as not to try reinitializing them
+const foundEls: string[] = []; // keeps a log of elements that are found and initialized, so as not to try reinitializing them
 export interface ObserverDef {
   selector: String;
   callback: (elem: any) => void;
@@ -26,10 +26,10 @@ const handleFound = (
  * @param {Array<ObserverDef>} observerDefs - an array of elements to await
  * @return {Array<observer} observers - an array of all MutationObservers created
  */
-export const createObserver = (observerDefs) => {
+export const createObserver = (observerDefs: any) => {
   // As assistance for delayed initialization, define an observer to watch for changes
-  var observers = [];
-  observerDefs.forEach(function (obd) {
+  var observers: MutationObserver[] = [];
+  observerDefs.forEach(function (obd: any) {
     observers.push(
       new MutationObserver(function (mutations, me) {
         var targetElems = document.querySelectorAll(obd.selector);
@@ -112,8 +112,8 @@ export const ddsLink = (link: string): string => {
 };
 
 export const debounce = (func: any, timeout = 500) => {
-  let timer;
-  return (...args) => {
+  let timer: any;
+  return (...args: any) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
       func.apply(this, args);
@@ -122,8 +122,8 @@ export const debounce = (func: any, timeout = 500) => {
 };
 
 export const throttle = (func: any, timeout = 500) => {
-  let timer;
-  return (...args) => {
+  let timer: any;
+  return (...args: any) => {
     if (!timer) {
       func.apply(this, args);
     }
@@ -176,7 +176,7 @@ export const arrayAdd = (arr: Array<any>, value: any) => {
   }
 };
 
-export const parseData = (data) => {
+export const parseData = (data: any) => {
   try {
     // replace single quotes with double quotes for true JSON
     data = JSON.parse(

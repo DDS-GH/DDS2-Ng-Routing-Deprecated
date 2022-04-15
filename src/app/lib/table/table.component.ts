@@ -7,7 +7,7 @@ import { DdsComponent } from "../helpers/dds.component";
   styleUrls: [`./table.component.scss`]
 })
 export class TableComponent extends DdsComponent {
-  @Input() config: any = ``;
+  @Input() config!: any;
 
   // @ts-ignore
   ngOnInit(): void {

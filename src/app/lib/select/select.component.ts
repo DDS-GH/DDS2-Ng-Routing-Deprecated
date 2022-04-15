@@ -7,13 +7,13 @@ import { DdsComponent } from "../helpers/dds.component";
   styleUrls: [`./select.component.scss`]
 })
 export class SelectComponent extends DdsComponent {
-  @Input() selectOptions: Array<string>;
-  @Input() label: string;
-  @Input() defaultValue: string;
+  @Input() selectOptions!: Array<string>;
+  @Input() label: string = ``;
+  @Input() defaultValue: string = ``;
   @Output() optionSelected: EventEmitter<string> = new EventEmitter<string>();
-  private selectedValue: string;
+  private selectedValue: string = ``;
 
-  ngOnInit() {
+  override ngOnInit() {
     super.ngOnInit();
     this.ddsInitializer = `Select`;
   }

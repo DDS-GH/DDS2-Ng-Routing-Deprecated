@@ -5,7 +5,7 @@ import { Directive, ElementRef, Input, OnInit } from "@angular/core";
 })
 export class IsSelectedDirective implements OnInit {
   constructor(private el: ElementRef) {}
-  @Input() isSelected: string;
+  @Input() isSelected: string | undefined;
 
   ngOnInit() {
     if (this.isSelected) {
@@ -16,7 +16,7 @@ export class IsSelectedDirective implements OnInit {
     }
   }
 
-  stringToBoolean = (thisState) => {
+  stringToBoolean = (thisState: string) => {
     if (thisState === "0" || thisState === "false") {
       return false;
     }

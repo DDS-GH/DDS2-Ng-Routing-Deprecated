@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   navFixed: boolean = false;
   private scrollOffset: number = 70;
 
-  constructor(@Inject(DOCUMENT) document) {}
+//   constructor(@Inject(DOCUMENT) document) {}
 
   @HostListener("window:scroll")
   // @ts-ignore

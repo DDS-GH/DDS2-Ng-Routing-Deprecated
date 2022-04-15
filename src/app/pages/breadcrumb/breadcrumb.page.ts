@@ -5,7 +5,7 @@ import * as data from "./breadcrumb.page.json";
   templateUrl: "./breadcrumb.page.html"
 })
 export class BreadcrumbPageComponent implements OnInit {
-  public bcData: JSON;
+  public bcData!: any;
 
   // @ts-ignore
   ngOnInit(): void {

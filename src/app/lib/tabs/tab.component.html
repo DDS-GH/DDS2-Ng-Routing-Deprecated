@@ -10,7 +10,7 @@
   >
     <i *ngIf="icon" [ngClass]="tabIconClasses"></i>
     <span class="dds__tabs__tab__image" *ngIf="image">
-      <img [src]="image" />
+      <img alt="{{title}}" [src]="image" />
     </span>
     <span class="dds__tabs__tab__label" [title]="title">
       {{ title }}

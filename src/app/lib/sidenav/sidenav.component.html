@@ -1,5 +1,5 @@
 <div *ngIf="sticky==='true'" class="dds__sidenav--sticky">
-  <i (click)="toggle()" class="dds__icon {{stickyIcon}}"></i>
+  <i (click)="toggle($event)" class="dds__icon {{stickyIcon}}"></i>
 </div>
 <section
   class="dds__side-nav__wrapper {{classList}}"

@@ -6,6 +6,7 @@ import {
   Input
 } from "@angular/core";
 import { DdsComponent } from "../helpers/dds.component";
+import { stringToBoolean } from "../helpers/dds.helpers";
 import { AccordionItem } from "./directives/accordion-item.directive";
 
 @Component({
@@ -13,8 +14,9 @@ import { AccordionItem } from "./directives/accordion-item.directive";
   templateUrl: "./accordion.component.html"
 })
 export class AccordionComponent extends DdsComponent implements OnInit {
-  @ContentChildren(AccordionItem) items: QueryList<AccordionItem> | undefined;
+  @ContentChildren(AccordionItem) items!: QueryList<AccordionItem>;
   @Input() controls: any = `false`;
+  @Input() independent: any = `false`;
   @Input() texts: any = {
     itemCollapsed: `item collapsed`,
     itemExpanded: `item expanded`,
@@ -23,10 +25,17 @@ export class AccordionComponent extends DdsComponent implements OnInit {
     expandAll: `Expand All`,
     collapseAll: `Collapse All`
   };
+  
 
-  // @ts-ignore
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
     this.ddsInitializer = `Accordion`;
+    this.controls = stringToBoolean(this.controls);
+    this.independent = stringToBoolean(this.independent);
   }
+
+  override ngAfterViewInit(): void {
+    super.ngAfterViewInit();
+  }
+
 }

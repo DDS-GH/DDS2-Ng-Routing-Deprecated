@@ -16,9 +16,9 @@ export class DdsComponent implements OnInit, AfterViewInit {
   @Input() elementId: string = ``;
   @Input() init: string = `now`;
   @Input() classList: string = ``;
+  @Input() ddsOptions: any;
 
   public ddsInitializer: any;
-  public ddsOptions: any;
   public ddsElement: any;
   public ddsComponent: any;
   private observers: Array<any> | undefined;
@@ -70,6 +70,7 @@ export class DdsComponent implements OnInit, AfterViewInit {
     const ddsCom: string = this.parseInitializer(`component`);
     if (this.ddsElement) {
       if (DDS[ddsCom]) {
+          console.log(this.ddsElement, this.ddsOptions);
         this.ddsComponent = new DDS[ddsCom](this.ddsElement, this.ddsOptions);
       } else {
         console.error(`No such DDS Component, ${ddsCom}`);

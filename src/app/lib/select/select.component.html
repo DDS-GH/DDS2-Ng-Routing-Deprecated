@@ -11,7 +11,7 @@
       <option
         *ngFor="let va of selectOptions"
         value="{{ va }}"
-        [isSelected]="va===defaultValue"
+        [isSelected]="va===defaultValue ? 'true' : ''"
       >
         {{ va }}
       </option>

@@ -15,8 +15,8 @@ import { debounce, throttle, stringToBoolean } from "../helpers/dds.helpers";
   styleUrls: [`./dropdown.component.scss`]
 })
 export class DropdownComponent extends DdsComponent implements OnChanges {
-  @Input() label: string;
-  @Input() helper: string;
+  @Input() label: string = ``;
+  @Input() helper: string = ``;
   @Input() groups: any;
   @Input() noOptionsLabel: string = `No options found`;
   @Input() selectedLabel: string = `selected`;
@@ -30,7 +30,7 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
   @Output() optionsCleared: EventEmitter<string> = new EventEmitter<string>();
   private listeners: Array<any> = [];
 
-  ngOnInit() {
+  override ngOnInit() {
     super.ngOnInit();
     this.ddsInitializer = `Dropdown`;
     this.ddsOptions = {
@@ -43,7 +43,7 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
     this.parseData();
   }
 
-  ngAfterViewInit() {
+  override ngAfterViewInit() {
     super.ngAfterViewInit();
     const dropdownNotice = this.ddsElement.querySelector(
       `.dds__dropdown__notice`
@@ -56,7 +56,7 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
       dropdownNotice.innerText = ``;
       this.onKeyUp.emit(dropdownInput.value);
     };
-    const handleDownFinal = (e) => {
+    const handleDownFinal = (e: any) => {
       const ignoredKeys = [`ArrowLeft`, `ArrowRight`, `ArrowUp`, `ArrowDown`];
       if (!ignoredKeys.includes(e.key) && this.noOptionsLabel) {
         dropdownNotice.innerText = this.noOptionsLabel;
@@ -69,7 +69,7 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
       }
     };
     const handleKeyUp = debounce(() => handleUpFinal());
-    const handleKeyDown = throttle((e) => handleDownFinal(e));
+    const handleKeyDown = throttle((e: any) => handleDownFinal(e));
     if (this.useBackend && !this.listeners.includes(`backendKeys`)) {
       this.listeners.push(`backendKeys`);
       dropdownInput.addEventListener(`keyup`, handleKeyUp);
@@ -81,7 +81,7 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
     }
     if (!this.listeners.includes(`clicking`)) {
       this.listeners.push(`clicking`);
-      this.ddsElement.addEventListener(`click`, (e) => {
+      this.ddsElement.addEventListener(`click`, (e: any) => {
         if (
           e.target.classList &&
           e.target.classList.contains(`dds__dropdown__item-option`)
@@ -114,7 +114,7 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
         .replace(/@p0z/g, "'");
       try {
         this.groups = JSON.parse(this.groups);
-      } catch (e) {
+      } catch (e: any) {
         console.error(e.message);
         this.label = `Error parsing Dropdown Data`;
         this.groups = [];
@@ -124,9 +124,9 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (
-      changes.groups &&
-      !changes.groups.firstChange &&
-      changes.groups.currentValue !== changes.groups.previousValue
+        changes[`groups`] &&
+      !changes[`groups`].firstChange &&
+      changes[`groups`].currentValue !== changes[`groups`].previousValue
     ) {
       this.parseData();
     }
