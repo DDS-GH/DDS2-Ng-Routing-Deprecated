@@ -70,7 +70,6 @@ export class DdsComponent implements OnInit, AfterViewInit {
     const ddsCom: string = this.parseInitializer(`component`);
     if (this.ddsElement) {
       if (DDS[ddsCom]) {
-          console.log(this.ddsElement, this.ddsOptions);
         this.ddsComponent = new DDS[ddsCom](this.ddsElement, this.ddsOptions);
       } else {
         console.error(`No such DDS Component, ${ddsCom}`);
