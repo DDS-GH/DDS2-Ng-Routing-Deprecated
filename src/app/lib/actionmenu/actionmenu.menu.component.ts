@@ -9,12 +9,12 @@ import { Subscription } from "rxjs";
   styleUrls: [`./actionmenu.menu.component.scss`]
 })
 export class ActionMenuMenuComponent {
-  @Input() id: string;
-  @Input() icon: string;
+  @Input() id: string = ``;
+  @Input() icon: string = ``;
   @Input() name: string = "";
-  @Input() separator: boolean = false;
-  private open: boolean;
-  private parentId: string;
+  @Input() separator: any = false;
+//   private open: boolean = false;
+//   private parentId: string = ``;
   message: any;
 
   constructor(private menuState: MenuService) {}

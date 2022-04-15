@@ -6,7 +6,7 @@ import * as data from "./ticket319.page.json";
 })
 export class Ticket319Component implements AfterViewInit {
   @ViewChild("ddAccordion") ddAccordion: ElementRef<HTMLElement> | undefined;
-  public dropdata: JSON = data;
+  public dropdata: any = data;
 
   // @ts-ignore
   ngAfterViewInit(): void {

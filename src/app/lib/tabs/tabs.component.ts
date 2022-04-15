@@ -5,8 +5,7 @@ import { DdsComponent } from "../helpers/dds.component";
   templateUrl: `./tabs.component.html`
 })
 export class TabsComponent extends DdsComponent {
-  // @ts-ignore
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
     this.ddsInitializer = `Tabs`;
   }

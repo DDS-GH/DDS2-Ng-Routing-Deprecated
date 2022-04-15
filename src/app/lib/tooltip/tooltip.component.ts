@@ -7,10 +7,10 @@ import { DdsComponent } from "../helpers/dds.component";
   styleUrls: ["./tooltip.component.scss"]
 })
 export class TooltipComponent extends DdsComponent {
-  @Input() icon: string;
+  @Input() icon: string = ``;
   @Input() placement: "top" | "right" | "bottom" | "left" = "top";
 
-  ngOnInit() {
+  override ngOnInit() {
     super.ngOnInit();
     this.ddsInitializer = `Tooltip`;
     if (!this.icon) {

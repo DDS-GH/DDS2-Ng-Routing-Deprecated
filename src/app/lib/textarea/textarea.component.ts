@@ -8,20 +8,20 @@ import { Uuid, stringToBoolean } from '../helpers/dds.helpers';
   styleUrls: [`./textarea.component.scss`],
 })
 export class TextAreaComponent extends DdsComponent {
-  @ViewChild('textContainer') textContainer: ElementRef;
-  @ViewChild('srContainer') srContainer: ElementRef;
-  @Input() isRequired: string;
-  @Input() maxLength: string;
-  public defaultText: string;
-  public srText: string;
-  public textAreaId: string;
-  public labelId: string;
-  public helperId: string;
+  @ViewChild('textContainer') textContainer!: ElementRef;
+  @ViewChild('srContainer') srContainer!: ElementRef;
+  @Input() isRequired: string = `false`;
+  @Input() maxLength: string = ``;
+  public defaultText: string = ``;
+  public srText: string = ``;
+  public textAreaId: string = ``;
+  public labelId: string = ``;
+  public helperId: string = ``;
   public states: any = {
     required: false,
   };
 
-  ngOnInit() {
+  override ngOnInit() {
     super.ngOnInit();
     this.ddsInitializer = `TextArea`;
     this.textAreaId = `${this.ddsInitializer}-textarea${Uuid()}`;
@@ -30,7 +30,7 @@ export class TextAreaComponent extends DdsComponent {
     this.states.required = stringToBoolean(this.isRequired);
   }
 
-  ngAfterViewInit() {
+  override ngAfterViewInit() {
     super.ngAfterViewInit();
     setTimeout(() => {
       this.defaultText = this.textContainer?.nativeElement.innerText;

@@ -21,7 +21,7 @@ export class FormComponent extends DdsComponent implements AfterViewInit {
   //   });
   // }
 
-  ngOnInit() {
+  override ngOnInit() {
     super.ngOnInit();
     this.ddsInitializer = {
       component: `Form`,

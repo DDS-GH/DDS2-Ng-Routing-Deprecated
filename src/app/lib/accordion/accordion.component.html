@@ -1,15 +1,15 @@
 <div
   role="region"
-  id="{{elementId}}"
+  [id]="elementId"
   class="dds__accordion {{classList}}"
   data-dds="accordion"
-  data-independent="true"
+  [attr.data-independent]="independent"
   [attr.data-sr-collapse-all]="items.length + ' ' + texts.itemsCollapsed"
   [attr.data-sr-expand-all]="items.length + ' ' + texts.itemsExpanded"
   [attr.data-sr-expand-item]="texts.itemExpanded"
   [attr.data-sr-collapse-item]="texts.itemCollapsed"
 >
-  <div *ngIf="controls=='true'" class="dds__accordion__control">
+  <div *ngIf="controls" class="dds__accordion__control">
     <button class="dds__accordion__control__expand" aria-disabled="false">
       {{texts.expandAll}}
     </button>
@@ -17,36 +17,5 @@
       {{texts.collapseAll}}
     </button>
   </div>
-  <div
-    *ngFor="let item of items;index as i"
-    class="dds__accordion__item"
-    [class.dds__accordion__item--expanded]="item.expanded=='true'"
-  >
-    <h5 class="dds__accordion__heading">
-      <button
-        id="{{elementId}}Trigger{{i}}"
-        class="dds__accordion__button"
-        [disabled]="item.disabled=='true'"
-        [attr.data-target]="'#' + elementId"
-        [attr.aria-expanded]="item.expanded"
-        [attr.aria-controls]="elementId"
-      >
-        <span class="dds__mx-2">
-          {{item.title}}
-        </span>
-      </button>
-    </h5>
-    <div
-      id="{{ elementId }}Content{{i}}"
-      class="dds__accordion__content"
-      role="region"
-      [attr.aria-labelledby]="elementId + 'Trigger' + i"
-    >
-      <div class="dds__accordion__body">
-        <ng-container
-          *ngTemplateOutlet="item?.content?.templateRef"
-        ></ng-container>
-      </div>
-    </div>
-  </div>
+  <ng-content select="dds-accordion-item" [elementId]="elementId"></ng-content>
 </div>

@@ -17,7 +17,6 @@ export class TagComponent extends DdsComponent implements AfterViewInit {
   @Input() aria: string = `Dismiss`;
   @Input() dismiss: any = `true`;
   @Input() icon: string = ``;
-  @Input() classList: string = ``;
   @Input() value: string = ``;
 
   // @ts-ignore

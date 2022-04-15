@@ -1,0 +1,16 @@
+<div class="dds__accordion__item" [class.dds__accordion__item--expanded]="expanded">
+    <h5 class="dds__accordion__heading">
+        <button id="{{elementId}}Trigger{{id}}" class="dds__accordion__button" [disabled]="disabled"
+            [attr.data-target]="'#' + elementId" [attr.aria-expanded]="expanded" [attr.aria-controls]="elementId">
+            <span class="dds__mx-2">
+                {{title}}
+            </span>
+        </button>
+    </h5>
+    <div id="{{ elementId }}Content{{id}}" class="dds__accordion__content" role="region"
+        [attr.aria-labelledby]="elementId + 'Trigger' + id">
+        <div class="dds__accordion__body">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>
