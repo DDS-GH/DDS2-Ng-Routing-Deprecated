@@ -12,95 +12,93 @@
         expanded="{{isFirst}}"
         disabled="{{!isFirst && i % 2 === 0 ? true : false}}"
       >
-        <ng-template accordionContent>
-          <dds-moreless
-            title="More napping"
-            type="list"
-            srMore="all the napping is exhausting"
-            classList="checkboxList"
-          >
-            <ul is-list class="dds__more-less__target">
-              <li>
-                <label class="dds__checkbox__label" for="checkbox-input-0">
-                  <input
-                    type="checkbox"
-                    tabindex="0"
-                    id="checkbox-input-0"
-                    name="example-checkbox"
-                    class="dds__checkbox__input"
-                    [(ngModel)]="checkbox0"
-                  />
-                  <span>shake treat bag</span>
-                </label>
-              </li>
-              <li>
-                <label class="dds__checkbox__label" for="checkbox-input-1">
-                  <input
-                    type="checkbox"
-                    tabindex="0"
-                    id="checkbox-input-1"
-                    name="example-checkbox"
-                    class="dds__checkbox__input"
-                    [(ngModel)]="checkbox1"
-                  />
-                  <span>sleeps all day</span>
-                </label>
-              </li>
-              <li>
-                <label class="dds__checkbox__label" for="checkbox-input-2">
-                  <input
-                    type="checkbox"
-                    tabindex="0"
-                    id="checkbox-input-2"
-                    name="example-checkbox"
-                    class="dds__checkbox__input"
-                    [(ngModel)]="checkbox2"
-                  />
-                  <span>crouch, shake butt</span>
-                </label>
-              </li>
-              <li>
-                <label class="dds__checkbox__label" for="checkbox-input-3">
-                  <input
-                    type="checkbox"
-                    tabindex="0"
-                    id="checkbox-input-3"
-                    name="example-checkbox"
-                    class="dds__checkbox__input"
-                    [(ngModel)]="checkbox3"
-                  />
-                  <span>prepare to pounce</span>
-                </label>
-              </li>
-              <li hidden="true">
-                <label class="dds__checkbox__label" for="checkbox-input-4">
-                  <input
-                    type="checkbox"
-                    tabindex="0"
-                    id="checkbox-input-4"
-                    name="example-checkbox"
-                    class="dds__checkbox__input"
-                    [(ngModel)]="checkbox4"
-                  />
-                  <span>gives owner dead mouse</span>
-                </label>
-              </li>
-              <li hidden="true">
-                <label class="dds__checkbox__label" for="checkbox-input-5">
-                  <input
-                    type="checkbox"
-                    tabindex="0"
-                    id="checkbox-input-5"
-                    name="example-checkbox"
-                    class="dds__checkbox__input"
-                    [(ngModel)]="checkbox5"
-                  />
-                  <span>does not like water meow</span>
-                </label>
-              </li>
-            </ul>
-          </dds-moreless>
-        </ng-template>
+        <dds-moreless
+          title="More napping"
+          type="list"
+          srMore="all the napping is exhausting"
+          classList="checkboxList"
+        >
+          <ul is-list class="dds__more-less__target">
+            <li>
+              <label class="dds__checkbox__label" for="checkbox-input-0">
+                <input
+                  type="checkbox"
+                  tabindex="0"
+                  id="checkbox-input-0"
+                  name="example-checkbox"
+                  class="dds__checkbox__input"
+                  [(ngModel)]="checkbox0"
+                />
+                <span>shake treat bag</span>
+              </label>
+            </li>
+            <li>
+              <label class="dds__checkbox__label" for="checkbox-input-1">
+                <input
+                  type="checkbox"
+                  tabindex="0"
+                  id="checkbox-input-1"
+                  name="example-checkbox"
+                  class="dds__checkbox__input"
+                  [(ngModel)]="checkbox1"
+                />
+                <span>sleeps all day</span>
+              </label>
+            </li>
+            <li>
+              <label class="dds__checkbox__label" for="checkbox-input-2">
+                <input
+                  type="checkbox"
+                  tabindex="0"
+                  id="checkbox-input-2"
+                  name="example-checkbox"
+                  class="dds__checkbox__input"
+                  [(ngModel)]="checkbox2"
+                />
+                <span>crouch, shake butt</span>
+              </label>
+            </li>
+            <li>
+              <label class="dds__checkbox__label" for="checkbox-input-3">
+                <input
+                  type="checkbox"
+                  tabindex="0"
+                  id="checkbox-input-3"
+                  name="example-checkbox"
+                  class="dds__checkbox__input"
+                  [(ngModel)]="checkbox3"
+                />
+                <span>prepare to pounce</span>
+              </label>
+            </li>
+            <li hidden="true">
+              <label class="dds__checkbox__label" for="checkbox-input-4">
+                <input
+                  type="checkbox"
+                  tabindex="0"
+                  id="checkbox-input-4"
+                  name="example-checkbox"
+                  class="dds__checkbox__input"
+                  [(ngModel)]="checkbox4"
+                />
+                <span>gives owner dead mouse</span>
+              </label>
+            </li>
+            <li hidden="true">
+              <label class="dds__checkbox__label" for="checkbox-input-5">
+                <input
+                  type="checkbox"
+                  tabindex="0"
+                  id="checkbox-input-5"
+                  name="example-checkbox"
+                  class="dds__checkbox__input"
+                  [(ngModel)]="checkbox5"
+                />
+                <span>does not like water meow</span>
+              </label>
+            </li>
+          </ul>
+        </dds-moreless>
       </dds-accordion-item>
     </dds-accordion>
   </div>
@@ -118,13 +116,15 @@
         Note for backend searching, you must set useBackend="true"
       </b>
     </p>
-    <dds-button
-      elementId="dropdownUpdate"
-      ariaLabel="Update Data in dropdown"
-      (click)="handleDropdown.externalUpdate()"
-    >
-      Update Data
-    </dds-button>
+    <div class="controlPanel">
+      <dds-button
+        elementId="dropdownUpdate"
+        ariaLabel="Update Data in dropdown"
+        (click)="handleDropdown.externalUpdate()"
+      >
+        Update Data
+      </dds-button>
+    </div>
   </div>
 </div>
 <div class="dds__row">

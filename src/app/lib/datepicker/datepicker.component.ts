@@ -14,12 +14,14 @@ export class DatePickerComponent extends DdsComponent {
   @Input() maxlength: string = `256`;
   @Input() helper: string = ``;
   @Input() fullClick: any = `false`;
+  @Input() isDisabled: any = `false`;
 
   override ngOnInit() {
     super.ngOnInit();
     this.ddsInitializer = `DatePicker`;
     this.required = stringToBoolean(this.required);
     this.fullClick = stringToBoolean(this.fullClick);
+    this.isDisabled = stringToBoolean(this.isDisabled);
   }
 
   handleInput(e: any) {

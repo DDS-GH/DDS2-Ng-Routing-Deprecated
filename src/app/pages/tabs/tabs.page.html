@@ -1,13 +1,11 @@
 <h2>Tabs</h2>
 <div class="dds__row">
   <div class="boxControl dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
-    <dds-button
-      elementId="selectTab3"
-      ariaLabel="Select Tab Externally"
-      (click)="tabsSelect(2)"
-    >
-      Select Tab 3
-    </dds-button>
+    <div class="controlPanel">
+      <dds-button (click)="tabsSelect(2)">
+        Select Tab 3
+      </dds-button>
+    </div>
   </div>
 </div>
 <div class="dds__row">

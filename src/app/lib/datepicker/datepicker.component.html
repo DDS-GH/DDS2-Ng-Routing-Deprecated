@@ -10,8 +10,9 @@
   >
     {{label}}
   </label>
-  <div class="dds__date-picker__wrapper">
+  <div class="dds__date-picker__wrapper" [class.isDisabled]="isDisabled">
     <input
+      [disabled]="isDisabled"
       [class.fullClick]="fullClick"
       (keydown)="handleInput($event)"
       (click)="handleInput($event)"

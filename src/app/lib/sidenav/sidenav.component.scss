@@ -1,3 +1,8 @@
+// ::ng-deep .dds__side-nav__wrapper {
+//   position: sticky;
+//   height: calc(100vh - 105px) !important;
+// }
+
 .dds__sidenav--sticky {
   position: absolute;
   z-index: 1;
