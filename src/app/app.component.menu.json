@@ -5,6 +5,11 @@
     "tags": ["all", "layout", "navigation"]
   },
   {
+    "icon": "calendar",
+    "text": "DatePicker",
+    "tags": ["all", "input", "search"]
+  },
+  {
     "icon": "filter",
     "text": "Filter",
     "tags": ["all", "search", "input", "patterns"]

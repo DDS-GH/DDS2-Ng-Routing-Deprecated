@@ -13,6 +13,7 @@ import { BadgePageComponent } from "./pages/badge/badge.page";
 import { BreadcrumbPageComponent } from "./pages/breadcrumb/breadcrumb.page";
 import { ButtonPageComponent } from "./pages/button/button.page";
 import { CheckboxPageComponent } from "./pages/checkbox/checkbox.page";
+import { DatePickerPageComponent } from "./pages/datepicker/datepicker.page";
 import { DrawerPageComponent } from "./pages/drawer/drawer.page";
 import { DropdownPageComponent } from "./pages/dropdown/dropdown.page";
 import { FilterPageComponent } from "./pages/filter/filter.page";
@@ -37,6 +38,7 @@ import { ActionMenuModule } from "./lib/actionmenu/actionmenu.module";
 import { BadgeComponent } from "./lib/badge/badge.component";
 import { BreadcrumbComponent } from "./lib/breadcrumb/breadcrumb.component";
 import { ButtonComponent } from "./lib/button/button.component";
+import { DatePickerComponent } from "./lib/datepicker/datepicker.component";
 import { DrawerComponent } from "./lib/drawer/drawer.component";
 import { DropdownComponent } from "./lib/dropdown/dropdown.component";
 import { FormComponent } from "./lib/form/form.component";
@@ -64,6 +66,7 @@ const appRoutes: Routes = [
   { path: "breadcrumb", component: BreadcrumbPageComponent },
   { path: "button", component: ButtonPageComponent },
   { path: "checkbox", component: CheckboxPageComponent },
+  { path: "datepicker", component: DatePickerPageComponent },
   { path: "drawer", component: DrawerPageComponent },
   { path: "dropdown", component: DropdownPageComponent },
   { path: "form", component: FormPageComponent },
@@ -87,6 +90,7 @@ const components = [
   BadgeComponent,
   BreadcrumbComponent,
   ButtonComponent,
+  DatePickerComponent,
   DrawerComponent,
   DropdownComponent,
   FormComponent,
@@ -110,6 +114,7 @@ const pages = [
   BreadcrumbPageComponent,
   ButtonPageComponent,
   CheckboxPageComponent,
+  DatePickerPageComponent,
   DrawerPageComponent,
   DropdownPageComponent,
   FilterPageComponent,

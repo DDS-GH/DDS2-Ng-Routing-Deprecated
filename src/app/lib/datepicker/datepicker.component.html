@@ -1,0 +1,35 @@
+<div
+  [id]="elementId"
+  class="dds__date-picker {{classList}}"
+  data-dds="date-picker"
+>
+  <label
+    [id]="elementId+'-label'"
+    [for]="elementId+'-input'"
+    class="dds__date-picker__label"
+  >
+    {{label}}
+  </label>
+  <div class="dds__date-picker__wrapper">
+    <input
+      [class.fullClick]="fullClick"
+      (keydown)="handleInput($event)"
+      (click)="handleInput($event)"
+      [id]="elementId+'-input'"
+      [name]="elementId+'-input'"
+      type="text"
+      class="dds__date-picker__input"
+      [placeholder]="placeholder"
+      [required]="required"
+      [attr.maxlength]="maxlength"
+      [attr.aria-labelledby]="elementId + '-label ' + elementId + '-helper'"
+    />
+    <small [id]="elementId+'-helper'" class="dds__date-picker__helper">
+      {{helper}}
+    </small>
+    <div
+      [id]="elementId+'-feedback'"
+      class="dds__date-picker__invalid-feedback"
+    ></div>
+  </div>
+</div>
