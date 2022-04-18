@@ -5,7 +5,7 @@
     id="item{{i}}"
     title="Accordion #{{i}}"
     *ngFor="let item of [1,2,3]; index as i; first as isFirst"
-    expanded="{{isFirst}}"
+    [expanded]="items1[i]"
     disabled="{{!isFirst && i % 2 === 0 ? true : false}}"
   >
     {{i+1}}. Queso when the cheese comes out everybody's happy jarlsberg.
@@ -18,11 +18,23 @@
 
 <hr class="exampleSeparator" />
 
-<dds-accordion independent="true" elementId="george">
-  <dds-accordion-item title="Multi-Level Example" id="multi1">
-    You can put in a second accordion:
+<dds-accordion
+  independent="true"
+  elementId="george"
+  (click)="handleAccordionClick($event)"
+>
+  <dds-accordion-item
+    [title]="items2[0].title"
+    [expanded]="items2[0].expanded"
+    id="multi1"
+  >
+    <p>
+      There is some parent/page-level logic going on here to save the state of
+      this accordion's items expanded status (top-level only) in localStorage.
+    </p>
+    <p>You can put in a second accordion:</p>
     <dds-accordion elementId="harry">
-      <dds-accordion-item title="Multi-Level Example" id="multi2">
+      <dds-accordion-item title="Inner Accordion" id="multi2">
         <ul>
           <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
           <li>Aliquam tincidunt mauris eu risus.</li>
@@ -31,7 +43,20 @@
       </dds-accordion-item>
     </dds-accordion>
   </dds-accordion-item>
-  <dds-accordion-item title="YA Item" id="yanother">
+  <dds-accordion-item
+    [title]="items2[1].title"
+    [expanded]="items2[1].expanded"
+    id="amphibia"
+  >
+    It's no big deal
+  </dds-accordion-item>
+  <dds-accordion-item
+    [title]="items2[2].title"
+    [expanded]="items2[2].expanded"
+    id="yanother"
+  >
     Whatchoolookinat, Willis?
   </dds-accordion-item>
 </dds-accordion>
+
+<hr />
