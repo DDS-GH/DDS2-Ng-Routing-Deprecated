@@ -46,6 +46,7 @@ import { HeaderComponent } from "./lib/header/header.component";
 import { MessageBarComponent } from "./lib/messagebar/messagebar.component";
 import { ModalComponent } from "./lib/modal/modal.component";
 import { MoreLessComponent } from "./lib/moreless/moreless.component";
+import { RadioComponent } from "./lib/radio/radio.component";
 import { SelectComponent } from "./lib/select/select.component";
 import { SidenavModule } from "./lib/sidenav/sidenav.module";
 import { TableComponent } from "./lib/table/table.component";
@@ -98,6 +99,7 @@ const components = [
   MessageBarComponent,
   ModalComponent,
   MoreLessComponent,
+  RadioComponent,
   SelectComponent,
   TableComponent,
   TagComponent,
