@@ -15,7 +15,6 @@ const icons: any = {
 })
 export class SidenavComponent extends DdsComponent {
   @Input() fixed: any = `false`;
-  @Input() sticky: any = `false`;
   public states: any = {
     open: false
   };

@@ -5,6 +5,8 @@
     [name]="name"
     [id]="elementId"
     [value]="value"
+    [checked]="checked"
+    (change)="handleChange(value)"
   />
   <label class="dds__radio-button__label" [attr.for]="elementId">
     {{ label }}

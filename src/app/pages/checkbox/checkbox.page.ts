@@ -5,5 +5,5 @@ import { Component } from "@angular/core";
 })
 // @ts-ignore
 export class CheckboxPageComponent {
-  public checkboxOn: boolean = false;
+  public checkboxOn: boolean = true;
 }

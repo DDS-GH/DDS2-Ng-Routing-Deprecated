@@ -1,32 +1,5 @@
-// ::ng-deep .dds__side-nav__wrapper {
-//   position: sticky;
-//   height: calc(100vh - 105px) !important;
-// }
-
-.dds__sidenav--sticky {
-  position: absolute;
-  z-index: 1;
-  bottom: -2px;
-  height: 50px;
-  right: 18px;
+::ng-deep .dds__side-nav__wrapper {
   background: white;
-  padding-top: 1rem;
-  width: 96%;
-  text-align: right;
-  i {
-    padding: 1rem 0.5rem 1rem 1rem;
-    cursor: pointer;
-  }
-}
-
-.dds__sidenav--sticky-hidden {
-  cursor: default;
-  visibility: hidden;
-  border: 30px solid red; // hack
-}
-
-@media only screen and (max-width: 480px) {
-  .dds__sidenav--sticky i {
-    display: none;
-  }
+  position: sticky;
+  height: calc(100vh - 6.5625rem) !important;
 }

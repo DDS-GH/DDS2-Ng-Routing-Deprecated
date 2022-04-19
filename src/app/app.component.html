@@ -88,13 +88,7 @@
   <main id="bodyMain">
     <nav>
       <!-- sidebar 1 content -->
-      <dds-sidenav
-        #sideNav
-        elementId="boxSidenav"
-        fixed="false"
-        init="manual"
-        sticky="true"
-      >
+      <dds-sidenav #sideNav elementId="boxSidenav" fixed="false" init="manual">
         <dds-sidenav-menu
           *ngFor="let tag of menuTags; index as t"
           icon="dds__icon--{{ tags[tag] }}"

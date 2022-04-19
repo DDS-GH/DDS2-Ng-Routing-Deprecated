@@ -3,10 +3,15 @@
   <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
     <fieldset required="true" class="dds__fieldset dds__fieldset--lg">
       <legend>Select service</legend>
-      <dds-radio name="services" value="10151951" label="Apex"></dds-radio>
-      <dds-radio name="services" value="05061957" label="Dell"></dds-radio>
-      <dds-radio name="services" value="1962" label="Ibex"></dds-radio>
-      <dds-radio name="services" value="1971" label="Energy"></dds-radio>
+      <dds-radio
+        *ngFor="let radio of radios"
+        name="services"
+        [value]="radio.value"
+        [label]="radio.label"
+        [checked]="radio.checked"
+        (onChecked)="handleChecked($event)"
+      ></dds-radio>
     </fieldset>
+    Value Selected = {{ radios[selected].label }}
   </div>
 </div>
