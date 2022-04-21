@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from "@angular/core";
 import { DdsComponent } from "../helpers/dds.component";
 
 @Component({
@@ -6,13 +6,27 @@ import { DdsComponent } from "../helpers/dds.component";
   templateUrl: `./table.component.html`,
   styleUrls: [`./table.component.scss`]
 })
-export class TableComponent extends DdsComponent {
+export class TableComponent extends DdsComponent implements OnChanges {
+  @Output() onSort: EventEmitter<any> = new EventEmitter<any>();
   @Input() config!: any;
 
-  // @ts-ignore
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
     this.ddsInitializer = `Table`;
     this.ddsOptions = this.config;
+  }
+
+  override ngAfterViewInit(): void {
+    super.ngAfterViewInit();
+    this.ddsElement.addEventListener(`ddsTableSortEvent`, (e: any) => {
+      this.onSort.emit(e.detail);
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes[`config`].firstChange) {
+      return;
+    }
+    console.log(changes[`config`]);
   }
 }

@@ -1,6 +1,23 @@
 <h2>Table</h2>
 <div class="dds__row">
   <div class="dds__col--2 dds__col--sm-6 dds__col--md-6 dds__mb-3">
-    <dds-table [config]="config"></dds-table>
+    <div class="controlPanel">
+      <button
+        role="button"
+        class="dds__button"
+        (click)="handleAdd($event)"
+        disabled
+      >
+        Add New Row
+      </button>
+      <button role="button" class="dds__button" (click)="handleSort($event)">
+        Col 0: {{ sorting }}
+      </button>
+    </div>
+    <dds-table
+      #myTable
+      [config]="config"
+      (onSort)="handleSort($event)"
+    ></dds-table>
   </div>
 </div>
