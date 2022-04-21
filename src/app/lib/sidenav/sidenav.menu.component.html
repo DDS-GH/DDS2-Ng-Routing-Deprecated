@@ -1,6 +1,6 @@
 <ng-template #content><ng-content></ng-content></ng-template>
 <li *ngIf="name" class="dds__side-nav__group">
-  <button aria-haspopup="true" aria-expanded="false">
+  <button aria-haspopup="true" [attr.aria-expanded]="open">
     <i *ngIf="icon && !svg" class="dds__icon {{icon}}"></i>
     <svg
       *ngIf="icon && svg"

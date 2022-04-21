@@ -93,6 +93,7 @@
           *ngFor="let tag of menuTags; index as t"
           icon="dds__icon--{{ tags[tag] }}"
           name="{{ tag.toUpperCase() }}"
+          open="false"
         >
           <ng-container *ngFor="let item of menuItems; index as i">
             <dds-sidenav-item

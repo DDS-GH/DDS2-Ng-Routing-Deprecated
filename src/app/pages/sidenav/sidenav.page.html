@@ -11,7 +11,7 @@
 </p>
 <hr class="boxHr" />
 <div
-  style="width: 400px; height: 300px; overflow-y: scroll; background: white;"
+  style="width: 400px; height: 800px; overflow-y: scroll; background: white;"
 >
   <!-- 
     HEADS UP!  HERE, I am going to embed some SVG defs into the page. Then, I'm passing 
@@ -94,14 +94,15 @@
     </defs>
   </svg>
 
-  <dds-sidenav fixed="true" init="now">
-    <dds-sidenav-menu icon="dds__icon--brightness" open="true" name="Fun Stuff">
-      <dds-sidenav-item
-        icon="dds__icon--brightness"
-        svg="true"
-        viewbox="-8 -8 48 48"
-        disabled="true"
-      >
+  <dds-sidenav fixed="false" init="now">
+    <dds-sidenav-menu
+      icon="dds__icon--brightness"
+      open="false"
+      name="Fun Stuff"
+      svg="true"
+      viewbox="-8 -8 48 48"
+    >
+      <dds-sidenav-item icon="dds__icon--brightness" disabled="true">
         A Disabled Choice
       </dds-sidenav-item>
       <dds-sidenav-item
