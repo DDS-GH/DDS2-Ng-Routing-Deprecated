@@ -71,8 +71,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     "init" property to "manual" and then just calling initializeNow
     whenever you like */
     if (this.sideNav) {
-        // @ts-ignore
-        this.sideNav.initializeNow();
+      // @ts-ignore
+      this.sideNav.initializeNow();
     }
     // console.clear();
     // let baseStyles = [
@@ -152,6 +152,6 @@ export class AppComponent implements OnInit, AfterViewInit {
       clas.add(open);
     }
     // @ts-ignore
-    this.sideNav.toggle();
+    this.sideNav.ddsComponent.toggle();
   }
 }

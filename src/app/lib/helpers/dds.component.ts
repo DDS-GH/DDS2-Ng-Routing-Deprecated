@@ -70,6 +70,7 @@ export class DdsComponent implements OnInit, AfterViewInit {
     const ddsCom: string = this.parseInitializer(`component`);
     if (this.ddsElement) {
       if (DDS[ddsCom]) {
+        this.tryParseOptions();
         this.ddsComponent = new DDS[ddsCom](this.ddsElement, this.ddsOptions);
       } else {
         console.error(`No such DDS Component, ${ddsCom}`);
@@ -89,6 +90,7 @@ export class DdsComponent implements OnInit, AfterViewInit {
       {
         selector: `#${this.elementId}`,
         callback: (elem: any): void => {
+          this.tryParseOptions();
           this.ddsComponent = new DDS[ddsCom](elem, this.ddsOptions);
         }
       }
@@ -98,4 +100,14 @@ export class DdsComponent implements OnInit, AfterViewInit {
       this.observers = createObserver(observerDefs);
     }
   };
+
+  tryParseOptions() {
+    try {
+      if (typeof this.ddsOptions === `string`) {
+        this.ddsOptions = JSON.parse(this.ddsOptions);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
 }
