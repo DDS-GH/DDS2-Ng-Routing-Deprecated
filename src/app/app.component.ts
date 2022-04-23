@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     input: `clipboard-lines`,
     layout: `arrange`,
     navigation: `chat-bot`,
-    patterns: `microchip`,
+    patterns: `puzzle`,
     search: `search`,
     secondary: `award-certificate`,
     simple: `cube`

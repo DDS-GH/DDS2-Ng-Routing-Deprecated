@@ -11,7 +11,12 @@
   },
   {
     "icon": "filter",
-    "text": "Filter",
+    "text": "Horizontal",
+    "tags": ["all", "search", "input", "patterns"]
+  },
+  {
+    "icon": "filter",
+    "text": "Vertical",
     "tags": ["all", "search", "input", "patterns"]
   },
   {

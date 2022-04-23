@@ -1,0 +1,124 @@
+<h2>Filter</h2>
+<div class="dds__row">
+  <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    <h3>Vertical</h3>
+  </div>
+</div>
+<div class="dds__row">
+  <div class="dds__col--1 dds__col--sm-3 dds__col--md-4 dds__mb-3">TAGS</div>
+  <div
+    class="dds__col--1 dds__col--sm-3 dds__col--md-8 dds__mb-3 dds__text-right"
+  >
+    SORT
+  </div>
+</div>
+<div class="dds__row">
+  <div class="dds__col--1 dds__col--sm-3 dds__col--md-4 dds__mb-3">
+    <dds-accordion
+      ddsOptions="{independent: false; srExpandAll: 'is expanded', srCollapseAll: 'is collapsed'}"
+      controls="false"
+    >
+      <dds-accordion-item
+        [title]="['little cat purr purr', 'CHECKBOXES ARE REPEATED IN THIS SAMPLE', 'catch a bird'][i]"
+        *ngFor="let item of [1,2,3]; index as i; first as isFirst"
+        expanded="{{isFirst}}"
+        disabled="{{!isFirst && i % 2 === 0 ? true : false}}"
+      >
+        <dds-moreless
+          title="More napping"
+          type="list"
+          srMore="all the napping is exhausting"
+          classList="checkboxList"
+        >
+          <ul is-list class="dds__more-less__target">
+            <li>
+              <label class="dds__checkbox__label" for="checkbox-input-0">
+                <input
+                  type="checkbox"
+                  tabindex="0"
+                  id="checkbox-input-0"
+                  name="example-checkbox"
+                  class="dds__checkbox__input"
+                  [(ngModel)]="checkbox0"
+                />
+                <span>shake treat bag</span>
+              </label>
+            </li>
+            <li>
+              <label class="dds__checkbox__label" for="checkbox-input-1">
+                <input
+                  type="checkbox"
+                  tabindex="0"
+                  id="checkbox-input-1"
+                  name="example-checkbox"
+                  class="dds__checkbox__input"
+                  [(ngModel)]="checkbox1"
+                />
+                <span>sleeps all day</span>
+              </label>
+            </li>
+            <li>
+              <label class="dds__checkbox__label" for="checkbox-input-2">
+                <input
+                  type="checkbox"
+                  tabindex="0"
+                  id="checkbox-input-2"
+                  name="example-checkbox"
+                  class="dds__checkbox__input"
+                  [(ngModel)]="checkbox2"
+                />
+                <span>crouch, shake butt</span>
+              </label>
+            </li>
+            <li>
+              <label class="dds__checkbox__label" for="checkbox-input-3">
+                <input
+                  type="checkbox"
+                  tabindex="0"
+                  id="checkbox-input-3"
+                  name="example-checkbox"
+                  class="dds__checkbox__input"
+                  [(ngModel)]="checkbox3"
+                />
+                <span>prepare to pounce</span>
+              </label>
+            </li>
+            <li hidden="true">
+              <label class="dds__checkbox__label" for="checkbox-input-4">
+                <input
+                  type="checkbox"
+                  tabindex="0"
+                  id="checkbox-input-4"
+                  name="example-checkbox"
+                  class="dds__checkbox__input"
+                  [(ngModel)]="checkbox4"
+                />
+                <span>gives owner dead mouse</span>
+              </label>
+            </li>
+            <li hidden="true">
+              <label class="dds__checkbox__label" for="checkbox-input-5">
+                <input
+                  type="checkbox"
+                  tabindex="0"
+                  id="checkbox-input-5"
+                  name="example-checkbox"
+                  class="dds__checkbox__input"
+                  [(ngModel)]="checkbox5"
+                />
+                <span>does not like water meow</span>
+              </label>
+            </li>
+          </ul>
+        </dds-moreless>
+      </dds-accordion-item>
+    </dds-accordion>
+    <dds-button>
+      Apply
+    </dds-button>
+  </div>
+  <div class="dds__col--1 dds__col--sm-9 dds__col--md-8 dds__mb-3">
+    AREA
+  </div>
+</div>
+<div style="height: 400px;"></div>

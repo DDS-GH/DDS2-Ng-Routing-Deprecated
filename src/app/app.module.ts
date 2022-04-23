@@ -16,7 +16,8 @@ import { CheckboxPageComponent } from "./pages/checkbox/checkbox.page";
 import { DatePickerPageComponent } from "./pages/datepicker/datepicker.page";
 import { DrawerPageComponent } from "./pages/drawer/drawer.page";
 import { DropdownPageComponent } from "./pages/dropdown/dropdown.page";
-import { FilterPageComponent } from "./pages/filter/filter.page";
+import { FilterHorizontalPageComponent } from "./pages/filter/horizontal.page";
+import { FilterVerticalPageComponent } from "./pages/filter/vertical.page";
 import { FormPageComponent } from "./pages/form/form.page";
 import { MessageBarPageComponent } from "./pages/messagebar/messagebar.page";
 import { ModalPageComponent } from "./pages/modal/modal.page";
@@ -71,7 +72,8 @@ const appRoutes: Routes = [
   { path: "drawer", component: DrawerPageComponent },
   { path: "dropdown", component: DropdownPageComponent },
   { path: "form", component: FormPageComponent },
-  { path: "filter", component: FilterPageComponent },
+  { path: "horizontal", component: FilterHorizontalPageComponent },
+  { path: "vertical", component: FilterVerticalPageComponent },
   { path: "messagebar", component: MessageBarPageComponent },
   { path: "modal", component: ModalPageComponent },
   { path: "moreless", component: MoreLessPageComponent },
@@ -119,7 +121,8 @@ const pages = [
   DatePickerPageComponent,
   DrawerPageComponent,
   DropdownPageComponent,
-  FilterPageComponent,
+  FilterHorizontalPageComponent,
+  FilterVerticalPageComponent,
   FormPageComponent,
   MessageBarPageComponent,
   ModalPageComponent,
