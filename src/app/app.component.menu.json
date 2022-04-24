@@ -2,6 +2,11 @@
   {
     "icon": "card-swipe-left",
     "text": "Sidenav",
+    "tags": ["all", "info"]
+  },
+  {
+    "icon": "chat-dots",
+    "text": "Popover",
     "tags": ["all", "layout", "navigation"]
   },
   {

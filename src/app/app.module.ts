@@ -22,6 +22,7 @@ import { FormPageComponent } from "./pages/form/form.page";
 import { MessageBarPageComponent } from "./pages/messagebar/messagebar.page";
 import { ModalPageComponent } from "./pages/modal/modal.page";
 import { MoreLessPageComponent } from "./pages/moreless/moreless.page";
+import { PopoverPageComponent } from "./pages/popover/popover.page";
 import { SelectPageComponent } from "./pages/select/select.page";
 import { SidenavPageComponent } from "./pages/sidenav/sidenav.page";
 import { TablePageComponent } from "./pages/table/table.page";
@@ -47,6 +48,7 @@ import { HeaderComponent } from "./lib/header/header.component";
 import { MessageBarComponent } from "./lib/messagebar/messagebar.component";
 import { ModalComponent } from "./lib/modal/modal.component";
 import { MoreLessComponent } from "./lib/moreless/moreless.component";
+import { PopoverComponent } from "./lib/popover/popover.component";
 import { RadioComponent } from "./lib/radio/radio.component";
 import { SelectComponent } from "./lib/select/select.component";
 import { SidenavModule } from "./lib/sidenav/sidenav.module";
@@ -77,6 +79,7 @@ const appRoutes: Routes = [
   { path: "messagebar", component: MessageBarPageComponent },
   { path: "modal", component: ModalPageComponent },
   { path: "moreless", component: MoreLessPageComponent },
+  { path: "popover", component: PopoverPageComponent },
   { path: "radio", component: RadioPageComponent },
   { path: "select", component: SelectPageComponent },
   { path: "sidenav", component: SidenavPageComponent },
@@ -101,6 +104,7 @@ const components = [
   MessageBarComponent,
   ModalComponent,
   MoreLessComponent,
+  PopoverComponent,
   RadioComponent,
   SelectComponent,
   TableComponent,
@@ -127,6 +131,7 @@ const pages = [
   MessageBarPageComponent,
   ModalPageComponent,
   MoreLessPageComponent,
+  PopoverPageComponent,
   RadioPageComponent,
   SelectPageComponent,
   SidenavPageComponent,

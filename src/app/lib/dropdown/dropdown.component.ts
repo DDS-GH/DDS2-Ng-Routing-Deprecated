@@ -18,11 +18,7 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
   @Input() label: string = ``;
   @Input() helper: string = ``;
   @Input() groups: any;
-  @Input() noOptionsLabel: string = `No options found`;
-  @Input() selectedLabel: string = `selected`;
-  @Input() srClearLabel: string = `clear selected items`;
   @Input() useBackend: any = `false`;
-  @Input() selection: string = `single`;
   @Input() warning: string = ``;
   @Output() onKeyUp: EventEmitter<string> = new EventEmitter<string>();
   @Output() optionSelected: EventEmitter<object> = new EventEmitter<object>();
@@ -30,15 +26,9 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
   @Output() optionsCleared: EventEmitter<string> = new EventEmitter<string>();
   private listeners: Array<any> = [];
 
-  override ngOnInit() {
+  override ngOnInit(): void {
     super.ngOnInit();
     this.ddsInitializer = `Dropdown`;
-    this.ddsOptions = {
-      selection: this.selection,
-      noOptionsLabel: this.noOptionsLabel,
-      selectedLabel: this.selectedLabel,
-      srClearLabel: this.srClearLabel
-    };
     this.useBackend = stringToBoolean(this.useBackend);
     this.parseData();
   }
