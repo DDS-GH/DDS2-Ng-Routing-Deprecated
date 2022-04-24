@@ -127,7 +127,8 @@ export class FilterHorizontalPageComponent implements OnInit {
   };
 
   matchSelectionsWithNewData = (index: number, e: string): any => {
-    // you'll need to make this your own.
+    // 1. you'll need to make this your own.
+    // 2. this timeout simulates delayed data retrieval
     setTimeout(() => {
       const rememberThese: {
         name: any;
@@ -150,7 +151,10 @@ export class FilterHorizontalPageComponent implements OnInit {
           // if you ARE using VALUES for your Dropdown options
           if (
             !randomItems.selection.find((ri: any) => {
-              return ri === storedOption.value;
+              return (
+                ri === storedOption.value ||
+                (ri.value && ri.value === storedOption.value)
+              );
             })
           ) {
             rememberThese.push({
@@ -168,7 +172,8 @@ export class FilterHorizontalPageComponent implements OnInit {
           options: [...randomItems.items, ...rememberThese]
         }
       ];
-      this.dropdownData[index].groups = JSON.stringify(compiledNewData);
+      console.log(compiledNewData);
+      this.dropdownData[index].groups = compiledNewData;
     }, 500);
   };
 
