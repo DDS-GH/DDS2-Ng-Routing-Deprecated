@@ -19,6 +19,7 @@ import { DropdownPageComponent } from "./pages/dropdown/dropdown.page";
 import { FilterHorizontalPageComponent } from "./pages/filter/horizontal.page";
 import { FilterVerticalPageComponent } from "./pages/filter/vertical.page";
 import { FormPageComponent } from "./pages/form/form.page";
+import { LoadPageComponent } from "./pages/load/load.page";
 import { MessageBarPageComponent } from "./pages/messagebar/messagebar.page";
 import { ModalPageComponent } from "./pages/modal/modal.page";
 import { MoreLessPageComponent } from "./pages/moreless/moreless.page";
@@ -45,6 +46,7 @@ import { DrawerComponent } from "./lib/drawer/drawer.component";
 import { DropdownComponent } from "./lib/dropdown/dropdown.component";
 import { FormComponent } from "./lib/form/form.component";
 import { HeaderComponent } from "./lib/header/header.component";
+import { LoadComponent } from "./lib/load/load.component";
 import { MessageBarComponent } from "./lib/messagebar/messagebar.component";
 import { ModalComponent } from "./lib/modal/modal.component";
 import { MoreLessComponent } from "./lib/moreless/moreless.component";
@@ -74,6 +76,7 @@ const appRoutes: Routes = [
   { path: "drawer", component: DrawerPageComponent },
   { path: "dropdown", component: DropdownPageComponent },
   { path: "form", component: FormPageComponent },
+  { path: "load", component: LoadPageComponent },
   { path: "horizontal", component: FilterHorizontalPageComponent },
   { path: "vertical", component: FilterVerticalPageComponent },
   { path: "messagebar", component: MessageBarPageComponent },
@@ -101,6 +104,7 @@ const components = [
   DropdownComponent,
   FormComponent,
   HeaderComponent,
+  LoadComponent,
   MessageBarComponent,
   ModalComponent,
   MoreLessComponent,
@@ -128,6 +132,7 @@ const pages = [
   FilterHorizontalPageComponent,
   FilterVerticalPageComponent,
   FormPageComponent,
+  LoadPageComponent,
   MessageBarPageComponent,
   ModalPageComponent,
   MoreLessPageComponent,

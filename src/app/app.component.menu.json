@@ -5,6 +5,11 @@
     "tags": ["all", "info"]
   },
   {
+    "icon": "refresh-spin",
+    "text": "Load",
+    "tags": ["all", "simple", "navigation"]
+  },
+  {
     "icon": "chat-dots",
     "text": "Popover",
     "tags": ["all", "layout", "navigation"]
