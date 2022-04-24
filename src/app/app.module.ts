@@ -23,6 +23,7 @@ import { LoadPageComponent } from "./pages/load/load.page";
 import { MessageBarPageComponent } from "./pages/messagebar/messagebar.page";
 import { ModalPageComponent } from "./pages/modal/modal.page";
 import { MoreLessPageComponent } from "./pages/moreless/moreless.page";
+import { PaginationPageComponent } from "./pages/pagination/pagination.page";
 import { PopoverPageComponent } from "./pages/popover/popover.page";
 import { SelectPageComponent } from "./pages/select/select.page";
 import { SidenavPageComponent } from "./pages/sidenav/sidenav.page";
@@ -50,6 +51,7 @@ import { LoadComponent } from "./lib/load/load.component";
 import { MessageBarComponent } from "./lib/messagebar/messagebar.component";
 import { ModalComponent } from "./lib/modal/modal.component";
 import { MoreLessComponent } from "./lib/moreless/moreless.component";
+import { PaginationComponent } from "./lib/pagination/pagination.component";
 import { PopoverComponent } from "./lib/popover/popover.component";
 import { RadioComponent } from "./lib/radio/radio.component";
 import { SelectComponent } from "./lib/select/select.component";
@@ -82,6 +84,7 @@ const appRoutes: Routes = [
   { path: "messagebar", component: MessageBarPageComponent },
   { path: "modal", component: ModalPageComponent },
   { path: "moreless", component: MoreLessPageComponent },
+  { path: "pagination", component: PaginationPageComponent },
   { path: "popover", component: PopoverPageComponent },
   { path: "radio", component: RadioPageComponent },
   { path: "select", component: SelectPageComponent },
@@ -108,6 +111,7 @@ const components = [
   MessageBarComponent,
   ModalComponent,
   MoreLessComponent,
+  PaginationComponent,
   PopoverComponent,
   RadioComponent,
   SelectComponent,
@@ -136,6 +140,7 @@ const pages = [
   MessageBarPageComponent,
   ModalPageComponent,
   MoreLessPageComponent,
+  PaginationPageComponent,
   PopoverPageComponent,
   RadioPageComponent,
   SelectPageComponent,

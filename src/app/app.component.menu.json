@@ -1,5 +1,10 @@
 [
   {
+    "icon": "receipt",
+    "text": "Pagination",
+    "tags": ["all", "navigation", "info"]
+  },
+  {
     "icon": "card-swipe-left",
     "text": "Sidenav",
     "tags": ["all", "info"]
