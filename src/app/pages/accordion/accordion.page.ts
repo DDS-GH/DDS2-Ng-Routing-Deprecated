@@ -55,7 +55,7 @@ export class AccordionPageComponent implements OnInit {
   }
 
   handleItemClick(e: any) {
-    console.log(`item`, e.target);
+    console.info(`item`, e.target);
   }
 
   handleAccordionClick(e: any) {

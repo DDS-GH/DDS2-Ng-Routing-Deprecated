@@ -24,7 +24,6 @@ export class TablePageComponent {
   handleAdd(e: any) {
     const num = Uuid();
     this.config.data.push([{ value: num }, { value: num }, { value: num }]);
-    console.log(this.config.data);
   }
 
   handleSort(e: any) {

@@ -172,7 +172,6 @@ export class FilterHorizontalPageComponent implements OnInit {
           options: [...randomItems.items, ...rememberThese]
         }
       ];
-      console.log(compiledNewData);
       this.dropdownData[index].groups = compiledNewData;
     }, 500);
   };

@@ -25,6 +25,5 @@ export class TableComponent extends DdsComponent implements OnChanges {
     if (changes[`config`].firstChange) {
       return;
     }
-    console.log(changes[`config`]);
   }
 }
