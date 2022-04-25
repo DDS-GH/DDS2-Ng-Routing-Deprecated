@@ -4,8 +4,12 @@
   generate its height based on container height maximum.
 </p>
 <hr class="boxHr" />
+<div class="controlPanel">
+  <dds-button (click)="toggleAdmin()">Admin: {{isAdmin}}</dds-button>
+  <dds-button (click)="toggleOwner()">Owner: {{isOwner}}</dds-button>
+</div>
 <div
-  style="width: 400px; height: 800px; overflow-y: scroll; background: white;"
+  style="width: 400px; height: 865px; overflow-y: scroll; background: white;"
 >
   <!-- 
     HEADS UP!  HERE, I am going to embed some SVG defs into the page. Then, I'm passing 
@@ -88,10 +92,30 @@
     </defs>
   </svg>
 
-  <dds-sidenav fixed="false" init="now">
+  <dds-sidenav init="now" ddsOptions='{"expand": false}'>
+    <dds-sidenav-menu
+      icon="dds__icon--wrench-double"
+      [hidden]="!isAdmin"
+      open="false"
+      name="Administration"
+    >
+      <dds-sidenav-item
+        [icon]="isOwner ? 'dds__icon--lock-open' : 'dds__icon--lock-closed'"
+        link="https://pranx.com/windows-xp-simulator/"
+      >
+        Windows XP
+      </dds-sidenav-item>
+      <dds-sidenav-item
+        icon="dds__icon--windows-support"
+        [hidden]="!isOwner || !isAdmin"
+        link="https://www.google.com/"
+      >
+        System Owner Access
+      </dds-sidenav-item>
+    </dds-sidenav-menu>
     <dds-sidenav-menu
       icon="dds__icon--brightness"
-      open="false"
+      open="true"
       name="Fun Stuff"
       svg="true"
       viewbox="-8 -8 48 48"
