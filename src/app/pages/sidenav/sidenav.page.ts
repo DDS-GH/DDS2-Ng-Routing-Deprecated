@@ -5,4 +5,14 @@ import { Component } from "@angular/core";
   styleUrls: ["./sidenav.page.scss"]
 })
 // @ts-ignore
-export class SidenavPageComponent {}
+export class SidenavPageComponent {
+  public isAdmin: boolean = false;
+  public isOwner: boolean = false;
+
+  toggleAdmin() {
+    this.isAdmin = !this.isAdmin;
+  }
+  toggleOwner() {
+    this.isOwner = !this.isOwner;
+  }
+}
