@@ -4,7 +4,7 @@
   class="dds__link--standalone {{classList}}"
   [attr.aria-describedby]="elementId"
 >
-  <span class="dds__sr-only">tooltip</span>
+  <span class="dds__sr-only">{{srOnly}}</span>
   <i class="dds__icon dds__icon--{{icon}}"></i>
 </i>
 <div
@@ -16,6 +16,7 @@
 >
   <div class="dds__tooltip__pointer"></div>
   <div class="dds__tooltip__body">
+    <h6 class="dds__tooltip__title">{{ title }}</h6>
     <ng-content></ng-content>
   </div>
 </div>

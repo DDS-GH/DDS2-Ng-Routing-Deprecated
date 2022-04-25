@@ -1,0 +1,76 @@
+<div [id]="elementId" class="dds__pagination" data-dds="pagination">
+  <div class="dds__pagination__rows-per-page-wrapper">
+    <label for="rows-per-page" class="dds__pagination__page-label">
+      {{labels.rowsPerPage}}
+    </label>
+    <dds-select
+      classList="dds__select--sm dds__pagination__select"
+      [selectOptions]="pageSizeOptions"
+    ></dds-select>
+    <div class="dds__pagination__row-range">
+      <span class="dds__pagination__page-range--start"></span>
+      -
+      <span class="dds__pagination__page-range--end"></span>
+      <div class="of-rows">
+        {{labels.of}}
+        <span class="dds__pagination__rows--total"></span>
+        {{labels.rows}}
+      </div>
+    </div>
+  </div>
+  <div class="dds__pagination__nav">
+    <dds-button
+      classList="dds__button--tertiary dds__button--sm dds__button__icon dds__pagination__nav-start"
+    >
+      <svg focusable="false">
+        <use xlink:href="#dds__icon--skip-to-front"></use>
+      </svg>
+    </dds-button>
+
+    <dds-button
+      classList="dds__button--tertiary dds__button--sm dds__pagination__nav-prev"
+    >
+      <svg class="dds__button__icon--start" focusable="false">
+        <use xlink:href="#dds__icon--arrow-tri-left"></use>
+      </svg>
+      <span class="dds__pagination__nav-prev-label">{{labels.previous}}</span>
+    </dds-button>
+
+    <div class="dds__pagination__page-range">
+      <span
+        [id]="elementId + '-current-page-label'"
+        class="dds__pagination__current-page-label"
+      >
+        {{labels.page}}
+      </span>
+      <div class="dds__input-text__container dds__input-text__container--sm">
+        <input
+          type="text"
+          class="dds__pagination__current-page dds__pagination__nav-jump"
+          [attr.aria-labelledby]="elementId + '-current-page-label'"
+        />
+      </div>
+      <div class="dds__pagination__page-range--total-label">
+        <span>{{labels.of}}</span>
+        <span class="dds__pagination__page-range--total"></span>
+      </div>
+    </div>
+
+    <dds-button
+      classList="dds__button--tertiary dds__button--sm dds__pagination__nav-next"
+    >
+      <span class="dds__pagination__nav-next-label">{{labels.next}}</span>
+      <svg class="dds__button__icon--end" focusable="false">
+        <use xlink:href="#dds__icon--arrow-tri-right"></use>
+      </svg>
+    </dds-button>
+
+    <dds-button
+      classList="dds__button--tertiary dds__button--sm dds__button__icon dds__pagination__nav-end"
+    >
+      <svg focusable="false">
+        <use xlink:href="#dds__icon--skip-to-end"></use>
+      </svg>
+    </dds-button>
+  </div>
+</div>

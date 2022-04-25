@@ -8,12 +8,10 @@ import { DdsComponent } from "../helpers/dds.component";
 })
 export class TableComponent extends DdsComponent implements OnChanges {
   @Output() onSort: EventEmitter<any> = new EventEmitter<any>();
-  @Input() config!: any;
 
   override ngOnInit(): void {
     super.ngOnInit();
     this.ddsInitializer = `Table`;
-    this.ddsOptions = this.config;
   }
 
   override ngAfterViewInit(): void {

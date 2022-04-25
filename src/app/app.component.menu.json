@@ -1,7 +1,22 @@
 [
   {
+    "icon": "receipt",
+    "text": "Pagination",
+    "tags": ["all", "navigation", "info"]
+  },
+  {
     "icon": "card-swipe-left",
     "text": "Sidenav",
+    "tags": ["all", "info"]
+  },
+  {
+    "icon": "refresh-spin",
+    "text": "Load",
+    "tags": ["all", "simple", "navigation"]
+  },
+  {
+    "icon": "chat-dots",
+    "text": "Popover",
     "tags": ["all", "layout", "navigation"]
   },
   {

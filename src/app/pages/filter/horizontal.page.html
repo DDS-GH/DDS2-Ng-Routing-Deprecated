@@ -33,10 +33,7 @@
       (optionSelected)="handleDropdown.select(0, $event)"
       (optionDeselected)="handleDropdown.deselect(0, $event)"
       (optionsCleared)="handleDropdown.clear(0, $event)"
-      selection="multiple"
-      noOptionsLabel="Searching"
-      selectedLabel="Selected"
-      srClearLabel="Get rid of selection"
+      ddsOptions='{"selection": "multiple"}'
       useBackend="true"
       label="meow meow"
     >
@@ -50,9 +47,7 @@
       (optionSelected)="handleDropdown.select(1, $event)"
       (optionDeselected)="handleDropdown.deselect(1, $event)"
       (optionsCleared)="handleDropdown.clear(1, $event)"
-      selection="multiple"
-      selectedLabel="Selected"
-      srClearLabel="Get rid of selection"
+      ddsOptions='{"selection": "multiple"}'
       label="why dog in house?"
       [warning]="dogHouseWarning"
     >
@@ -66,9 +61,7 @@
       (optionSelected)="handleDropdown.select(2, $event)"
       (optionDeselected)="handleDropdown.deselect(2, $event)"
       (optionsCleared)="handleDropdown.clear(2, $event)"
-      selection="multiple"
-      selectedLabel="Selected"
-      srClearLabel="Get rid of selection"
+      ddsOptions='{"selection": "multiple"}'
       label="bite because im moody"
     >
     </dds-dropdown>

@@ -1,47 +1,44 @@
 <h2>Action Menu</h2>
 <div class="dds__row">
   <div class="dds__col--2 dds__col--sm-12 dds__col--md-12 dds__mb-3">
-	<dds-actionmenu>
-	  <div action-trigger>
-		<button
-		  type="button"
-		  class="dds__button dds__button--secondary"
-		>
-		  Action Menu
-		</button>
-	  </div>
-	  <dds-actionmenu-menu elementId="amMenu1" name="Actions">
-		<dds-actionmenu-item
-		  elementId="amAction1"
-		  icon="copy-alt"
-		  (click)="actionMenuAction('copy click')"
-		>
-		  Copy
-		</dds-actionmenu-item>
-	  </dds-actionmenu-menu>
+    <dds-actionmenu ddsOptions='{"alignment": "start"}'>
+      <div action-trigger>
+        <button type="button" class="dds__button dds__button--secondary">
+          Action Menu
+        </button>
+      </div>
+      <dds-actionmenu-menu elementId="amMenu1" name="Actions">
+        <dds-actionmenu-item
+          elementId="amAction1"
+          icon="copy-alt"
+          (click)="actionMenuAction('copy click')"
+        >
+          Copy
+        </dds-actionmenu-item>
+      </dds-actionmenu-menu>
 
-	  <dds-actionmenu-menu elementId="amCheck" separator="true">
-		View Strategy
-	  </dds-actionmenu-menu>
-	  <dds-actionmenu-item
-		elementId="viewRows"
-		checkbox="true"
-		icon="view-row"
-		value="rows"
-		(onChecked)="actionMenuAction($event)"
-	  >
-		View Rows
-	  </dds-actionmenu-item>
-	  <dds-actionmenu-item
-		elementId="viewCols"
-		checkbox="true"
-		checked="true"
-		icon="view-column"
-		value="columns"
-		(onChecked)="actionMenuAction($event)"
-	  >
-		View Columns
-	  </dds-actionmenu-item>
-	</dds-actionmenu>
+      <dds-actionmenu-menu elementId="amCheck" separator="true">
+        View Strategy
+      </dds-actionmenu-menu>
+      <dds-actionmenu-item
+        elementId="viewRows"
+        checkbox="true"
+        icon="view-row"
+        value="rows"
+        (onChecked)="actionMenuAction($event)"
+      >
+        View Rows
+      </dds-actionmenu-item>
+      <dds-actionmenu-item
+        elementId="viewCols"
+        checkbox="true"
+        checked="true"
+        icon="view-column"
+        value="columns"
+        (onChecked)="actionMenuAction($event)"
+      >
+        View Columns
+      </dds-actionmenu-item>
+    </dds-actionmenu>
   </div>
 </div>

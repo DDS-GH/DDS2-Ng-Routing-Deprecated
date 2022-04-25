@@ -20,22 +20,16 @@ export class ActionMenuComponent
   implements OnInit, OnDestroy
 {
   @Input() button: string = ``;
-  @Input() alignment: 'start' | 'end' = 'start';
   private menuService!: MenuService;
   private subscription!: Subscription;
-//   private wasInside: boolean = false;
-//   private chevron: string;
 
   constructor(private eRef: ElementRef, private menuState: MenuService) {
     super();
   }
 
-  override ngOnInit() {
+  override ngOnInit(): void {
     super.ngOnInit();
     this.ddsInitializer = `ActionMenu`;
-    this.ddsOptions = {
-      alignment: this.alignment,
-    };
     this.subscription = this.menuState.currentState.subscribe((message) => {
       switch (message) {
         case toState.closed:

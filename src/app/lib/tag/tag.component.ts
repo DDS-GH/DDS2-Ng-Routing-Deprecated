@@ -6,7 +6,6 @@ import {
   Output
 } from "@angular/core";
 import { DdsComponent } from "../helpers/dds.component";
-import { stringToBoolean } from "../helpers/dds.helpers";
 
 @Component({
   selector: "dds-tag",
@@ -14,8 +13,6 @@ import { stringToBoolean } from "../helpers/dds.helpers";
 })
 export class TagComponent extends DdsComponent implements AfterViewInit {
   @Output() onDimiss: EventEmitter<string> = new EventEmitter<string>();
-  @Input() aria: string = `Dismiss`;
-  @Input() dismiss: any = `true`;
   @Input() icon: string = ``;
   @Input() value: string = ``;
 
@@ -23,11 +20,6 @@ export class TagComponent extends DdsComponent implements AfterViewInit {
   ngOnInit() {
     super.ngOnInit();
     this.ddsInitializer = `Tag`;
-    this.dismiss = stringToBoolean(this.dismiss);
-    this.ddsOptions = {
-      srDismiss: this.aria,
-      dismiss: this.dismiss
-    };
   }
 
   // @ts-ignore

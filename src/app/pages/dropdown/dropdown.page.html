@@ -3,13 +3,13 @@
   <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
     <p>
       Dropdowns can also be used in the Filter pattern; please see more examples
-      of that usage under <a routerLink="/filter">Filter</a>.
+      of that usage under <a routerLink="/horizontal">Filter</a>.
     </p>
     <dds-dropdown
       elementId="ddsDropdownSimple"
       label="Simple Dropdown Example"
       helper="Helper Text"
-      selection="single"
+      ddsOptions='{"selection": "single"}'
       [groups]="dropdownData.groups"
     >
     </dds-dropdown>

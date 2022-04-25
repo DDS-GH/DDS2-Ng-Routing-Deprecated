@@ -22,13 +22,8 @@ export class TextInputComponent extends DdsComponent implements OnChanges {
   @Input() placeholder: string = ``;
   @Input() helper: string = ``;
   @Input() feedback: string = ``;
-  @Input() srHide: string = `Hide Password`;
-  @Input() srShow: string = `Show Password`;
-  @Input() hide: string = `Hide`;
-  @Input() show: string = `Show`;
   @Input() minlength: string = ``;
   @Input() maxlength: string = ``;
-  @Input() mask: string = ``;
   @Input() button: string = ``;
   @Input() icons: string = ``;
   @Input() iconStart: string = ``;
@@ -49,19 +44,10 @@ export class TextInputComponent extends DdsComponent implements OnChanges {
       case `password`:
         this.ddsInitializer = `InputPassword`;
         this.dataDds = pascalDash(this.ddsInitializer);
-        this.ddsOptions = {
-          srHideTitle: this.srHide,
-          srShowTitle: this.srShow,
-          showLabel: this.show,
-          hideLabel: this.hide
-        };
         break;
       case `tel`:
         this.ddsInitializer = `InputMask`;
         this.dataDds = pascalDash(this.ddsInitializer);
-        this.ddsOptions = {
-          mask: this.mask
-        };
         break;
     }
   }

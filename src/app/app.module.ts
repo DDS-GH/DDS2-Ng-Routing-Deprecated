@@ -19,9 +19,12 @@ import { DropdownPageComponent } from "./pages/dropdown/dropdown.page";
 import { FilterHorizontalPageComponent } from "./pages/filter/horizontal.page";
 import { FilterVerticalPageComponent } from "./pages/filter/vertical.page";
 import { FormPageComponent } from "./pages/form/form.page";
+import { LoadPageComponent } from "./pages/load/load.page";
 import { MessageBarPageComponent } from "./pages/messagebar/messagebar.page";
 import { ModalPageComponent } from "./pages/modal/modal.page";
 import { MoreLessPageComponent } from "./pages/moreless/moreless.page";
+import { PaginationPageComponent } from "./pages/pagination/pagination.page";
+import { PopoverPageComponent } from "./pages/popover/popover.page";
 import { SelectPageComponent } from "./pages/select/select.page";
 import { SidenavPageComponent } from "./pages/sidenav/sidenav.page";
 import { TablePageComponent } from "./pages/table/table.page";
@@ -44,9 +47,12 @@ import { DrawerComponent } from "./lib/drawer/drawer.component";
 import { DropdownComponent } from "./lib/dropdown/dropdown.component";
 import { FormComponent } from "./lib/form/form.component";
 import { HeaderComponent } from "./lib/header/header.component";
+import { LoadComponent } from "./lib/load/load.component";
 import { MessageBarComponent } from "./lib/messagebar/messagebar.component";
 import { ModalComponent } from "./lib/modal/modal.component";
 import { MoreLessComponent } from "./lib/moreless/moreless.component";
+import { PaginationComponent } from "./lib/pagination/pagination.component";
+import { PopoverComponent } from "./lib/popover/popover.component";
 import { RadioComponent } from "./lib/radio/radio.component";
 import { SelectComponent } from "./lib/select/select.component";
 import { SidenavModule } from "./lib/sidenav/sidenav.module";
@@ -72,11 +78,14 @@ const appRoutes: Routes = [
   { path: "drawer", component: DrawerPageComponent },
   { path: "dropdown", component: DropdownPageComponent },
   { path: "form", component: FormPageComponent },
+  { path: "load", component: LoadPageComponent },
   { path: "horizontal", component: FilterHorizontalPageComponent },
   { path: "vertical", component: FilterVerticalPageComponent },
   { path: "messagebar", component: MessageBarPageComponent },
   { path: "modal", component: ModalPageComponent },
   { path: "moreless", component: MoreLessPageComponent },
+  { path: "pagination", component: PaginationPageComponent },
+  { path: "popover", component: PopoverPageComponent },
   { path: "radio", component: RadioPageComponent },
   { path: "select", component: SelectPageComponent },
   { path: "sidenav", component: SidenavPageComponent },
@@ -98,9 +107,12 @@ const components = [
   DropdownComponent,
   FormComponent,
   HeaderComponent,
+  LoadComponent,
   MessageBarComponent,
   ModalComponent,
   MoreLessComponent,
+  PaginationComponent,
+  PopoverComponent,
   RadioComponent,
   SelectComponent,
   TableComponent,
@@ -124,9 +136,12 @@ const pages = [
   FilterHorizontalPageComponent,
   FilterVerticalPageComponent,
   FormPageComponent,
+  LoadPageComponent,
   MessageBarPageComponent,
   ModalPageComponent,
   MoreLessPageComponent,
+  PaginationPageComponent,
+  PopoverPageComponent,
   RadioPageComponent,
   SelectPageComponent,
   SidenavPageComponent,
