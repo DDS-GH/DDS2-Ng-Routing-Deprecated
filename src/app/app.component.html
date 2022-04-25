@@ -106,6 +106,7 @@
               [selected]="currentRoute === item.text.toLowerCase()"
               icon="dds__icon--{{ item.icon }}"
               [routerLink]="'/' + item.text.toLowerCase()"
+              [hidden]="item.hidden"
             >
               <span>
                 {{ item.text }}

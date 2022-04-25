@@ -2,7 +2,8 @@
   {
     "icon": "receipt",
     "text": "Pagination",
-    "tags": ["all", "navigation", "info"]
+    "tags": ["all", "navigation", "info"],
+    "hidden": true
   },
   {
     "icon": "card-swipe-left",
@@ -12,12 +13,14 @@
   {
     "icon": "refresh-spin",
     "text": "Load",
-    "tags": ["all", "simple", "navigation"]
+    "tags": ["all", "simple", "navigation"],
+    "hidden": true
   },
   {
     "icon": "chat-dots",
     "text": "Popover",
-    "tags": ["all", "layout", "navigation"]
+    "tags": ["all", "layout", "navigation"],
+    "hidden": true
   },
   {
     "icon": "calendar",
