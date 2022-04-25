@@ -18,6 +18,7 @@ export class SidenavItemComponent implements OnInit, AfterViewInit {
   @Input() svg: any = `false`;
   @Input() selected: any = `false`;
   @Input() disabled: any = `false`;
+  @Input() hidden: any = `false`;
   @Input() viewbox: any = ``;
   public isMissingUl: boolean = false; // not working. I don't remember what this meant, now either
 
@@ -26,6 +27,7 @@ export class SidenavItemComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.selected = stringToBoolean(this.selected);
     this.disabled = stringToBoolean(this.disabled);
+    this.hidden = stringToBoolean(this.hidden);
     this.svg = stringToBoolean(this.svg);
     const parentEl = this.elRef.nativeElement.parentElement;
     if (parentEl) {
@@ -42,9 +44,9 @@ export class SidenavItemComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // ngOnChanges(changes: SimpleChanges) {
-  //   if (hasChanges(changes[`selected`])) {
-  //     this.isSelected = stringToBoolean(this.selected);
-  //   }
-  // }
+  handleClick(e: any) {
+    if (this.hidden) {
+      e.preventDefault();
+    }
+  }
 }

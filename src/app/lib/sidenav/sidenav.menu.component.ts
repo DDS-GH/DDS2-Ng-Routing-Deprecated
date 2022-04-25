@@ -18,12 +18,14 @@ export class SidenavMenuComponent implements OnInit, AfterViewInit {
   @Input() name: string = ``;
   @Input() viewbox: string = ``;
   @Input() svg: any = `false`;
+  @Input() hidden: any = `false`;
 
   constructor(private elRef: ElementRef) {}
 
   ngOnInit() {
     this.open = stringToBoolean(this.open);
     this.svg = stringToBoolean(this.svg);
+    this.hidden = stringToBoolean(this.hidden);
   }
 
   ngAfterViewInit(): void {
