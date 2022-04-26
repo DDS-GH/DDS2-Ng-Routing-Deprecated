@@ -13,8 +13,7 @@
   {
     "icon": "refresh-spin",
     "text": "Load",
-    "tags": ["all", "simple", "navigation"],
-    "hidden": true
+    "tags": ["all", "simple", "navigation"]
   },
   {
     "icon": "chat-dots",

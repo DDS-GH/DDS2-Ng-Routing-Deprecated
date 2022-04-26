@@ -62,7 +62,7 @@ import { TextAreaComponent } from "./lib/textarea/textarea.component";
 import { TextInputComponent } from "./lib/textinput/textinput.component";
 import { TooltipComponent } from "./lib/tooltip/tooltip.component";
 
-// directgives
+// directives
 import { IsSelectedDirective } from "./lib/helpers/isselected.directive";
 
 const appRoutes: Routes = [
