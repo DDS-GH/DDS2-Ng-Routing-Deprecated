@@ -2,3 +2,11 @@
   fill: transparent;
   stroke-width: 1px;
 }
+
+::ng-deep .sunny {
+  background: seashell !important;
+}
+
+::ng-deep .rainy {
+  background: cornsilk !important;
+}

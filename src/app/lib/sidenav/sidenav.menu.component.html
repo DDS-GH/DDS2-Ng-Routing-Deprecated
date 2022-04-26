@@ -12,10 +12,10 @@
     </svg>
     <span>{{name}}</span>
   </button>
-  <ul class="dds__side-nav__menu">
+  <ul class="dds__side-nav__menu {{classList}}">
     <ng-container *ngTemplateOutlet="content"></ng-container>
   </ul>
 </li>
-<ul *ngIf="!name" class="dds__side-nav__menu">
+<ul *ngIf="!name" class="dds__side-nav__menu {{classList}}">
   <ng-container *ngTemplateOutlet="content"></ng-container>
 </ul>

@@ -7,6 +7,8 @@
 <div class="controlPanel">
   <dds-button (click)="toggleAdmin()">Admin: {{isAdmin}}</dds-button>
   <dds-button (click)="toggleOwner()">Owner: {{isOwner}}</dds-button>
+  <dds-button (click)="selectItem()">Select Random Sidenav Item</dds-button>
+  <dds-button (click)="toggleSidenav()">Toggle Sidenav</dds-button>
 </div>
 <div
   style="width: 400px; height: 865px; overflow-y: scroll; background: white;"
@@ -92,7 +94,7 @@
     </defs>
   </svg>
 
-  <dds-sidenav init="now" ddsOptions='{"expand": false}'>
+  <dds-sidenav #pageSidenav init="now" ddsOptions='{"expand": true}'>
     <dds-sidenav-menu
       icon="dds__icon--wrench-double"
       [hidden]="!isAdmin"
@@ -119,6 +121,7 @@
       name="Fun Stuff"
       svg="true"
       viewbox="-8 -8 48 48"
+      classList="sunny"
     >
       <dds-sidenav-item icon="dds__icon--brightness" disabled="true">
         A Disabled Choice
@@ -140,7 +143,7 @@
       <dds-sidenav-item link="https://topia.io/">
         Topia
       </dds-sidenav-item>
-      <dds-sidenav-item link="https://cosmos.video/">
+      <dds-sidenav-item link="https://cosmos.video/" classList="rainy">
         Cosmos
       </dds-sidenav-item>
     </dds-sidenav-menu>

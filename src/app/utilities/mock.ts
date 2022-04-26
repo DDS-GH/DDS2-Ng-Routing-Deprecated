@@ -485,10 +485,10 @@ const nouns = [
   "Garage",
   "Ghost"
 ];
-const randomNumber = (min: any, max: any) => {
+export const randomNumber = (min: any, max: any) => {
   return Math.floor(Math.random() * (max - min)) + min;
 };
-const capitalize = (what: any) => {
+export const capitalize = (what: any) => {
   return what.charAt(0).toUpperCase() + what.slice(1);
 };
 export const randomName = (len = 1) => {

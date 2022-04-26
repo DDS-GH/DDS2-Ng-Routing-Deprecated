@@ -20,6 +20,7 @@ export class SidenavItemComponent implements OnInit, AfterViewInit {
   @Input() disabled: any = `false`;
   @Input() hidden: any = `false`;
   @Input() viewbox: any = ``;
+  @Input() classList: any = ``;
   public isMissingUl: boolean = false; // not working. I don't remember what this meant, now either
 
   constructor(private elRef: ElementRef) {}
