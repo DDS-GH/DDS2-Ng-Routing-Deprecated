@@ -34,7 +34,6 @@ import { TextAreaPageComponent } from "./pages/textarea/textarea.page";
 import { TextInputPageComponent } from "./pages/textinput/textinput.page";
 import { TooltipPageComponent } from "./pages/tooltip/tooltip.page";
 import { RadioPageComponent } from "./pages/radio/radio.page";
-import { Ticket319Component } from "./pages/dropdown/inside-accordion/ticket319.page";
 
 // library components
 import { AccordionModule } from "./lib/accordion/accordion.module";
@@ -94,8 +93,7 @@ const appRoutes: Routes = [
   { path: "tag", component: TagPageComponent },
   { path: "textarea", component: TextAreaPageComponent },
   { path: "textinput", component: TextInputPageComponent },
-  { path: "tooltip", component: TooltipPageComponent },
-  { path: "ticket319", component: Ticket319Component }
+  { path: "tooltip", component: TooltipPageComponent }
 ];
 
 const components = [
@@ -150,8 +148,7 @@ const pages = [
   TagPageComponent,
   TextAreaPageComponent,
   TextInputPageComponent,
-  TooltipPageComponent,
-  Ticket319Component
+  TooltipPageComponent
 ];
 
 const directives = [IsSelectedDirective];
