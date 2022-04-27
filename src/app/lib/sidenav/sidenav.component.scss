@@ -3,3 +3,9 @@
   position: sticky;
   height: calc(100vh - 6.5625rem) !important;
 }
+
+// fix for 2.9.0 missing border
+::ng-deep .dds__side-nav__toggle,
+::ng-deep .dds__side-nav {
+  border-right: 1px solid #D3D3D3;
+}
