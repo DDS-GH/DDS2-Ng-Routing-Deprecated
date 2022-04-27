@@ -1,14 +1,16 @@
 <ng-template #content><ng-content></ng-content></ng-template>
 <ul *ngIf="isMissingUl" class="dds__side-nav__menu">
   <li
-    tabindex="-1"
+    tabindex="0"
+    [id]="elementId"
     class="dds__side-nav__item {{classList}}"
     [class.dds__side-nav__item--selected]="selected"
     [class.disabled]="disabled"
     [class.hidden]="hidden"
     (click)="handleClick($event)"
+    (keyup.enter)="handleClick($event)"
   >
-    <a [href]="link">
+    <a tabindex="-1" [href]="link">
       <i tabindex="-1" *ngIf="icon && !svg" class="dds__icon {{icon}}"></i>
       <svg
         *ngIf="icon && svg"
@@ -23,15 +25,17 @@
   </li>
 </ul>
 <li
-  tabindex="-1"
+  tabindex="0"
+  [id]="elementId"
   *ngIf="!isMissingUl"
   class="dds__side-nav__item {{classList}}"
   [class.dds__side-nav__item--selected]="selected"
   [class.disabled]="disabled"
   [class.hidden]="hidden"
   (click)="handleClick($event)"
+  (keyup.enter)="handleClick($event)"
 >
-  <a [href]="link">
+  <a tabindex="-1" [href]="link">
     <i tabindex="-1" *ngIf="icon && !svg" class="dds__icon {{icon}}"></i>
     <svg
       *ngIf="icon && svg"

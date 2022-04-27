@@ -188,3 +188,87 @@ export const parseData = (data: any) => {
   }
   return data;
 };
+
+/**
+ * @method getClosest   Crawls the DOM to find the closest targeted element
+ * @param element       {DOM element}   the DOM element from which to start searching
+ * @param selector      {string}        the class, ID, or tag name for which to search
+ * @param parentsOnly   {boolean}       if false or not set, modifies TAG search to include children elements of the currently-inspected target
+ * @return {element} or false
+ */
+export function getClosest(
+  element: any,
+  selector: string,
+  parentsOnly: boolean
+) {
+  // element is the element and selector is for the closest parent element to find
+  // updated to also make sure that once we reach document fragment (shadowroot) condition exits
+  // source http://gomakethings.com/climbing-up-and-down-the-dom-tree-with-vanilla-javascript/
+  var firstChar = selector.charAt(0);
+
+  var selectorSubstring = selector.substr(1);
+  if (firstChar === ".") {
+    // If selector is a class
+    for (
+      ;
+      element && element !== document;
+      element = element.host ? element.host : element.parentNode
+    ) {
+      // Get closest match
+      if (
+        element.parentNode &&
+        element.parentNode.querySelector(selector) !== null &&
+        // hasClass(element, selectorSubstring)) {
+        element.classList["contains"](selectorSubstring)
+      ) {
+        return element;
+      } else if (parentsOnly === false) {
+        if (element.querySelector(selector)) {
+          return element.querySelector(selector);
+        }
+      }
+    }
+  } else if (firstChar === "#") {
+    // If selector is an ID
+    for (
+      ;
+      element && element !== document;
+      element = element.host ? element.host : element.parentNode
+    ) {
+      // Get closest match
+      if (element.id === selectorSubstring) {
+        return element;
+      } else if (parentsOnly === false) {
+        if (element.querySelector(selector)) {
+          return element.querySelector(selector);
+        }
+      }
+    }
+  } else {
+    // If selector is a tagName
+    for (
+      ;
+      element && element !== document;
+      element = element.host ? element.host : element.parentNode
+    ) {
+      // Get closest match
+      if (
+        element.tagName &&
+        element.tagName.toLowerCase() === selector.toLowerCase()
+      ) {
+        return element;
+      } else if (
+        element.previousElementSibling &&
+        element.previousElementSibling.tagName.toLowerCase() ===
+          selector.toLowerCase()
+      ) {
+        return element.previousElementSibling;
+      } else if (parentsOnly === false) {
+        if (element.querySelector(selector)) {
+          return element.querySelector(selector);
+        }
+      }
+    }
+  }
+  return false;
+}
