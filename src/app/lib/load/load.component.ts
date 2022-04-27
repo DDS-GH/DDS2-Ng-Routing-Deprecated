@@ -10,7 +10,7 @@ export class LoadComponent implements OnInit {
   @Input() classList: string = ``;
   @Input() label: string = `Loading`;
   @Input() size: string = `sm`;
-  @Input() position: string = `top`;
+  @Input() placement: string = `top`;
 
   ngOnInit() {
     this.elementId = setElementId(this.elementId);
@@ -31,8 +31,8 @@ export class LoadComponent implements OnInit {
       }
       this.classList += ` dds__loading-indicator--${this.size}`;
     }
-    if (this.position) {
-      this.classList += ` dds__loading-indicator--label-${this.position}`;
+    if (this.placement) {
+      this.classList += ` dds__loading-indicator--label-${this.placement}`;
     }
   }
 }

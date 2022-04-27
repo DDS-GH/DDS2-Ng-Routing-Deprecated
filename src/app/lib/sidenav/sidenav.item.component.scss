@@ -13,3 +13,7 @@
 .hidden {
   display: none;
 }
+
+a:focus, .dds__link:focus {
+  box-shadow: none !important;
+}

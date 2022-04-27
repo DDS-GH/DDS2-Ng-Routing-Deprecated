@@ -1,39 +1,15 @@
 <ng-template #content><ng-content></ng-content></ng-template>
 <ul *ngIf="isMissingUl" class="dds__side-nav__menu">
   <li
+    tabindex="-1"
     class="dds__side-nav__item {{classList}}"
     [class.dds__side-nav__item--selected]="selected"
     [class.disabled]="disabled"
     [class.hidden]="hidden"
     (click)="handleClick($event)"
   >
-    <span>
-      <a [href]="link">
-        <i *ngIf="icon && !svg" class="dds__icon {{icon}}"></i>
-        <svg
-          *ngIf="icon && svg"
-          aria-hidden="true"
-          preserveAspectRatio="xMinYMin meet"
-          viewBox="0 0 32 32"
-        >
-          <use [attr.xlink:href]="'#' + icon"></use>
-        </svg>
-        <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
-      </a>
-    </span>
-  </li>
-</ul>
-<li
-  *ngIf="!isMissingUl"
-  class="dds__side-nav__item {{classList}}"
-  [class.dds__side-nav__item--selected]="selected"
-  [class.disabled]="disabled"
-  [class.hidden]="hidden"
-  (click)="handleClick($event)"
->
-  <span>
     <a [href]="link">
-      <i *ngIf="icon && !svg" class="dds__icon {{icon}}"></i>
+      <i tabindex="-1" *ngIf="icon && !svg" class="dds__icon {{icon}}"></i>
       <svg
         *ngIf="icon && svg"
         aria-hidden="true"
@@ -42,7 +18,29 @@
       >
         <use [attr.xlink:href]="'#' + icon"></use>
       </svg>
-      <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
+      <ng-container *ngTemplateOutlet="content"></ng-container>
     </a>
-  </span>
+  </li>
+</ul>
+<li
+  tabindex="-1"
+  *ngIf="!isMissingUl"
+  class="dds__side-nav__item {{classList}}"
+  [class.dds__side-nav__item--selected]="selected"
+  [class.disabled]="disabled"
+  [class.hidden]="hidden"
+  (click)="handleClick($event)"
+>
+  <a [href]="link">
+    <i tabindex="-1" *ngIf="icon && !svg" class="dds__icon {{icon}}"></i>
+    <svg
+      *ngIf="icon && svg"
+      aria-hidden="true"
+      preserveAspectRatio="xMinYMin meet"
+      viewBox="0 0 32 32"
+    >
+      <use [attr.xlink:href]="'#' + icon"></use>
+    </svg>
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </a>
 </li>

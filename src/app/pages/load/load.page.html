@@ -1,10 +1,6 @@
 <h2>Loading Indicator</h2>
 <div class="dds__row">
-  <div class="dds__col--1 dds__col--sm-6 dds__col--md-12 dds__mb-3">
-    <dds-load
-      label="Churning the butter..."
-      size="xl"
-      position="left"
-    ></dds-load>
+  <div class="dds__col--1 dds__col--sm-6 dds__col--md-12 dds__m-5">
+    <dds-load [label]="messages[mindex]" size="md" placement="top"></dds-load>
   </div>
 </div>
