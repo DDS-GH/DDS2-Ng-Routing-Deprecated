@@ -5,7 +5,7 @@ import {
   OnInit,
   AfterViewInit
 } from "@angular/core";
-import { stringToBoolean, ddsLink } from "../helpers/dds.helpers";
+import { stringToBoolean, ddsLink, setElementId } from "../helpers/dds.helpers";
 
 @Component({
   selector: `dds-sidenav-item`,
@@ -13,6 +13,7 @@ import { stringToBoolean, ddsLink } from "../helpers/dds.helpers";
   styleUrls: [`./sidenav.item.component.scss`]
 })
 export class SidenavItemComponent implements OnInit, AfterViewInit {
+  @Input() elementId: string = ``;
   @Input() link: string = ``;
   @Input() icon: string = ``;
   @Input() svg: any = `false`;
@@ -26,6 +27,7 @@ export class SidenavItemComponent implements OnInit, AfterViewInit {
   constructor(private elRef: ElementRef) {}
 
   ngOnInit() {
+    this.elementId = setElementId(this.elementId);
     this.selected = stringToBoolean(this.selected);
     this.disabled = stringToBoolean(this.disabled);
     this.hidden = stringToBoolean(this.hidden);
@@ -48,6 +50,11 @@ export class SidenavItemComponent implements OnInit, AfterViewInit {
   handleClick(e: any) {
     if (this.hidden) {
       e.preventDefault();
+    } else {
+      const alink = e.target.querySelector(`a`);
+      if (alink) {
+        alink.click();
+      }
     }
   }
 }

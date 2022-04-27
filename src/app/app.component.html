@@ -102,6 +102,7 @@
         >
           <ng-container *ngFor="let item of menuItems; index as i">
             <dds-sidenav-item
+              tabindex="-1"
               *ngIf="item.tags.includes(tag)"
               [selected]="currentRoute === item.text.toLowerCase()"
               icon="dds__icon--{{ item.icon }}"

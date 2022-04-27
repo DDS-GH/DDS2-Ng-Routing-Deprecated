@@ -59,6 +59,7 @@ export class AccordionPageComponent implements OnInit {
   }
 
   handleAccordionClick(e: any) {
+    // TODO replace closest's with getClosest
     const eTarget = e.target.closest(`.dds__accordion__item`);
     let eText = eTarget.querySelector(`.dds__accordion__button span`);
     if (eText) {
