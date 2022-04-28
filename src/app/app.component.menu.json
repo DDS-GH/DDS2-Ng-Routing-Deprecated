@@ -8,7 +8,7 @@
   {
     "icon": "card-swipe-left",
     "text": "Sidenav",
-    "tags": ["all", "info"]
+    "tags": ["all", "info", "navigation"]
   },
   {
     "icon": "refresh-spin",
@@ -18,7 +18,7 @@
   {
     "icon": "chat-dots",
     "text": "Popover",
-    "tags": ["all", "layout", "navigation"],
+    "tags": ["all", "layout", "info"],
     "hidden": true
   },
   {

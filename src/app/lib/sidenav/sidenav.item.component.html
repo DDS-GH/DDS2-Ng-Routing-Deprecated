@@ -20,7 +20,7 @@
       >
         <use [attr.xlink:href]="'#' + icon"></use>
       </svg>
-      <ng-container *ngTemplateOutlet="content"></ng-container>
+      <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
     </a>
   </li>
 </ul>
@@ -45,6 +45,6 @@
     >
       <use [attr.xlink:href]="'#' + icon"></use>
     </svg>
-    <ng-container *ngTemplateOutlet="content"></ng-container>
+    <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
   </a>
 </li>
