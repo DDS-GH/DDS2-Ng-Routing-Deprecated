@@ -1,9 +1,42 @@
 <h2>Checkbox</h2>
-<p>
-  Don't forget in Angular to add the FormsModule to your app module, in order to
-  use 2-way binding
-</p>
-
+<div>
+  Checkbox wrapping is at the moment a mostly-complete work-in-progress. This
+  page is showing some unwrapped checkbox usages, which is pretty simple and can
+  be put through a dynamic checkbox list with Ng FormBuilder, or just tied
+  directly to an ngValue.
+  <a routerLink="/check">Checkbox Page 2</a> displays a wrapped checkbox.
+</div>
+<div class="dds__row">
+  <div class="dds__col--2 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    <hr />
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div
+        class="dds__checkbox"
+        formArrayName="orders"
+        *ngFor="let order of ordersFormArray.controls; let i = index"
+      >
+        <label class="dds__checkbox__label" for="formInput{{i}}">
+          <input
+            [formControlName]="i"
+            type="checkbox"
+            tabindex="0"
+            id="formInput{{i}}"
+            name="formInput"
+            class="dds__checkbox__input"
+          />
+          <span>{{ordersData[i].name}}</span>
+        </label>
+      </div>
+      <div *ngIf="!form.valid">At least one order must be selected</div>
+      <br />
+      <button [disabled]="!form.valid">submit</button>
+    </form>
+    <hr />
+  </div>
+</div>
+<div class="dds__row">
+  <div class="dds__col--2 dds__col--sm-12 dds__col--md-12 dds__mb-3"></div>
+</div>
 <div class="dds__row">
   <div class="dds__col--1 dds__col--sm-4 dds__col--md-4 dds__mb-3">
     <div class="dds__checkbox">

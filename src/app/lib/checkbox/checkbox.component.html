@@ -1,0 +1,12 @@
+<div [id]="elementId" class="dds__checkbox {{classList}}">
+  <label class="dds__checkbox__label" [for]="elementId + 'Input'">
+    <input
+      type="checkbox"
+      tabindex="0"
+      [id]="elementId + 'Input'"
+      class="dds__checkbox__input"
+      [formControl]="control"
+    />
+    <span><ng-content></ng-content></span>
+  </label>
+</div>
