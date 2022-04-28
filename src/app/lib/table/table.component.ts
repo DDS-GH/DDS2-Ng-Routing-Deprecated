@@ -22,7 +22,7 @@ export class TableComponent extends DdsComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes[`config`].firstChange) {
+    if (changes[`config`] && changes[`config`].firstChange) {
       return;
     }
   }

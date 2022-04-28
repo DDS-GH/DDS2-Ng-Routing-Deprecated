@@ -60,8 +60,6 @@ export class CheckboxPageComponent {
         checked ? this.ordersData[i].id : null
       )
       .filter((v: any) => v !== null);
-
-    console.log(selectedOrderIds);
   }
 
   minSelectedCheckboxes(min = 1) {
