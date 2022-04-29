@@ -1,4 +1,5 @@
-<i
+<ng-template #contentTemplate><ng-content></ng-content></ng-template>
+<a
   href="javascript:void(0);"
   id="icon{{elementId}}"
   class="dds__link--standalone {{classList}}"
@@ -6,7 +7,7 @@
 >
   <span class="dds__sr-only">{{srOnly}}</span>
   <i class="dds__icon dds__icon--{{icon}}"></i>
-</i>
+</a>
 <div
   id="{{elementId}}"
   [attr.data-trigger]="'#icon' + elementId"
@@ -16,7 +17,11 @@
 >
   <div class="dds__tooltip__pointer"></div>
   <div class="dds__tooltip__body">
-    <h6 class="dds__tooltip__title">{{ title }}</h6>
-    <ng-content></ng-content>
+    <h6 class="dds__tooltip__title" *ngIf="title">{{ title }}</h6>
+    <ng-container
+      *ngIf="!content"
+      [ngTemplateOutlet]="contentTemplate"
+    ></ng-container>
+    <ng-container *ngIf="content">{{content}}</ng-container>
   </div>
 </div>

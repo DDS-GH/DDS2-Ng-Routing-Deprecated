@@ -10,6 +10,7 @@ export class TooltipComponent extends DdsComponent {
   @Input() icon: string = `alert-info-cir`;
   @Input() srOnly: string = `Tooltip`;
   @Input() title: string = ``;
+  @Input() content: string = ``;
 
   override ngOnInit(): void {
     super.ngOnInit();

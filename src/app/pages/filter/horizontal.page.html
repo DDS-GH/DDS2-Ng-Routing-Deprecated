@@ -76,6 +76,7 @@
     dropdownData[1].stored.length + dropdownData[2].stored.length }}):
     <ng-container *ngFor="let tag of dropdownData[0].stored">
       <dds-tag
+        ddsOptions='{"dismiss": true}'
         (onDismiss)="filter0.deselect($event)"
         (click)="
               handleTagClick(0, $event, filter0, {
@@ -90,6 +91,7 @@
     </ng-container>
     <ng-container *ngFor="let tag of dropdownData[1].stored">
       <dds-tag
+        ddsOptions='{"dismiss": true}'
         (onDismiss)="filter1.deselect($event)"
         (click)="
                 handleTagClick(1, $event, filter1, {
@@ -104,6 +106,7 @@
     </ng-container>
     <ng-container *ngFor="let tag of dropdownData[2].stored">
       <dds-tag
+        ddsOptions='{"dismiss": true}'
         (onDismiss)="filter2.deselect($event)"
         (click)="
                   handleTagClick(2, $event, filter2, {

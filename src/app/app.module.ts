@@ -160,6 +160,7 @@ const directives = [IsSelectedDirective];
 
 @NgModule({
   declarations: [AppComponent, ...components, ...pages, ...directives],
+  entryComponents: [...components],
   imports: [
     BrowserModule,
     FormsModule,
