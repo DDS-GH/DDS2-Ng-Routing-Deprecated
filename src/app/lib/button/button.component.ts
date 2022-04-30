@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { DdsComponent } from "../helpers/dds.component";
+import { stringToBoolean } from "../helpers/dds.helpers";
 
 @Component({
   selector: "dds-button",
@@ -10,4 +11,10 @@ export class ButtonComponent extends DdsComponent {
   @Input() ariaLabel: string = ``;
   @Input() action: string = ``;
   @Input() type: string = `text`;
+  @Input() disabled: any = `false`;
+
+  override ngOnInit(): void {
+    super.ngOnInit();
+    this.disabled = stringToBoolean(this.disabled);
+  }
 }

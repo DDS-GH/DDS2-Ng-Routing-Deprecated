@@ -1,18 +1,25 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 import { setElementId } from "../helpers/dds.helpers";
 
 @Component({
   selector: `dds-load`,
-  templateUrl: `./load.component.html`
+  templateUrl: `./load.component.html`,
+  styleUrls: [`./load.component.scss`]
 })
 export class LoadComponent implements OnInit {
-  @Input() elementId: string = ``;
+  @ViewChild(`globalLoader`) globalLoader!: ElementRef<HTMLElement>;
   @Input() classList: string = ``;
+  @Input() elementId: string = ``;
   @Input() label: string = `Loading`;
-  @Input() size: string = `sm`;
+  @Input() mode: string = `inline`;
   @Input() placement: string = `top`;
+  @Input() size: string = `sm`;
+  public stateOn: boolean = true;
 
   ngOnInit() {
+    if (this.mode !== `inline`) {
+      this.stateOn = false;
+    }
     this.elementId = setElementId(this.elementId);
     if (this.size) {
       switch (this.size) {
@@ -34,5 +41,22 @@ export class LoadComponent implements OnInit {
     if (this.placement) {
       this.classList += ` dds__loading-indicator--label-${this.placement}`;
     }
+  }
+
+  open() {
+    this.stateOn = true;
+  }
+  close() {
+    this.stateOn = false;
+  }
+  toggle() {
+    if (this.mode !== `inline`) {
+      if (this.stateOn) {
+        this.globalLoader.ddsComponent.open();
+      } else {
+        this.globalLoader.ddsComponent.close();
+      }
+    }
+    this.stateOn = !this.stateOn;
   }
 }

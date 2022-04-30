@@ -1,0 +1,14 @@
+::ng-deep .dds__loading-indicator--modal {
+  .dds__modal__header,
+  .dds__modal__footer {
+    display: none !important;
+  }
+  .dds__modal__content {
+    max-width: 20rem !important;
+    min-height: 8rem !important;
+    padding-top: 2rem !important;
+  }
+  .dds__modal__body {
+    overflow:hidden;
+  }
+}

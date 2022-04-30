@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { randomNumber } from "src/app/utilities/mock";
 
 @Component({
   templateUrl: "./load.page.html"
 })
 export class LoadPageComponent implements OnInit {
+  @ViewChild(`loader`) loader!: ElementRef<HTMLElement>;
   public messages: Array<string> = [
     "Reticulating splines...",
     "Generating witty dialog...",
@@ -253,8 +254,41 @@ export class LoadPageComponent implements OnInit {
     "Feeding unicorns..."
   ];
   public mindex: number = 0;
+  public mode = `inline`;
+  public resetCount: any = ``;
 
   ngOnInit(): void {
     this.mindex = randomNumber(0, this.messages.length);
+  }
+
+  countdown() {
+    if (this.resetCount) {
+      setTimeout(() => {
+        this.resetCount -= 1;
+        if (this.resetCount <= 0) {
+          this.resetCount = ``;
+          this.loader.toggle();
+        }
+        this.countdown();
+      }, 1000);
+    }
+  }
+
+  toggle() {
+    this.loader.toggle();
+    if (!this.resetCount) {
+      this.resetCount = 5;
+      this.countdown();
+    } else {
+      this.resetCount = ``;
+    }
+  }
+
+  switchType() {
+    if (this.mode === `inline`) {
+      this.mode = `global`;
+    } else {
+      this.mode = `inline`;
+    }
   }
 }
