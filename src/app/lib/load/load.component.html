@@ -1,9 +1,31 @@
-<div [id]="elementId" class="dds__loading-indicator {{classList}}">
+<ng-container *ngIf="mode==='inline'">
   <div
-    *ngIf="label"
-    class="dds__loading-indicator__label dds__loading-indicator__label--{{placement}}"
+    [id]="elementId"
+    class="dds__loading-indicator {{classList}}"
+    [class.dds__d-none]="!stateOn"
   >
-    {{label}}
+    <div
+      *ngIf="label"
+      class="dds__loading-indicator__label dds__loading-indicator__label--{{placement}}"
+    >
+      {{label}}
+    </div>
+    <div class="dds__loading-indicator__spinner"></div>
   </div>
-  <div class="dds__loading-indicator__spinner"></div>
-</div>
+</ng-container>
+
+<ng-container *ngIf="mode!=='inline'">
+  <dds-modal #globalLoader classList="dds__loading-indicator--modal">
+    <div modal-body>
+      <div [id]="elementId" class="dds__loading-indicator {{classList}}">
+        <div
+          *ngIf="label"
+          class="dds__loading-indicator__label dds__loading-indicator__label--{{placement}}"
+        >
+          {{label}}
+        </div>
+        <div class="dds__loading-indicator__spinner"></div>
+      </div>
+    </div>
+  </dds-modal>
+</ng-container>

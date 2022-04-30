@@ -8,7 +8,7 @@
   {
     "icon": "card-swipe-left",
     "text": "Sidenav",
-    "tags": ["all", "info", "navigation"]
+    "tags": ["all", "navigation"]
   },
   {
     "icon": "refresh-spin",
