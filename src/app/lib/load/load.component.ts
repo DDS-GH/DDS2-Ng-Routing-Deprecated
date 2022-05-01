@@ -16,6 +16,7 @@ import { setElementId } from "../helpers/dds.helpers";
 })
 export class LoadComponent implements OnInit, OnChanges {
   @ViewChild(`globalLoader`) globalLoader!: ElementRef<HTMLElement>;
+  @ViewChild(`honeypot`) honeypot!: ElementRef<HTMLElement>;
   @Input() classList: string = ``;
   @Input() elementId: string = ``;
   @Input() label: string = `Loading`;
@@ -62,11 +63,18 @@ export class LoadComponent implements OnInit, OnChanges {
     }
   }
 
+  handleHoney(e) {
+    console.log(e.target);
+    e.target.focus();
+  }
+
   open() {
     this.stateOn = true;
     if (this.mode !== `inline`) {
       // @ts-ignore
       this.globalLoader.ddsComponent.open();
+      this.honeypot.nativeElement.focus();
+      this.honeypot.nativeElement.addEventListener(`blur`, this.handleHoney);
     }
   }
   close() {
@@ -74,6 +82,7 @@ export class LoadComponent implements OnInit, OnChanges {
     if (this.mode !== `inline`) {
       // @ts-ignore
       this.globalLoader.ddsComponent.close();
+      this.honeypot.nativeElement.removeEventListener(`blur`, this.handleHoney);
     }
   }
   toggle() {
