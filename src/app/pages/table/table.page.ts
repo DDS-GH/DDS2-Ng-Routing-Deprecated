@@ -22,16 +22,16 @@ export class TablePageComponent implements AfterViewInit {
   public sorting: string = `descending`;
   public config: any = {
     columns: [
-      { value: `Heading 1`, sortBy: this.sorting },
-      { value: `Heading 2` },
+      { value: `Khakis`, sortBy: this.sorting },
+      { value: `Cornish ` },
       {
-        value: `Heading 3`
+        value: `Peking`
       }
     ],
     data: [
-      [{ value: "Row 1" }, { value: "Row 1" }, { value: "Row 1" }],
-      [{ value: "Row 2" }, { value: "Row 2" }, { value: "Row 2" }],
-      [{ value: "Row 3" }, { value: "Row 3" }, { value: "Row 3" }]
+      [{ value: "Cluck" }, { value: "Cluck" }, { value: "Cluck" }],
+      [{ value: "Bock" }, { value: "Bock" }, { value: "Bock" }],
+      [{ value: "Quack" }, { value: "Quack" }, { value: "Quack" }]
     ]
   };
   private tooltip: any = {};
@@ -87,7 +87,7 @@ export class TablePageComponent implements AfterViewInit {
     // 2 create and initialize a component reference
     const componentRef = componentFactory.create(this.injector);
     componentRef.instance.elementId = `headerTooltip`;
-    componentRef.instance.title = `Cluck Cluck`;
+    componentRef.instance.title = `Cock-a-Doodle-doo`;
     componentRef.instance.content = `I used to run a dating service for chickens, but I was struggling to make hens meet.`;
     // 3 attach component to applicationRef so angular virtual DOM will
     // understand it as dirty (requires re-rendering)
