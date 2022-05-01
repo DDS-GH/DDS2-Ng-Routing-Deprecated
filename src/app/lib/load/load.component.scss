@@ -11,4 +11,10 @@
   .dds__modal__body {
     overflow:hidden;
   }
+  #honeypot {
+    width: 0;
+    height: 0;
+    border: 0;
+    outline: 0 !important;
+  }
 }
