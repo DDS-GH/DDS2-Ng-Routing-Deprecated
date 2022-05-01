@@ -34,7 +34,7 @@ export class TablePageComponent implements AfterViewInit {
       [{ value: "Row 3" }, { value: "Row 3" }, { value: "Row 3" }]
     ]
   };
-  private tooltipInstance: any | undefined;
+  private tooltip: any = {};
 
   constructor(
     private viewContainerRef: ViewContainerRef,
@@ -80,50 +80,35 @@ export class TablePageComponent implements AfterViewInit {
   }
 
   initializeTooltip() {
+    // 1 Find a component factory
+    const componentFactory = this.factoryResolver.resolveComponentFactory(
+      TooltipComponent
+    );
+    // 2 create and initialize a component reference
+    const componentRef = componentFactory.create(this.injector);
+    componentRef.instance.elementId = `headerTooltip`;
+    componentRef.instance.title = `Cluck Cluck`;
+    componentRef.instance.content = `I used to run a dating service for chickens, but I was struggling to make hens meet.`;
+    // 3 attach component to applicationRef so angular virtual DOM will
+    // understand it as dirty (requires re-rendering)
+    this.applicationRef.attachView(componentRef.hostView);
+    // 4 let`s do som preparation, get from the component created
+    // a view REF
+    const viewRef = componentRef.hostView as EmbeddedViewRef<any>;
+    // and from view REF the HTML content...
+    const viewEl = viewRef.rootNodes[0] as HTMLElement;
+    // 5 now find the position. Since table doesn`t have explicit
+    // declaration of rows neiter cols explict, we going to find its
+    // location looking for the TABLE itslf (viewContainerRef)
+    const el = this.viewContainerRef.element.nativeElement as HTMLElement;
+    // from the viewContainerRef, look for headers
+    const headers = el.querySelectorAll(".dds__th span");
+    // append the component.
+    headers[1].appendChild(viewEl);
     setTimeout(() => {
-      // 1 Find a component factory
-      const componentFactory = this.factoryResolver.resolveComponentFactory(
-        TooltipComponent
-      );
-      // 2 create and initialize a component reference
-      const componentRef = componentFactory.create(this.injector);
-      componentRef.instance.title = `Cluck Cluck`;
-      componentRef.instance.content = `I used to run a dating service for chickens, but I was struggling to make hens meet.`;
-      // 3 attach component to applicationRef so angular virtual DOM will
-      // understand it as dirty (requires re-rendering)
-      this.applicationRef.attachView(componentRef.hostView);
-      // 4 let`s do som preparation, get from the component created
-      // a view REF
-      const viewRef = componentRef.hostView as EmbeddedViewRef<any>;
-      // and from view REF the HTML content...
-      const viewEl = viewRef.rootNodes[0] as HTMLElement;
-      // 5 now find the position. Since table doesn`t have explicit
-      // declaration of rows neiter cols explict, we going to find its
-      // location looking for the TABLE itslf (viewContainerRef)
-      const el = this.viewContainerRef.element.nativeElement as HTMLElement;
-      // from the viewContainerRef, look for headers
-      const headers = el.querySelectorAll(".dds__th span");
-      // it lacks some positioning, but this is cool, in the second header
-      // append the component.
-      headers[1].appendChild(viewEl);
-      this.tooltipInstance = new DDS.Tooltip(
-        document.getElementById(`newTooltip`)
-      );
+      this.tooltip = document.getElementById(`headerTooltip`);
+      this.tooltip = this.tooltip.Tooltip;
+      console.log(this.tooltip);
     });
-  }
-
-  getUnwrappedTooltip(newId: string, title: string, content: string) {
-    return `
-      <a href="javascript:void(0);" id="${newId}Trigger" class="dds__link--standalone" aria-describedby="${newId}">
-        <span class="dds__sr-only">tooltip</span>
-        <i class="dds__icon dds__icon--alert-info-cir"></i>
-      </a>
-      <div id="${newId}" data-trigger="#${newId}Trigger" data-dds="tooltip" class="dds__tooltip" role="tooltip">
-        <div class="dds__tooltip__body">
-          <h6 class="dds__tooltip__title">${title}</h6>
-          ${content}
-        </div>
-      </div>
-  `;
   }
 }
