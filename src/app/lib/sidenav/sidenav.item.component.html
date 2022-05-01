@@ -1,5 +1,33 @@
 <ng-template #content><ng-content></ng-content></ng-template>
-<ul *ngIf="isMissingUl" class="dds__side-nav__menu">
+<ng-template #aContent>
+  <i tabindex="-1" *ngIf="icon && !svg" class="dds__icon {{icon}}"></i>
+  <svg
+    *ngIf="icon && svg"
+    aria-hidden="true"
+    preserveAspectRatio="xMinYMin meet"
+    viewBox="0 0 32 32"
+  >
+    <use [attr.xlink:href]="'#' + icon"></use>
+  </svg>
+  <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
+</ng-template>
+<ng-template #ahref>
+  <ng-container *ngIf="link">
+    <a tabindex="-1" [href]="link">
+      <ng-container *ngTemplateOutlet="aContent"></ng-container>
+    </a>
+  </ng-container>
+  <ng-container *ngIf="!link">
+    <a
+      [routerLink]=" ['./'] "
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}"
+    >
+      <ng-container *ngTemplateOutlet="aContent"></ng-container>
+    </a>
+  </ng-container>
+</ng-template>
+<ng-template #liOnward>
   <li
     tabindex="0"
     [id]="elementId"
@@ -10,41 +38,12 @@
     (click)="handleClick($event)"
     (keyup.enter)="handleClick($event)"
   >
-    <a tabindex="-1" [href]="link">
-      <i tabindex="-1" *ngIf="icon && !svg" class="dds__icon {{icon}}"></i>
-      <svg
-        *ngIf="icon && svg"
-        aria-hidden="true"
-        preserveAspectRatio="xMinYMin meet"
-        viewBox="0 0 32 32"
-      >
-        <use [attr.xlink:href]="'#' + icon"></use>
-      </svg>
-      <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
-    </a>
+    <ng-container *ngTemplateOutlet="ahref"></ng-container>
   </li>
+</ng-template>
+<ul *ngIf="isMissingUl" class="dds__side-nav__menu">
+  <ng-container *ngTemplateOutlet="liOnward"></ng-container>
 </ul>
-<li
-  tabindex="0"
-  [id]="elementId"
-  *ngIf="!isMissingUl"
-  class="dds__side-nav__item {{classList}}"
-  [class.dds__side-nav__item--selected]="selected"
-  [class.disabled]="disabled"
-  [class.hidden]="hidden"
-  (click)="handleClick($event)"
-  (keyup.enter)="handleClick($event)"
->
-  <a tabindex="-1" [href]="link">
-    <i tabindex="-1" *ngIf="icon && !svg" class="dds__icon {{icon}}"></i>
-    <svg
-      *ngIf="icon && svg"
-      aria-hidden="true"
-      preserveAspectRatio="xMinYMin meet"
-      viewBox="0 0 32 32"
-    >
-      <use [attr.xlink:href]="'#' + icon"></use>
-    </svg>
-    <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
-  </a>
-</li>
+<ng-container *ngIf="!isMissingUl">
+  <ng-container *ngTemplateOutlet="liOnward"></ng-container>
+</ng-container>

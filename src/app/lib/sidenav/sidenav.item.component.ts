@@ -36,7 +36,7 @@ export class SidenavItemComponent implements OnInit, AfterViewInit {
     if (parentEl) {
       this.isMissingUl = parentEl.nodeName.toLowerCase() === `ul`;
     }
-    this.link = ddsLink(this.link);
+    // this.link = ddsLink(this.link);
   }
 
   ngAfterViewInit(): void {
