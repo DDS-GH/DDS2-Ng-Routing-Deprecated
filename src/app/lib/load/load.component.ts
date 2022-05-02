@@ -1,4 +1,12 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewChild
+} from "@angular/core";
 import { setElementId } from "../helpers/dds.helpers";
 
 @Component({
@@ -6,8 +14,9 @@ import { setElementId } from "../helpers/dds.helpers";
   templateUrl: `./load.component.html`,
   styleUrls: [`./load.component.scss`]
 })
-export class LoadComponent implements OnInit {
+export class LoadComponent implements OnInit, OnChanges {
   @ViewChild(`globalLoader`) globalLoader!: ElementRef<HTMLElement>;
+  @ViewChild(`honeypot`) honeypot!: ElementRef<HTMLElement>;
   @Input() classList: string = ``;
   @Input() elementId: string = ``;
   @Input() label: string = `Loading`;
@@ -17,9 +26,6 @@ export class LoadComponent implements OnInit {
   public stateOn: boolean = true;
 
   ngOnInit() {
-    if (this.mode !== `inline`) {
-      this.stateOn = false;
-    }
     this.elementId = setElementId(this.elementId);
     if (this.size) {
       switch (this.size) {
@@ -43,20 +49,47 @@ export class LoadComponent implements OnInit {
     }
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes[`mode`]) {
+      this.keepStateWithMode();
+    }
+  }
+
+  keepStateWithMode() {
+    if (this.mode !== `inline`) {
+      this.stateOn = false;
+    } else {
+      this.stateOn = true;
+    }
+  }
+
+  handleHoney(e) {
+    console.log(e.target);
+    e.target.focus();
+  }
+
   open() {
     this.stateOn = true;
+    if (this.mode !== `inline`) {
+      // @ts-ignore
+      this.globalLoader.ddsComponent.open();
+      this.honeypot.nativeElement.focus();
+      this.honeypot.nativeElement.addEventListener(`blur`, this.handleHoney);
+    }
   }
   close() {
     this.stateOn = false;
+    if (this.mode !== `inline`) {
+      // @ts-ignore
+      this.globalLoader.ddsComponent.close();
+      this.honeypot.nativeElement.removeEventListener(`blur`, this.handleHoney);
+    }
   }
   toggle() {
-    if (this.mode !== `inline`) {
-      if (this.stateOn) {
-        this.globalLoader.ddsComponent.open();
-      } else {
-        this.globalLoader.ddsComponent.close();
-      }
+    if (this.stateOn) {
+      this.close();
+    } else {
+      this.open();
     }
-    this.stateOn = !this.stateOn;
   }
 }

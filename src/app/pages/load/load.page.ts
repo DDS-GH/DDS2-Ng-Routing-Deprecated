@@ -267,6 +267,7 @@ export class LoadPageComponent implements OnInit {
         this.resetCount -= 1;
         if (this.resetCount <= 0) {
           this.resetCount = ``;
+          // @ts-ignore
           this.loader.toggle();
         }
         this.countdown();
@@ -275,6 +276,7 @@ export class LoadPageComponent implements OnInit {
   }
 
   toggle() {
+    // @ts-ignore
     this.loader.toggle();
     if (!this.resetCount) {
       this.resetCount = 5;

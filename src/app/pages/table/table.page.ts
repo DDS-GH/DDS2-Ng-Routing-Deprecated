@@ -22,19 +22,21 @@ export class TablePageComponent implements AfterViewInit {
   public sorting: string = `descending`;
   public config: any = {
     columns: [
-      { value: `Heading 1`, sortBy: this.sorting },
-      { value: `Heading 2` },
+      { value: `Khakis`, sortBy: this.sorting },
       {
-        value: `Heading 3`
+        value: `Cornish <tthold id="ht${Uuid()}" title="Tooltip Title">Tooltip Content</tthold>`
+      },
+      {
+        value: `Peking`
       }
     ],
     data: [
-      [{ value: "Row 1" }, { value: "Row 1" }, { value: "Row 1" }],
-      [{ value: "Row 2" }, { value: "Row 2" }, { value: "Row 2" }],
-      [{ value: "Row 3" }, { value: "Row 3" }, { value: "Row 3" }]
+      [{ value: "Cluck" }, { value: "Cluck" }, { value: "Cluck" }],
+      [{ value: "Bock" }, { value: "Bock" }, { value: "Bock" }],
+      [{ value: "Quack" }, { value: "Quack" }, { value: "Quack" }]
     ]
   };
-  private tooltipInstance: any | undefined;
+  private tooltip: any = {};
 
   constructor(
     private viewContainerRef: ViewContainerRef,
@@ -44,19 +46,30 @@ export class TablePageComponent implements AfterViewInit {
   ) {}
 
   ngAfterViewInit(): void {
-    this.initializeTooltip();
+    this.initializeTooltips();
   }
 
   handleAdd(e: any) {
-    const num = Uuid();
-    this.config.data.push([{ value: num }, { value: num }, { value: num }]);
+    const num: number = Uuid();
+    const ttData: any = {
+      id: `tt${num}`,
+      title: `Cock-a-Doodle-doo`,
+      content: `I used to run a dating service for chickens, but I was struggling to make hens meet.`
+    };
+    this.config.data.push([
+      { value: num },
+      { value: num },
+      {
+        value: `Joke? <tthold id="${ttData.id}" title="${ttData.title}">${ttData.content}</tthold>`
+      }
+    ]);
     // @ts-ignore
     this.myTable.ddsElement.innerHTML = ``;
     // @ts-ignore
     this.myTable.ddsComponent.dispose();
     // @ts-ignore
     this.myTable.initializeNow();
-    this.initializeTooltip();
+    this.initializeTooltips();
   }
 
   handleSort(e: any) {
@@ -79,16 +92,21 @@ export class TablePageComponent implements AfterViewInit {
     }
   }
 
-  initializeTooltip() {
-    setTimeout(() => {
+  initializeTooltips() {
+    // make sure the components you wish to create instances of are in your module's entryComponents
+    // make sure your constructor defines the references (see this class's constructor)
+    const el = this.viewContainerRef.element.nativeElement as HTMLElement;
+    const placeholders = el.querySelectorAll("tthold");
+    placeholders.forEach((ph) => {
       // 1 Find a component factory
       const componentFactory = this.factoryResolver.resolveComponentFactory(
         TooltipComponent
       );
       // 2 create and initialize a component reference
       const componentRef = componentFactory.create(this.injector);
-      componentRef.instance.title = `Cluck Cluck`;
-      componentRef.instance.content = `I used to run a dating service for chickens, but I was struggling to make hens meet.`;
+      componentRef.instance.elementId = ph.id;
+      componentRef.instance.title = ph.getAttribute(`title`) || ``;
+      componentRef.instance.content = ph.innerHTML;
       // 3 attach component to applicationRef so angular virtual DOM will
       // understand it as dirty (requires re-rendering)
       this.applicationRef.attachView(componentRef.hostView);
@@ -97,33 +115,11 @@ export class TablePageComponent implements AfterViewInit {
       const viewRef = componentRef.hostView as EmbeddedViewRef<any>;
       // and from view REF the HTML content...
       const viewEl = viewRef.rootNodes[0] as HTMLElement;
-      // 5 now find the position. Since table doesn`t have explicit
-      // declaration of rows neiter cols explict, we going to find its
-      // location looking for the TABLE itslf (viewContainerRef)
-      const el = this.viewContainerRef.element.nativeElement as HTMLElement;
-      // from the viewContainerRef, look for headers
-      const headers = el.querySelectorAll(".dds__th span");
-      // it lacks some positioning, but this is cool, in the second header
-      // append the component.
-      headers[1].appendChild(viewEl);
-      this.tooltipInstance = new DDS.Tooltip(
-        document.getElementById(`newTooltip`)
-      );
+      const phParent = ph.parentElement;
+      if (phParent) {
+        phParent.appendChild(viewEl);
+      }
+      ph.remove();
     });
-  }
-
-  getUnwrappedTooltip(newId: string, title: string, content: string) {
-    return `
-      <a href="javascript:void(0);" id="${newId}Trigger" class="dds__link--standalone" aria-describedby="${newId}">
-        <span class="dds__sr-only">tooltip</span>
-        <i class="dds__icon dds__icon--alert-info-cir"></i>
-      </a>
-      <div id="${newId}" data-trigger="#${newId}Trigger" data-dds="tooltip" class="dds__tooltip" role="tooltip">
-        <div class="dds__tooltip__body">
-          <h6 class="dds__tooltip__title">${title}</h6>
-          ${content}
-        </div>
-      </div>
-  `;
   }
 }
