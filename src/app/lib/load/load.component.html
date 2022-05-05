@@ -23,7 +23,7 @@
           class="dds__loading-indicator__label dds__loading-indicator__label--{{placement}}"
         >
           {{label}}
-          <input #honeypot id="honeypot" aria-label="" />
+          <input #honeypot id="honeypot" [attr.aria-label]="label" />
         </div>
         <div class="dds__loading-indicator__spinner"></div>
       </div>

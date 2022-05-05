@@ -19,6 +19,7 @@
   </ng-container>
   <ng-container *ngIf="!link">
     <a
+      tabindex="-1"
       [routerLink]=" ['./'] "
       routerLinkActive="active"
       [routerLinkActiveOptions]="{exact: true}"
