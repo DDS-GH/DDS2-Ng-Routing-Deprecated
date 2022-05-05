@@ -48,6 +48,7 @@ export class SidenavItemComponent implements OnInit, AfterViewInit {
   }
 
   handleClick(e: any) {
+    console.log("hi");
     if (this.hidden) {
       e.preventDefault();
     } else {
