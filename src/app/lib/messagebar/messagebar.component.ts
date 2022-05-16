@@ -4,8 +4,7 @@ import { stringToBoolean } from "../helpers/dds.helpers";
 
 @Component({
   selector: `dds-messagebar`,
-  templateUrl: `./messagebar.component.html`,
-  styleUrls: [`./messagebar.component.scss`]
+  templateUrl: `./messagebar.component.html`
 })
 export class MessageBarComponent extends DdsComponent implements OnInit {
   @Input() title: string = ``;
@@ -13,7 +12,7 @@ export class MessageBarComponent extends DdsComponent implements OnInit {
   @Input() variant: string = `informative`;
   @Input() dismissible: any = `true`;
   @Input() layout: string = "contextual";
-//   @Input() layout: "contextual" | "global" = "contextual";
+  //   @Input() layout: "contextual" | "global" = "contextual";
 
   // @ts-ignore
   ngOnInit(): void {

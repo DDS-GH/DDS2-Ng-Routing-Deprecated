@@ -3,8 +3,7 @@ import { DdsComponent } from "../helpers/dds.component";
 
 @Component({
   selector: `dds-select`,
-  templateUrl: `./select.component.html`,
-  styleUrls: [`./select.component.scss`]
+  templateUrl: `./select.component.html`
 })
 export class SelectComponent extends DdsComponent {
   @Input() selectOptions!: Array<string>;

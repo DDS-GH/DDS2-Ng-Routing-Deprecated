@@ -4,8 +4,7 @@ import { stringToBoolean } from "../helpers/dds.helpers";
 
 @Component({
   selector: `dds-modal`,
-  templateUrl: `./modal.component.html`,
-  styleUrls: [`./modal.component.scss`]
+  templateUrl: `./modal.component.html`
 })
 export class ModalComponent extends DdsComponent {
   @ViewChild(`honeypot`) honeypot!: ElementRef<HTMLElement>;
