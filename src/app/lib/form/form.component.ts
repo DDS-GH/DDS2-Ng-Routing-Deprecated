@@ -4,8 +4,7 @@ import { DdsComponent } from "../helpers/dds.component";
 
 @Component({
   selector: `dds-form`,
-  templateUrl: `./form.component.html`,
-  styleUrls: [`./form.component.scss`]
+  templateUrl: `./form.component.html`
 })
 export class FormComponent extends DdsComponent implements AfterViewInit {
   // public angForm: FormGroup;

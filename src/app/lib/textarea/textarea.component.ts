@@ -4,8 +4,7 @@ import { Uuid, stringToBoolean } from '../helpers/dds.helpers';
 
 @Component({
   selector: `dds-textarea`,
-  templateUrl: `./textarea.component.html`,
-  styleUrls: [`./textarea.component.scss`],
+  templateUrl: `./textarea.component.html`
 })
 export class TextAreaComponent extends DdsComponent {
   @ViewChild('textContainer') textContainer!: ElementRef;

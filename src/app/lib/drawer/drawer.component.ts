@@ -3,8 +3,7 @@ import { DdsComponent } from "../helpers/dds.component";
 
 @Component({
   selector: `dds-drawer`,
-  templateUrl: `./drawer.component.html`,
-  styleUrls: [`./drawer.component.scss`]
+  templateUrl: `./drawer.component.html`
 })
 export class DrawerComponent extends DdsComponent {
   @ViewChild("triggerContainer") triggerContainer!: ElementRef<HTMLElement>;
