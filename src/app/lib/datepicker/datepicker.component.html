@@ -16,6 +16,7 @@
       [class.fullClick]="fullClick"
       (keydown)="handleInput($event)"
       (click)="handleInput($event)"
+      (blur)="handleBlur($event)"
       [id]="elementId+'-input'"
       [name]="elementId+'-input'"
       type="text"

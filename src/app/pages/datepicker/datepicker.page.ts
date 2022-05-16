@@ -6,6 +6,7 @@ import { Component } from "@angular/core";
 // @ts-ignore
 export class DatePickerPageComponent {
   public isDisabled: boolean = false;
+  public dateSelected: Array<string> = [];
   private dateNow: Date = new Date();
   public dateMin: any = new Date(
     new Date().setDate(this.dateNow.getDate() - 2)
@@ -47,5 +48,9 @@ export class DatePickerPageComponent {
 
   handleDisable(e: any) {
     this.isDisabled = !this.isDisabled;
+  }
+
+  handleBlur(e: any, dp: number) {
+    this.dateSelected[dp] = e;
   }
 }
