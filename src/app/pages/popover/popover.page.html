@@ -1,14 +1,28 @@
 <h2>Popover</h2>
 <div class="dds__row">
   <div class="dds__col--1 dds__col--sm-6 dds__col--md-12 dds__mb-3">
-    Show me the Popover
+    Popover with custom trigger element:
+    <a id="charlie" href="javascript:void(0);" class="dds__link--standalone">
+      a link
+    </a>
     <dds-popover
-      icon="airplane"
-      ddsOptions='{"placement": "bottom"}'
+      #charlie
+      ddsOptions='{"placement": "bottom", "trigger": "charlie"}'
       headline="To The Person Who Stole My..."
       classList="dds__popover--md"
     >
       To the person who stole my place in line: I’m after you now.
+    </dds-popover>
+
+    <br /><br />
+
+    Popover without trigger specified:
+    <dds-popover
+      ddsOptions='{"placement": "top"}'
+      headline="To The Person Who Stole My..."
+      classList="dds__popover--lg"
+    >
+      To the person who stole my bed: I won't rest until I find you.
     </dds-popover>
   </div>
 </div>
