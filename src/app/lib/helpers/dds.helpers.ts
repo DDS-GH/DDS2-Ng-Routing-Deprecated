@@ -272,3 +272,14 @@ export function getClosest(
   }
   return false;
 }
+
+export const tryParseOptions = (options: any) => {
+  try {
+    if (typeof options === `string`) {
+      options = JSON.parse(options);
+    }
+    return options;
+  } catch (e) {
+    console.error(e);
+  }
+};
