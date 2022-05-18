@@ -1,4 +1,4 @@
-<h2>Checkbox</h2>
+<h2>DatePicker</h2>
 <div class="dds__row">
   <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
     <div class="controlPanel">
@@ -16,21 +16,27 @@
 </div>
 <div class="dds__row">
   <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
-    <ng-container *ngFor="let picker of [1,2,3]; index as i">
-      <dds-datepicker
-        [isDisabled]="isDisabled"
-        [elementId]="'ddsDatepicker' + i"
-        [helper]="['emergency!', 'abandoned!', 'meeooowwww!!!'][i]"
-        [label]="['Playing with balls of wool', 'cough hairball cough', 'why is dog in house?'][i]"
-        placeholder="MM/DD/YYYY"
-        required="true"
-        [ddsOptions]="ddsOptions"
-        fullClick="false"
-        (onBlur)="handleBlur($event, i)"
-      ></dds-datepicker>
+    Selections:<br />
+    <ng-container *ngFor="let dp of datepickers; index as i">
+      {{dp.ddsOptions.selectedDate}}<br />
     </ng-container>
-    <ng-container *ngFor="let selection of dateSelected; index as i">
-      {{selection}}<br />
+  </div>
+</div>
+<div class="dds__row">
+  <div class="dds__col--1 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    <ng-container *ngFor="let dp of datepickers; index as i">
+      <dds-datepicker
+        [isDisabled]="dp.isDisabled"
+        [elementId]="'ddsDatepicker' + i"
+        [helper]="dp.helper"
+        [label]="dp.label"
+        [placeholder]="dp.placeholder"
+        [required]="dp.required"
+        [ddsOptions]="dp.ddsOptions"
+        [fullClick]="dp.fullClick"
+        (onChange)="handleChange($event, i)"
+        (onSelected)="handleChange($event, i)"
+      ></dds-datepicker>
     </ng-container>
   </div>
 </div>
