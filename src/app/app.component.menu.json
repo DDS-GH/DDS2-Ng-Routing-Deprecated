@@ -3,7 +3,7 @@
     "icon": "receipt",
     "text": "Pagination",
     "tags": ["all", "navigation", "info"],
-    "hidden": true
+    "hidden": false
   },
   {
     "icon": "card-swipe-left",
