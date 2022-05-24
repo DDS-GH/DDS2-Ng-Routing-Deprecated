@@ -19,8 +19,10 @@ export class PopoverComponent extends DdsComponent {
     this.ddsInitializer = `Popover`;
     this.ddsOptions = tryParseOptions(this.ddsOptions);
     if (!this.ddsOptions.trigger) {
-      this.ddsOptions.trigger = `${this.elementId}Trigger`;
+      this.ddsOptions.trigger = `#${this.elementId}Trigger`;
       this.triggerId = `${this.elementId}Trigger`;
+    } else if (this.ddsOptions.trigger.indexOf(`#`) < 0) {
+      this.ddsOptions.trigger = `#${this.ddsOptions.trigger}`;
     }
   }
 

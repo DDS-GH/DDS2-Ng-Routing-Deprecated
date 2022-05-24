@@ -18,8 +18,8 @@
   {
     "icon": "chat-dots",
     "text": "Popover",
-    "tags": ["all", "layout", "info"],
-    "hidden": true
+    "tags": ["all", "info"],
+    "hidden": false
   },
   {
     "icon": "calendar",
