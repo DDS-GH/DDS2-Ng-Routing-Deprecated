@@ -6,19 +6,26 @@ import { DdsComponent } from "../helpers/dds.component";
   templateUrl: `./pagination.component.html`
 })
 export class PaginationComponent extends DdsComponent {
-  @Input() pageSizeOptions: Array<number> = [5,10,15];
+  @Input() perPageOptions: any = [5, 10, 15];
+  @Input() perPageSelected: any = 10;
   @Input() labels: any = {
     next: `Next`,
     of: `of`,
     page: `Page`,
     previous: `Previous`,
-    rows: `rows`,
-    rowsPerPage: `Rows per page`,
+    items: `items`,
+    itemsPerPage: `Items per page`,
   };
 
   override ngOnInit(): void {
     super.ngOnInit();
     this.ddsInitializer = `Pagination`;
+    if (typeof this.perPageOptions === `string`) {
+      this.perPageOptions = JSON.parse(this.perPageOptions);
+    }
+    if (typeof this.perPageSelected === `string`) {
+      this.perPageSelected = Number(this.perPageSelected);
+    }
   }
 
 }
