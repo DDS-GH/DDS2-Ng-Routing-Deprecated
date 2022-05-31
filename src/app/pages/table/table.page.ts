@@ -11,18 +11,23 @@ import {
 } from "@angular/core";
 import { Uuid } from "src/app/lib/helpers/dds.helpers";
 import { TooltipComponent } from "src/app/lib/tooltip/tooltip.component";
+import { randomNumber } from "src/app/utilities/mock";
 
 declare const DDS: any; // Use declare if you import via CDN. Regular Angular (node_modules) usage would be via an import
 
 @Component({
-  templateUrl: "./table.page.html"
+  templateUrl: "./table.page.html",
+  styleUrls: ["./table.page.scss"]
 })
 export class TablePageComponent implements AfterViewInit {
   @ViewChild(`myTable`) myTable!: ElementRef<HTMLElement>;
   public sorting: string = `descending`;
   public config: any = {
     columns: [
-      { value: `Khakis`, sortBy: this.sorting },
+      {
+        value: `Khakis`,
+        sortBy: this.sorting
+      },
       {
         value: `Cornish <tthold id="ht${Uuid()}" title="Tooltip Title">Tooltip Content</tthold>`
       },
@@ -31,12 +36,25 @@ export class TablePageComponent implements AfterViewInit {
       }
     ],
     data: [
-      [{ value: "Cluck" }, { value: "Cluck" }, { value: "Cluck" }],
-      [{ value: "Bock" }, { value: "Bock" }, { value: "Bock" }],
-      [{ value: "Quack" }, { value: "Quack" }, { value: "Quack" }]
+      [
+        { value: `Cluck<span class="dds__d-none rowId">${Uuid()}</span>` },
+        { value: `Cluck` },
+        { value: `Cluck` }
+      ],
+      [
+        { value: `Bock<span class="dds__d-none rowId">${Uuid()}</span>` },
+        { value: `Bock` },
+        { value: `Bock` }
+      ],
+      [
+        { value: `Quack<span class="dds__d-none rowId">${Uuid()}</span>` },
+        { value: `Quack` },
+        { value: `Quack` }
+      ]
     ]
   };
   private tooltip: any = {};
+  private selectedIndex?: string = undefined;
 
   constructor(
     private viewContainerRef: ViewContainerRef,
@@ -57,8 +75,8 @@ export class TablePageComponent implements AfterViewInit {
       content: `I used to run a dating service for chickens, but I was struggling to make hens meet.`
     };
     this.config.data.push([
-      { value: num },
-      { value: num },
+      { value: `Quack ${num}<span class="dds__d-none rowId">${num}</span>` },
+      { value: `Moo?` },
       {
         value: `Joke? <tthold id="${ttData.id}" title="${ttData.title}">${ttData.content}</tthold>`
       }
@@ -70,6 +88,29 @@ export class TablePageComponent implements AfterViewInit {
     // @ts-ignore
     this.myTable.initializeNow();
     this.initializeTooltips();
+  }
+
+  handleSelect(e: any) {
+    const tableRows = this.myTable.ddsElement.querySelectorAll(`.dds__tr`);
+    const randIndx = randomNumber(0, tableRows.length);
+    const selectedRow = tableRows[randIndx];
+
+    // remove classes indicating selection
+    this.myTable.ddsElement
+      .querySelectorAll(`.selectedRow`)
+      .forEach((r: any) => {
+        r.classList.remove(`selectedRow`);
+      });
+
+    // select new random row, store its hidden ID at root
+    if (selectedRow.querySelector(`.rowId`)) {
+      this.selectedIndex = selectedRow.querySelector(`.rowId`).innerText;
+    }
+
+    // add selection classes
+    selectedRow.querySelectorAll(`.dds__td`).forEach((c: any) => {
+      c.classList.add(`selectedRow`);
+    });
   }
 
   handleSort(e: any) {
