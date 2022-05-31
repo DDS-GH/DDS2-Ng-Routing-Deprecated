@@ -81,6 +81,10 @@ export class TablePageComponent implements AfterViewInit {
         value: `Joke? <tthold id="${ttData.id}" title="${ttData.title}">${ttData.content}</tthold>`
       }
     ]);
+    this.reinitializeTable();
+  }
+
+  reinitializeTable() {
     // @ts-ignore
     this.myTable.ddsElement.innerHTML = ``;
     // @ts-ignore
@@ -131,6 +135,7 @@ export class TablePageComponent implements AfterViewInit {
     } else {
       this.sorting = e.sortBy;
     }
+    this.initializeTooltips();
   }
 
   initializeTooltips() {
