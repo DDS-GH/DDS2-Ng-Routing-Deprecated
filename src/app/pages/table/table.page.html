@@ -11,11 +11,15 @@
       <button role="button" class="dds__button" (click)="handleSelect($event)">
         Selected {{selectedIndex}}
       </button>
+      <button role="button" class="dds__button" (click)="handleSticky($event)">
+        Sticky {{classList.indexOf('sticky') > 0}}
+      </button>
     </div>
     <dds-table
       #myTable
       [ddsOptions]="config"
       (onSort)="handleSort($event)"
+      [classList]="classList"
     ></dds-table>
   </div>
 </div>

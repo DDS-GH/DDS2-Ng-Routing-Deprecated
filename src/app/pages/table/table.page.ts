@@ -21,6 +21,7 @@ declare const DDS: any; // Use declare if you import via CDN. Regular Angular (n
 })
 export class TablePageComponent implements AfterViewInit {
   @ViewChild(`myTable`) myTable!: ElementRef<HTMLElement>;
+  public classList: string = ``;
   public sorting: string = `descending`;
   public config: any = {
     columns: [
@@ -136,6 +137,14 @@ export class TablePageComponent implements AfterViewInit {
       this.sorting = e.sortBy;
     }
     this.initializeTooltips();
+  }
+
+  handleSticky(e: any) {
+    if (this.classList.indexOf(`sticky`) > 0) {
+      this.classList = ``;
+    } else {
+      this.classList = `dds__table--sticky-header custom-height`;
+    }
   }
 
   initializeTooltips() {
