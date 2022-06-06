@@ -1,0 +1,40 @@
+<h2>Table + Pagination DEMO</h2>
+<div class="dds__row">
+  <div class="dds__col--2 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    <h3>Attention</h3>
+    <p>
+      This is an <span style="color: red;">UNFINISHED</span> demonstration on
+      how to connect the Table component with the Pagination component by
+      sharing a pool of data between the two components. Please note that the
+      DDS team is working on embedding such integration automatically within the
+      Table component and this will be release in the coming sprints. Please
+      also see the regular <a routerLink="/table">Table component</a> page.
+    </p>
+    <div class="controlPanel">
+      <button role="button" class="dds__button" (click)="handleAdd(1)">
+        Add New Row
+      </button>
+      <button role="button" class="dds__button" (click)="handleSort($event)">
+        Col 0: {{ sorting }}
+      </button>
+      <button role="button" class="dds__button" (click)="handleSelect($event)">
+        Selected {{selectedIndex}}
+      </button>
+      <button role="button" class="dds__button" (click)="handleSticky($event)">
+        Sticky {{classList.indexOf('sticky') > 0}}
+      </button>
+    </div>
+    <dds-table
+      #myTable
+      [ddsOptions]="config"
+      (onSort)="handleSort($event)"
+      [classList]="classList"
+    ></dds-table>
+    <dds-pagination
+      #paginationRef
+      [perPageSelected]="pagination.perPageSelected"
+      [perPageOptions]="pagination.perPageOptions"
+      [ddsOptions]="pagination.options"
+    ></dds-pagination>
+  </div>
+</div>
