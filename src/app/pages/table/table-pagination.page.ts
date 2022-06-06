@@ -72,7 +72,6 @@ export class TablePaginationPageComponent implements OnInit, AfterViewInit {
     this.handleAdd(8);
     this.initializeTooltips();
     const linkPool = (e: any) => {
-      debug(e.detail);
       this.pool.page.current = e.detail.currentPage - 1;
       this.pool.page.size = e.detail.pageSize;
       this.reinitializeTable();
@@ -180,7 +179,7 @@ export class TablePaginationPageComponent implements OnInit, AfterViewInit {
     if (length < page * size) {
       localSize = length;
     } else if (length < page * size + size) {
-      localSize = page * size + size - length + 1;
+      localSize = length;
     }
     return this.pool.data.slice(page * size, page * size + localSize);
   }
