@@ -9,6 +9,7 @@ import {
   ViewChild,
   ViewContainerRef
 } from "@angular/core";
+import { ButtonComponent } from "src/app/lib/button/button.component";
 import { Uuid } from "src/app/lib/helpers/dds.helpers";
 import { TooltipComponent } from "src/app/lib/tooltip/tooltip.component";
 import { randomNumber } from "src/app/utilities/mock";
@@ -70,6 +71,10 @@ export class TablePageComponent implements AfterViewInit {
 
   handleAdd(e: any) {
     const num: number = Uuid();
+    const buttonData: any = {
+      id: `trbutton${num}`,
+      content: `Squeak`
+    };
     const ttData: any = {
       id: `tt${num}`,
       title: `Cock-a-Doodle-doo`,
@@ -77,7 +82,9 @@ export class TablePageComponent implements AfterViewInit {
     };
     this.config.data.push([
       { value: `Quack ${num}<span class="dds__d-none rowId">${num}</span>` },
-      { value: `Moo?` },
+      {
+        value: `Moo? <buttonhold id="${ttData.id}">${buttonData.content}</buttonhold>`
+      },
       {
         value: `Joke? <tthold id="${ttData.id}" title="${ttData.title}">${ttData.content}</tthold>`
       }
@@ -92,6 +99,7 @@ export class TablePageComponent implements AfterViewInit {
     this.myTable.ddsComponent.dispose();
     // @ts-ignore
     this.myTable.initializeNow();
+    this.initializeButtons();
     this.initializeTooltips();
   }
 
@@ -147,6 +155,40 @@ export class TablePageComponent implements AfterViewInit {
     }
   }
 
+  initializeButtons() {
+    // make sure the components you wish to create instances of are in your module's entryComponents
+    // make sure your constructor defines the references (see this class's constructor)
+    const el = this.viewContainerRef.element.nativeElement as HTMLElement;
+    const placeholders = el.querySelectorAll("buttonhold");
+    placeholders.forEach((ph) => {
+      // 1 Find a component factory
+      const componentFactory = this.factoryResolver.resolveComponentFactory(
+        ButtonComponent
+      );
+      // move the placeholder HTML to a new node
+      var thisNode = document.createElement("span");
+      thisNode.innerHTML = ph.innerHTML;
+      // 2 create and initialize a component reference
+      const componentRef = componentFactory.create(this.injector, [[thisNode]]);
+      componentRef.instance.elementId = ph.id;
+      componentRef.instance.classList = `dds__button--mini dds__button--destructive`; // this is the custom property "classList"
+      // 3 attach component to applicationRef so angular virtual DOM will
+      // understand it as dirty (requires re-rendering)
+      this.applicationRef.attachView(componentRef.hostView);
+      // 4 let`s do som preparation, get from the component created
+      // a view REF
+      const viewRef = componentRef.hostView as EmbeddedViewRef<any>;
+      // and from view REF the HTML content...
+      const viewEl = viewRef.rootNodes[0] as HTMLElement;
+      viewEl.addEventListener(`click`, this.handleRowButtonClick);
+      const phParent = ph.parentElement;
+      if (phParent) {
+        phParent.appendChild(viewEl);
+      }
+      ph.remove();
+    });
+  }
+
   initializeTooltips() {
     // make sure the components you wish to create instances of are in your module's entryComponents
     // make sure your constructor defines the references (see this class's constructor)
@@ -176,5 +218,9 @@ export class TablePageComponent implements AfterViewInit {
       }
       ph.remove();
     });
+  }
+
+  handleRowButtonClick(e: any) {
+    console.log(e.target);
   }
 }
