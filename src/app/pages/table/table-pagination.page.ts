@@ -24,13 +24,13 @@ declare const DDS: any; // Use declare if you import via CDN. Regular Angular (n
 export class TablePaginationPageComponent implements OnInit, AfterViewInit {
   @ViewChild(`myTable`) myTable!: ElementRef<HTMLElement>;
   @ViewChild(`paginationRef`) paginationRef!: ElementRef<HTMLElement>;
-  public classList: string = ``;
+  public classList: string = `dds__table--compact`;
   public sorting: string = `descending`;
   public pool: any = {
     data: [],
     page: {
       current: 0,
-      size: 3
+      size: 6
     }
   };
   public config: any = {
@@ -51,8 +51,8 @@ export class TablePaginationPageComponent implements OnInit, AfterViewInit {
   private tooltip: any = {};
   private selectedIndex?: string = undefined;
   public pagination: any = {
-    perPageSelected: 3,
-    perPageOptions: [3, 5, 10],
+    perPageSelected: this.pool.page.size,
+    perPageOptions: [6, 12, 24],
     options: {
       currentPage: this.pool.page.current,
       totalItems: this.pool.page.size
@@ -69,7 +69,7 @@ export class TablePaginationPageComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.handleAdd(8);
+    this.handleAdd(48);
     this.initializeTooltips();
     const linkPool = (e: any) => {
       this.pool.page.current = e.detail.currentPage - 1;
@@ -161,10 +161,11 @@ export class TablePaginationPageComponent implements OnInit, AfterViewInit {
   }
 
   handleSticky(e: any) {
-    if (this.classList.indexOf(`sticky`) > 0) {
-      this.classList = ``;
+    const sClass = ` dds__table--sticky-header custom-height`;
+    if (this.classList.indexOf(sClass) > 0) {
+      this.classList = this.classList.replace(sClass, ``);
     } else {
-      this.classList = `dds__table--sticky-header custom-height`;
+      this.classList = this.classList + sClass;
     }
   }
 
