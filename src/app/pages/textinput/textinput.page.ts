@@ -26,6 +26,8 @@ export class TextInputPageComponent implements AfterViewInit {
       // @ts-ignore
       document.getElementById(`${e.id}-input`).value = ``;
       this.liveIcons = this.liveIcons.replace(this.closeIcon, "");
+    } else {
+      console.log(e.type);
     }
   }
 
