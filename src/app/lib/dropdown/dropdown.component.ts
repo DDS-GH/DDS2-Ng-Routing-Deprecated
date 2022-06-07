@@ -112,15 +112,17 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
       }
     }
   }
+
   ngOnChanges(changes: SimpleChanges) {
     if (
-        changes[`groups`] &&
+      changes[`groups`] &&
       !changes[`groups`].firstChange &&
       changes[`groups`].currentValue !== changes[`groups`].previousValue
     ) {
       this.parseData();
     }
   }
+
   deselect(removalValue: any) {
     try {
       if (typeof removalValue === `string`) {
