@@ -5,12 +5,17 @@
       Dropdowns can also be used in the Filter pattern; please see more examples
       of that usage under <a routerLink="/horizontal">Filter</a>.
     </p>
+    <div class="controlPanel">
+      <button role="button" class="dds__button" (click)="handleToggle($event)">
+        Toggle First Hidden Option
+      </button>
+    </div>
     <dds-dropdown
       elementId="ddsDropdownSimple"
       label="Simple Dropdown Example"
       helper="Helper Text"
       ddsOptions='{"selection": "single"}'
-      [groups]="dropdownData.groups"
+      [groups]="[].concat(groups$ | async)"
     >
     </dds-dropdown>
   </div>
