@@ -1,7 +1,7 @@
 <ng-template #content><ng-content></ng-content></ng-template>
 
 <li id="{{id}}" *ngIf="!checkbox" class="dds__action-menu__item" role="none">
-  <button role="menuitem" tabindex="-1" (click)="onClick()">
+  <button role="menuitem" tabindex="-1" (click)="onClick()" [class]="classList">
     <i *ngIf="icon" class="dds__icon {{icon}}"></i>
     <span><ng-container *ngTemplateOutlet="content"></ng-container></span>
   </button>
@@ -14,6 +14,7 @@
     [attr.aria-checked]="checked"
     [attr.data-value]="value"
     (click)="onChange()"
+    [class]="classList"
   >
     <i *ngIf="icon" class="dds__icon {{icon}}"></i>
     <span><ng-container *ngTemplateOutlet="content"></ng-container></span>

@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
 
 @Component({
-  templateUrl: "./actionmenu.page.html"
+  templateUrl: "./actionmenu.page.html",
+  styleUrls: ["./actionmenu.page.scss"]
 })
 // @ts-ignore
 export class ActionMenuPageComponent {

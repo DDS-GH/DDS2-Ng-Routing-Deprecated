@@ -28,13 +28,16 @@ export class ActionMenuItemComponent implements OnChanges, OnInit, OnDestroy {
   @Input() selected: string = ``;
   @Input() link: string = ``;
   @Input() icon: string = ``;
+  @Input() classList: string = ``;
+  @Input() disabled: any = false;
   @Input() checkbox: any = false;
   @Input() checked: any = false;
   @Input() value: any = "";
   @Output() onChecked: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onClicked: EventEmitter<string> = new EventEmitter<string>();
   public isSelected: boolean = false;
-//   private menuService: MenuService;
-//   private parentId: string;
+  //   private menuService: MenuService;
+  //   private parentId: string;
   message: any;
   subscription!: Subscription;
 
@@ -43,11 +46,15 @@ export class ActionMenuItemComponent implements OnChanges, OnInit, OnDestroy {
   ngOnInit() {
     this.id = setElementId(this.id);
     this.isSelected = stringToBoolean(this.selected);
+    this.disabled = stringToBoolean(this.disabled);
     this.link = ddsLink(this.link);
     this.icon = ddsIcon(this.icon);
     this.subscription = this.menuState.currentState.subscribe((message) => {
       this.message = message;
     });
+    if (this.disabled) {
+      this.classList = this.classList + ` dds__actionmenu__item--disabled`;
+    }
   }
 
   ngOnDestroy() {
@@ -61,12 +68,17 @@ export class ActionMenuItemComponent implements OnChanges, OnInit, OnDestroy {
   }
 
   public onClick() {
-    this.menuState.changeState(toState.closed);
-    this.onChecked.emit(this.value);
+    if (!this.disabled) {
+      this.menuState.changeState(toState.closed);
+      console.log(this.onClicked);
+      this.onClicked.emit(this.value);
+    }
   }
 
   public onChange() {
-    this.menuState.changeState(toState.altClosed);
-    this.onChecked.emit(this.value);
+    if (!this.disabled) {
+      this.menuState.changeState(toState.altClosed);
+      this.onChecked.emit(this.value);
+    }
   }
 }
