@@ -165,7 +165,7 @@ export const arrayAdd = (arr: Array<any>, value: any) => {
       }
     } else {
       // search by object property to find if exists
-      if (!arr.find((i) => i.value === value)) {
+      if (!arr.find((i) => i.value === value.value)) {
         arr.push(value);
       }
     }
