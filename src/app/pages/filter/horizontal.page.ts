@@ -93,8 +93,6 @@ export class FilterHorizontalPageComponent implements OnInit {
       this.filter0.ddsComponent.clearSelection();
       const newData = this.dropdownRandomItems(`New Data`, 1, false, 99, 101);
       this.dropdownData[0].stored = newData.selection;
-      // @ts-ignore
-      this.filter0.ddsComponent.dispose();
       this.dropdownData[0].groups = JSON.stringify([
         {
           name: `New Data`,
@@ -103,7 +101,7 @@ export class FilterHorizontalPageComponent implements OnInit {
       ]);
       setTimeout(() => {
         // @ts-ignore
-        this.filter0.initializeNow();
+        this.filter0.reboot();
         if (!this.clearedRelistener) {
           // @ts-ignore
           this.clearedRelistener =
