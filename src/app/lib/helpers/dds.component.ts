@@ -1,5 +1,4 @@
 import { Component, AfterViewInit, Input, OnInit } from "@angular/core";
-import { debug } from "src/app/utilities/util";
 import {
   createObserver,
   pascalDash,
@@ -8,7 +7,7 @@ import {
   tryParseOptions
 } from "./dds.helpers";
 
-// import { <Component> } from @dds/components;  You would use this if you were using the node module for DDS
+// import * as DDS from "@dds/components";  // You would use this if you were using the node module for DDS
 declare const DDS: any; // Use declare if you import via CDN. Regular Angular (node_modules) usage would be via an import
 
 @Component({
