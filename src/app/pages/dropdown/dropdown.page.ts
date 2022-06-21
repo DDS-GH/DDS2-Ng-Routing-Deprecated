@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { Observable, of, BehaviorSubject } from "rxjs";
 import * as data from "./dropdown.page.json";
 
@@ -13,6 +13,7 @@ interface DGroups {
   templateUrl: "./dropdown.page.html"
 })
 export class DropdownPageComponent implements OnInit {
+  @ViewChild(`ddRef`) ddRef!: ElementRef<HTMLElement>;
   public stored: Array<any> = [];
   public showTags: boolean = false;
   public groups: Observable<DGroups>[] = [];
@@ -33,5 +34,8 @@ export class DropdownPageComponent implements OnInit {
   handleToggle(e: any) {
     this.groupsArray[0].options[1].hidden = !this.groupsArray[0].options[1]
       .hidden;
+    setTimeout(() => {
+      this.ddRef.reboot();
+    });
   }
 }

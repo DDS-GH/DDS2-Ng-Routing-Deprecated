@@ -148,4 +148,21 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
       console.error(e, removalValue);
     }
   }
+
+  reboot() {
+    // as of this writing (currently ~v2.13.0), reintializing the Dropdown
+    // leaves an extra selectAll element
+    const selectAll = this.ddsElement.querySelector(
+      `.dds__dropdown__select-all`
+    );
+    if (selectAll) {
+      const firstSeparator = selectAll.parentElement.querySelector(
+        `.dds__dropdown__list-separator`
+      );
+      selectAll.remove();
+      firstSeparator.remove();
+    }
+    this.ddsComponent.dispose();
+    this.initializeNow();
+  }
 }

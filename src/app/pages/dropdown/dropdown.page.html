@@ -11,10 +11,11 @@
       </button>
     </div>
     <dds-dropdown
+      #ddRef
       elementId="ddsDropdownSimple"
       label="Simple Dropdown Example"
       helper="Helper Text"
-      ddsOptions='{"selection": "single"}'
+      ddsOptions='{"selection": "multiple"}'
       [groups]="[].concat(groups$ | async)"
     >
     </dds-dropdown>
