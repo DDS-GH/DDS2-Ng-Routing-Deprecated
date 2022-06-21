@@ -92,6 +92,15 @@ export class TablePageComponent implements AfterViewInit {
     this.reinitializeTable();
   }
 
+  handleDelete(e: any) {
+    if (this.config.data.length > 1) {
+      this.config.data.pop();
+      this.reinitializeTable();
+    } else {
+      alert(`Can't delete last row`);
+    }
+  }
+
   reinitializeTable() {
     // @ts-ignore
     this.myTable.ddsElement.innerHTML = ``;
