@@ -48,8 +48,8 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
     };
     const handleDownFinal = (e: any) => {
       const ignoredKeys = [`ArrowLeft`, `ArrowRight`, `ArrowUp`, `ArrowDown`];
-      if (!ignoredKeys.includes(e.key) && this.noOptionsLabel) {
-        dropdownNotice.innerText = this.noOptionsLabel;
+      if (!ignoredKeys.includes(e.key) && this.ddsOptions.noOptionsLabel) {
+        dropdownNotice.innerText = this.ddsOptions.noOptionsLabel;
       }
     };
     const handleClear = (e: any) => {
