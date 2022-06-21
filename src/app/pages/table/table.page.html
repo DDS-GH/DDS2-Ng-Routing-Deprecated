@@ -11,7 +11,10 @@
     </p>
     <div class="controlPanel">
       <button role="button" class="dds__button" (click)="handleAdd($event)">
-        Add New Row
+        Add Row
+      </button>
+      <button role="button" class="dds__button" (click)="handleDelete($event)">
+        Delete Row
       </button>
       <button role="button" class="dds__button" (click)="handleSort($event)">
         Col 0: {{ sorting }}
