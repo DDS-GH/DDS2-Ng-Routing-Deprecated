@@ -26,6 +26,7 @@ import { ModalPageComponent } from "./pages/modal/modal.page";
 import { MoreLessPageComponent } from "./pages/moreless/moreless.page";
 import { PaginationPageComponent } from "./pages/pagination/pagination.page";
 import { PopoverPageComponent } from "./pages/popover/popover.page";
+import { ProgressPageComponent } from "./pages/progress/progress.page";
 import { SelectPageComponent } from "./pages/select/select.page";
 import { SidenavPageComponent } from "./pages/sidenav/sidenav.page";
 import { TablePageComponent } from "./pages/table/table.page";
@@ -55,6 +56,7 @@ import { ModalComponent } from "./lib/modal/modal.component";
 import { MoreLessComponent } from "./lib/moreless/moreless.component";
 import { PaginationComponent } from "./lib/pagination/pagination.component";
 import { PopoverComponent } from "./lib/popover/popover.component";
+import { ProgressComponent } from "./lib/progress/progress.component";
 import { RadioComponent } from "./lib/radio/radio.component";
 import { SelectComponent } from "./lib/select/select.component";
 import { SidenavModule } from "./lib/sidenav/sidenav.module";
@@ -89,6 +91,7 @@ const appRoutes: Routes = [
   { path: "moreless", component: MoreLessPageComponent },
   { path: "pagination", component: PaginationPageComponent },
   { path: "popover", component: PopoverPageComponent },
+  { path: "progress", component: ProgressPageComponent },
   { path: "radio", component: RadioPageComponent },
   { path: "select", component: SelectPageComponent },
   { path: "sidenav", component: SidenavPageComponent },
@@ -117,6 +120,7 @@ const components = [
   MoreLessComponent,
   PaginationComponent,
   PopoverComponent,
+  ProgressComponent,
   RadioComponent,
   SelectComponent,
   TableComponent,
@@ -147,6 +151,7 @@ const pages = [
   MoreLessPageComponent,
   PaginationPageComponent,
   PopoverPageComponent,
+  ProgressPageComponent,
   RadioPageComponent,
   SelectPageComponent,
   SidenavPageComponent,
