@@ -22,6 +22,15 @@ declare const DDS: any; // Use declare if you import via CDN. Regular Angular (n
 })
 export class TablePageComponent implements AfterViewInit {
   @ViewChild(`myTable`) myTable!: ElementRef<HTMLElement>;
+  @ViewChild(`ddsMbInstance`) ddsMbInstance!: ElementRef<HTMLElement>;
+  public mb = {
+    title: `Error`,
+    dismissible: true,
+    layout: `global`,
+    icon: `alert-info-cir`,
+    variant: `error`,
+    body: `No data is available to display.`
+  };
   public classList: string = ``;
   public sorting: string = `descending`;
   public config: any = {
@@ -95,6 +104,7 @@ export class TablePageComponent implements AfterViewInit {
   handleDelete(e: any) {
     this.config.data.pop();
     if (this.config.data.length === 0) {
+      this.ddsMbInstance.ddsComponent.showMessageBar();
       this.config.data.push([{ value: `` }, { value: `` }, { value: `` }]);
     }
     this.reinitializeTable();
