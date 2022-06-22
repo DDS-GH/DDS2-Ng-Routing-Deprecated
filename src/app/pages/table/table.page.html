@@ -26,6 +26,18 @@
         Sticky {{classList.indexOf('sticky') > 0}}
       </button>
     </div>
+    <dds-messagebar
+      #ddsMbInstance
+      elementId="ddsMessageBar"
+      classList="dds__message-bar--hide"
+      [title]="mb.title"
+      [dismissible]="mb.dismissible"
+      [layout]="mb.layout"
+      [icon]="mb.icon"
+      [variant]="mb.variant"
+    >
+      {{mb.body}}
+    </dds-messagebar>
     <dds-table
       #myTable
       [ddsOptions]="config"

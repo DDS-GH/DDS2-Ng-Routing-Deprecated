@@ -5,8 +5,7 @@ import { randomName } from "../../utilities/mock";
   templateUrl: "./messagebar.page.html"
 })
 export class MessageBarPageComponent {
-  // @ts-ignore
-  @ViewChild(`ddsMbInstance`) ddsMbInstance: ElementRef<HTMLElement>;
+  @ViewChild(`ddsMbInstance`) ddsMbInstance!: ElementRef<HTMLElement>;
 
   public mb = {
     title: `Howl`,
