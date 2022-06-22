@@ -279,7 +279,7 @@ export class LoadPageComponent implements OnInit {
     // @ts-ignore
     this.loader.toggle();
     if (!this.resetCount) {
-      this.resetCount = 5;
+      this.resetCount = 2;
       this.countdown();
     } else {
       this.resetCount = ``;
