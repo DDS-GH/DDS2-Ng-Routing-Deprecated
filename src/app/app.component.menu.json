@@ -16,6 +16,11 @@
     "tags": ["all", "simple", "navigation"]
   },
   {
+    "icon": "chart-insights",
+    "text": "Progress",
+    "tags": ["all", "simple", "info"]
+  },
+  {
     "icon": "chat-dots",
     "text": "Popover",
     "tags": ["all", "info"],
