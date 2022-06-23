@@ -3,7 +3,7 @@
     "icon": "receipt",
     "text": "Pagination",
     "tags": ["all", "navigation", "info"],
-    "hidden": true
+    "hidden": false
   },
   {
     "icon": "card-swipe-left",
@@ -16,10 +16,15 @@
     "tags": ["all", "simple", "navigation"]
   },
   {
+    "icon": "chart-insights",
+    "text": "Progress",
+    "tags": ["all", "simple", "info"]
+  },
+  {
     "icon": "chat-dots",
     "text": "Popover",
-    "tags": ["all", "layout", "info"],
-    "hidden": true
+    "tags": ["all", "info"],
+    "hidden": false
   },
   {
     "icon": "calendar",

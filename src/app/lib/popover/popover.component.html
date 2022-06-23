@@ -1,32 +1,27 @@
-<div
-  class="dds__popover {{classList}}"
-  data-dds="popover"
-  [attr.data-trigger]="'#' + elementId"
+<a
+  *ngIf="triggerId"
+  class="dds__link--standalone"
+  [id]="triggerId"
+  href="javascript:void(0);"
 >
-  <a
-    href="javascript:void(0);"
-    [id]="elementId"
-    class="dds__link--standalone"
-    [attr.aria-describedby]="elementId + 'Container'"
-  >
-    <span class="dds__sr-only">{{srOnly}}</span>
-    <i class="dds__icon dds__icon--{{icon}}"></i>
-  </a>
-  <div
-    [id]="elementId + 'Container'"
-    class="dds__popover__container"
-    tabindex="-1"
-    role="presentation"
-    aria-hidden="true"
-  >
-    <div class="dds__popover__pointer"></div>
+  <span class="dds__sr-only">{{srOnly}}</span>
+  <i class="dds__icon dds__icon--{{icon}}"></i>
+</a>
+<div
+  [id]="elementId"
+  class="dds__popover {{classList}}"
+  role="dialog"
+  data-dds="popover"
+  [attr.aria-labelledby]="elementId + 'Title'"
+>
+  <div class="dds__popover__content">
     <div class="dds__popover__header">
-      <h6 class="dds__popover__header-label">{{headline}}</h6>
-      <button
-        class="dds__popover__dismiss"
-        [attr.aria-label]="srDismiss"
-      ></button>
+      <h6 class="dds__popover__headline" [id]="elementId + 'Title'">
+        {{headline}}
+      </h6>
     </div>
-    <ng-content></ng-content>
+    <div class="dds__popover__body">
+      <ng-content></ng-content>
+    </div>
   </div>
 </div>

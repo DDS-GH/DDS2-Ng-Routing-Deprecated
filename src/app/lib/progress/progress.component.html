@@ -1,0 +1,24 @@
+<ol [id]="elementId" class="dds__progress-tracker">
+  <li
+    *ngFor="let step of steps; index as i"
+    class="dds__progress-tracker__item {{classList}}"
+    [class.dds__progress-tracker--active]="step.state === 'active'"
+    [class.dds__progress-tracker--complete]="step.state === 'complete'"
+    [class.dds__progress-tracker--in-progress]="step.state === 'in-progress'"
+    [attr.aria-current]="step.state === 'in-progress'"
+  >
+    <span class="dds__sr-only">{{step.state}}</span>
+    <span class="dds__progress-tracker__circle">
+      <span class="dds__progress-tracker__icon"></span>
+    </span>
+    <div class="dds__progress-tracker__content">
+      <ng-container *ngIf="!step.link">
+        <span class="dds__progress-tracker__step-name">{{step.name}}</span>
+      </ng-container>
+      <ng-container *ngIf="step.link">
+        <a href="{{step.link}}">{{step.name}}</a>
+      </ng-container>
+      <span>{{step.summary}}</span>
+    </div>
+  </li>
+</ol>

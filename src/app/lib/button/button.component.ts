@@ -9,7 +9,7 @@ import { stringToBoolean } from "../helpers/dds.helpers";
 })
 export class ButtonComponent extends DdsComponent {
   @Input() ariaLabel: string = ``;
-  @Input() action: string = ``;
+  @Input() action: string = ``; // for "attaching" the button to an ActionMenu.  Experimental.
   @Input() type: string = `text`;
   @Input() disabled: any = `false`;
 

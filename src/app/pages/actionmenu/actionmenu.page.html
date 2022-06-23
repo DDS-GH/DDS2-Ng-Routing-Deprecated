@@ -11,9 +11,18 @@
         <dds-actionmenu-item
           elementId="amAction1"
           icon="copy-alt"
-          (click)="actionMenuAction('copy click')"
+          classList="customColor"
+          (onClicked)="actionMenuAction('copy click')"
         >
-          Copy
+          Copy (has customColor)
+        </dds-actionmenu-item>
+        <dds-actionmenu-item
+          disabled="true"
+          elementId="amAction1"
+          icon="copy-alt"
+          (onClicked)="actionMenuAction('disabled click')"
+        >
+          Disabled
         </dds-actionmenu-item>
       </dds-actionmenu-menu>
 

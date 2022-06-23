@@ -1,0 +1,8 @@
+::ng-deep .selectedRow .dds__table__cell {
+  font-weight: bold;
+  color: red;
+}
+
+::ng-deep .dds__table.custom-height { 
+  height:20vh; 
+}

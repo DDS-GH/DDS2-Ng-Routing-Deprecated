@@ -6,33 +6,33 @@ import {
   ElementRef,
   EmbeddedViewRef,
   Injector,
+  OnInit,
   ViewChild,
   ViewContainerRef
 } from "@angular/core";
-import { ButtonComponent } from "src/app/lib/button/button.component";
 import { Uuid } from "src/app/lib/helpers/dds.helpers";
 import { TooltipComponent } from "src/app/lib/tooltip/tooltip.component";
 import { randomNumber } from "src/app/utilities/mock";
+import { debug } from "src/app/utilities/util";
 
 declare const DDS: any; // Use declare if you import via CDN. Regular Angular (node_modules) usage would be via an import
 
 @Component({
-  templateUrl: "./table.page.html",
-  styleUrls: ["./table.page.scss"]
+  templateUrl: "./table-pagination.page.html",
+  styleUrls: ["./table-pagination.page.scss"]
 })
-export class TablePageComponent implements AfterViewInit {
+export class TablePaginationPageComponent implements OnInit, AfterViewInit {
   @ViewChild(`myTable`) myTable!: ElementRef<HTMLElement>;
-  @ViewChild(`ddsMbInstance`) ddsMbInstance!: ElementRef<HTMLElement>;
-  public mb = {
-    title: `Error`,
-    dismissible: true,
-    layout: `global`,
-    icon: `alert-info-cir`,
-    variant: `error`,
-    body: `No data is available to display.`
-  };
-  public classList: string = ``;
+  @ViewChild(`paginationRef`) paginationRef!: ElementRef<HTMLElement>;
+  public classList: string = `dds__table--compact`;
   public sorting: string = `descending`;
+  public pool: any = {
+    data: [],
+    page: {
+      current: 0,
+      size: 6
+    }
+  };
   public config: any = {
     columns: [
       {
@@ -46,26 +46,18 @@ export class TablePageComponent implements AfterViewInit {
         value: `Peking`
       }
     ],
-    data: [
-      [
-        { value: `Cluck<span class="dds__d-none rowId">${Uuid()}</span>` },
-        { value: `Cluck` },
-        { value: `Cluck` }
-      ],
-      [
-        { value: `Bock<span class="dds__d-none rowId">${Uuid()}</span>` },
-        { value: `Bock` },
-        { value: `Bock` }
-      ],
-      [
-        { value: `Quack<span class="dds__d-none rowId">${Uuid()}</span>` },
-        { value: `Quack` },
-        { value: `Quack` }
-      ]
-    ]
+    data: this.refinePool()
   };
   private tooltip: any = {};
   private selectedIndex?: string = undefined;
+  public pagination: any = {
+    perPageSelected: this.pool.page.size,
+    perPageOptions: [6, 12, 24],
+    options: {
+      currentPage: this.pool.page.current,
+      totalItems: this.pool.page.size
+    }
+  };
 
   constructor(
     private viewContainerRef: ViewContainerRef,
@@ -74,50 +66,53 @@ export class TablePageComponent implements AfterViewInit {
     private injector: Injector
   ) {}
 
+  ngOnInit(): void {}
+
   ngAfterViewInit(): void {
+    this.handleAdd(48);
     this.initializeTooltips();
+    const linkPool = (e: any) => {
+      this.pool.page.current = e.detail.currentPage - 1;
+      this.pool.page.size = e.detail.pageSize;
+      this.reinitializeTable();
+    };
+    this.paginationRef.ddsElement.addEventListener(
+      `ddsPaginationPageChangedEvent`,
+      linkPool
+    );
+    this.paginationRef.ddsElement.addEventListener(
+      `ddsPaginationPageSizeChangedEvent`,
+      linkPool
+    );
   }
 
-  handleAdd(e: any) {
-    const num: number = Uuid();
-    const buttonData: any = {
-      id: `trbutton${num}`,
-      content: `Squeak`
-    };
-    const ttData: any = {
-      id: `tt${num}`,
-      title: `Cock-a-Doodle-doo`,
-      content: `I used to run a dating service for chickens, but I was struggling to make hens meet.`
-    };
-    this.config.data.push([
-      { value: `Quack ${num}<span class="dds__d-none rowId">${num}</span>` },
-      {
-        value: `Moo? <buttonhold id="${ttData.id}">${buttonData.content}</buttonhold>`
-      },
-      {
-        value: `Joke? <tthold id="${ttData.id}" title="${ttData.title}">${ttData.content}</tthold>`
-      }
-    ]);
-    this.reinitializeTable();
-  }
-
-  handleDelete(e: any) {
-    this.config.data.pop();
-    if (this.config.data.length === 0) {
-      this.ddsMbInstance.ddsComponent.showMessageBar();
-      this.config.data.push([{ value: `` }, { value: `` }, { value: `` }]);
+  handleAdd(e: number = 1) {
+    for (let i = 0; i < e; i++) {
+      const num: number = Uuid();
+      const ttData: any = {
+        id: `tt${num}`,
+        title: `Cock-a-Doodle-doo`,
+        content: `I used to run a dating service for chickens, but I was struggling to make hens meet.`
+      };
+      this.pool.data.push([
+        { value: `Quack ${num}<span class="dds__d-none rowId">${num}</span>` },
+        { value: `Moo?` },
+        {
+          value: `Joke? <tthold id="${ttData.id}" title="${ttData.title}">${ttData.content}</tthold>`
+        }
+      ]);
     }
+    this.paginationRef.ddsComponent.setTotalItems(this.pool.data.length);
     this.reinitializeTable();
   }
 
   reinitializeTable() {
-    // @ts-ignore
+    this.config.data = this.refinePool();
     this.myTable.ddsElement.innerHTML = ``;
-    // @ts-ignore
-    this.myTable.ddsComponent.dispose();
-    // @ts-ignore
+    if (this.myTable.ddsComponent.dispose) {
+      this.myTable.ddsComponent.dispose();
+    }
     this.myTable.initializeNow();
-    this.initializeButtons();
     this.initializeTooltips();
   }
 
@@ -166,45 +161,28 @@ export class TablePageComponent implements AfterViewInit {
   }
 
   handleSticky(e: any) {
-    if (this.classList.indexOf(`sticky`) > 0) {
-      this.classList = ``;
+    const sClass = ` dds__table--sticky-header custom-height`;
+    if (this.classList.indexOf(sClass) > 0) {
+      this.classList = this.classList.replace(sClass, ``);
     } else {
-      this.classList = `dds__table--sticky-header custom-height`;
+      this.classList = this.classList + sClass;
     }
   }
 
-  initializeButtons() {
-    // make sure the components you wish to create instances of are in your module's entryComponents
-    // make sure your constructor defines the references (see this class's constructor)
-    const el = this.viewContainerRef.element.nativeElement as HTMLElement;
-    const placeholders = el.querySelectorAll("buttonhold");
-    placeholders.forEach((ph) => {
-      // 1 Find a component factory
-      const componentFactory = this.factoryResolver.resolveComponentFactory(
-        ButtonComponent
-      );
-      // move the placeholder HTML to a new node
-      var thisNode = document.createElement("span");
-      thisNode.innerHTML = ph.innerHTML;
-      // 2 create and initialize a component reference
-      const componentRef = componentFactory.create(this.injector, [[thisNode]]);
-      componentRef.instance.elementId = ph.id;
-      componentRef.instance.classList = `dds__button--mini dds__button--destructive`; // this is the custom property "classList"
-      // 3 attach component to applicationRef so angular virtual DOM will
-      // understand it as dirty (requires re-rendering)
-      this.applicationRef.attachView(componentRef.hostView);
-      // 4 let`s do som preparation, get from the component created
-      // a view REF
-      const viewRef = componentRef.hostView as EmbeddedViewRef<any>;
-      // and from view REF the HTML content...
-      const viewEl = viewRef.rootNodes[0] as HTMLElement;
-      viewEl.addEventListener(`click`, this.handleRowButtonClick);
-      const phParent = ph.parentElement;
-      if (phParent) {
-        phParent.appendChild(viewEl);
-      }
-      ph.remove();
-    });
+  refinePool() {
+    const length = this.pool.data.length;
+    const size = this.pool.page.size;
+    const page = this.pool.page.current;
+    let localSize = size;
+    if (length === 0) {
+      return [];
+    }
+    if (length < page * size) {
+      localSize = length;
+    } else if (length < page * size + size) {
+      localSize = length;
+    }
+    return this.pool.data.slice(page * size, page * size + localSize);
   }
 
   initializeTooltips() {
@@ -236,9 +214,5 @@ export class TablePageComponent implements AfterViewInit {
       }
       ph.remove();
     });
-  }
-
-  handleRowButtonClick(e: any) {
-    console.log(e.target);
   }
 }

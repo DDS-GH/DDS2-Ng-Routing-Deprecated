@@ -48,8 +48,8 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
     };
     const handleDownFinal = (e: any) => {
       const ignoredKeys = [`ArrowLeft`, `ArrowRight`, `ArrowUp`, `ArrowDown`];
-      if (!ignoredKeys.includes(e.key) && this.noOptionsLabel) {
-        dropdownNotice.innerText = this.noOptionsLabel;
+      if (!ignoredKeys.includes(e.key) && this.ddsOptions.noOptionsLabel) {
+        dropdownNotice.innerText = this.ddsOptions.noOptionsLabel;
       }
     };
     const handleClear = (e: any) => {
@@ -72,24 +72,38 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
     if (!this.listeners.includes(`clicking`)) {
       this.listeners.push(`clicking`);
       this.ddsElement.addEventListener(`click`, (e: any) => {
+        const emitSelection = (el: any) => {
+          let valueToSubmit: any;
+          const dataValue = el.getAttribute("data-value");
+            if (dataValue) {
+              valueToSubmit = {
+                value: dataValue,
+                text: el.innerText.trim()
+              };
+            } else {
+              valueToSubmit = el.innerText.trim();
+            }
+            if (!stringToBoolean(el.getAttribute(`data-selected`))) {
+              this.optionDeselected.emit(valueToSubmit);
+            } else {
+              this.optionSelected.emit(valueToSubmit);
+            }
+        };
         if (
           e.target.classList &&
           e.target.classList.contains(`dds__dropdown__item-option`)
         ) {
-          const dataValue = e.target.getAttribute("data-value");
-          let valueToSubmit: any;
-          if (dataValue) {
-            valueToSubmit = {
-              value: dataValue,
-              text: e.target.innerText.trim()
-            };
+          const isSelectAll = e.target.parentElement.classList.contains(`dds__dropdown__select-all`);
+          const ddListEl = this.ddsElement.querySelector(`.dds__dropdown__list`);
+          const ddOptions = ddListEl.querySelectorAll(`.dds__dropdown__item-option`)
+          if (isSelectAll) {
+            ddOptions.forEach((ddOption: any) => {
+              if (!ddOption.parentElement.classList.contains(`dds__dropdown__select-all`)) {
+                emitSelection(ddOption);
+              }
+            });
           } else {
-            valueToSubmit = e.target.innerText.trim();
-          }
-          if (!stringToBoolean(e.target.getAttribute(`data-selected`))) {
-            this.optionDeselected.emit(valueToSubmit);
-          } else {
-            this.optionSelected.emit(valueToSubmit);
+            emitSelection(e.target);
           }
         }
       });
@@ -112,15 +126,17 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
       }
     }
   }
+
   ngOnChanges(changes: SimpleChanges) {
     if (
-        changes[`groups`] &&
+      changes[`groups`] &&
       !changes[`groups`].firstChange &&
       changes[`groups`].currentValue !== changes[`groups`].previousValue
     ) {
       this.parseData();
     }
   }
+
   deselect(removalValue: any) {
     try {
       if (typeof removalValue === `string`) {
@@ -131,5 +147,22 @@ export class DropdownComponent extends DdsComponent implements OnChanges {
     } catch (e) {
       console.error(e, removalValue);
     }
+  }
+
+  reboot() {
+    // as of this writing (currently ~v2.13.0), reintializing the Dropdown
+    // leaves an extra selectAll element
+    const selectAll = this.ddsElement.querySelector(
+      `.dds__dropdown__select-all`
+    );
+    if (selectAll) {
+      const firstSeparator = selectAll.parentElement.querySelector(
+        `.dds__dropdown__list-separator`
+      );
+      selectAll.remove();
+      firstSeparator.remove();
+    }
+    this.ddsComponent.dispose();
+    this.initializeNow();
   }
 }

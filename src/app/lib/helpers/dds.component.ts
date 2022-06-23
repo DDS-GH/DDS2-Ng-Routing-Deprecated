@@ -1,13 +1,13 @@
 import { Component, AfterViewInit, Input, OnInit } from "@angular/core";
-import { debug } from "src/app/utilities/util";
 import {
   createObserver,
   pascalDash,
   ObserverDef,
-  setElementId
+  setElementId,
+  tryParseOptions
 } from "./dds.helpers";
 
-// import { <Component> } from @dds/components;  You would use this if you were using the node module for DDS
+// import * as DDS from "@dds/components";  // You would use this if you were using the node module for DDS
 declare const DDS: any; // Use declare if you import via CDN. Regular Angular (node_modules) usage would be via an import
 
 @Component({
@@ -71,7 +71,7 @@ export class DdsComponent implements OnInit, AfterViewInit {
     const ddsCom: string = this.parseInitializer(`component`);
     if (this.ddsElement) {
       if (DDS[ddsCom]) {
-        this.tryParseOptions();
+        this.ddsOptions = tryParseOptions(this.ddsOptions);
         this.ddsComponent = new DDS[ddsCom](this.ddsElement, this.ddsOptions);
       } else {
         console.error(`No such DDS Component, ${ddsCom}`);
@@ -91,7 +91,7 @@ export class DdsComponent implements OnInit, AfterViewInit {
       {
         selector: `#${this.elementId}`,
         callback: (elem: any): void => {
-          this.tryParseOptions();
+          this.ddsOptions = tryParseOptions(this.ddsOptions);
           this.ddsComponent = new DDS[ddsCom](elem, this.ddsOptions);
         }
       }
@@ -101,14 +101,4 @@ export class DdsComponent implements OnInit, AfterViewInit {
       this.observers = createObserver(observerDefs);
     }
   };
-
-  tryParseOptions() {
-    try {
-      if (typeof this.ddsOptions === `string`) {
-        this.ddsOptions = JSON.parse(this.ddsOptions);
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  }
 }

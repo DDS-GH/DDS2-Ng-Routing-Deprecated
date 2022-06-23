@@ -485,7 +485,7 @@ const nouns = [
   "Garage",
   "Ghost"
 ];
-export const randomNumber = (min: any, max: any) => {
+export const randomNumber = (min: number = 0, max: number = 10) => {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 export const capitalize = (what: any) => {

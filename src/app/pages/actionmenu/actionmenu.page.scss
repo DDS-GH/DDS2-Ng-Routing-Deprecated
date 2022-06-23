@@ -1,0 +1,6 @@
+::ng-deep.customColor {
+  color: green !important;
+  &:hover {
+    background: lightgreen !important;
+  }
+}

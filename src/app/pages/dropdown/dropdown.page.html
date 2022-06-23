@@ -5,12 +5,18 @@
       Dropdowns can also be used in the Filter pattern; please see more examples
       of that usage under <a routerLink="/horizontal">Filter</a>.
     </p>
+    <div class="controlPanel">
+      <button role="button" class="dds__button" (click)="handleToggle($event)">
+        Toggle First Hidden Option
+      </button>
+    </div>
     <dds-dropdown
+      #ddRef
       elementId="ddsDropdownSimple"
       label="Simple Dropdown Example"
       helper="Helper Text"
-      ddsOptions='{"selection": "single"}'
-      [groups]="dropdownData.groups"
+      ddsOptions='{"selection": "multiple"}'
+      [groups]="[].concat(groups$ | async)"
     >
     </dds-dropdown>
   </div>
@@ -23,7 +29,7 @@
         <a target="blank" href="https://codepen.io/DorkForce/pen/mdqKQPj">
           DDS2 Dropdown Test: Select All
         </a>
-        &nbsp;
+        &nbsp;|&nbsp;
         <a target="blank" href="https://codepen.io/grantges/pen/vYpJWaq">
           (v2)
         </a>
@@ -33,7 +39,15 @@
           target="blank"
           href="https://codepen.io/DorkForce/pen/rNYYrQX?editors=1010"
         >
-          DDS2 Ticket #288, Dropdown methods and events
+          DDS2 Dropdown methods and events
+        </a>
+      </li>
+      <li>
+        <a
+          target="blank"
+          href="https://codesandbox.io/s/dds2-dropdown-with-dependent-dropdown-x2qcxr?file=/src/index.js"
+        >
+          DDS2 Dropdown with dependent Dropdown
         </a>
       </li>
     </ul>

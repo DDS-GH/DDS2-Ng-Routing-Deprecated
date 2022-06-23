@@ -3,8 +3,7 @@ import { DdsComponent } from "../helpers/dds.component";
 
 @Component({
   selector: "dds-tooltip",
-  templateUrl: "./tooltip.component.html",
-  styleUrls: ["./tooltip.component.scss"]
+  templateUrl: "./tooltip.component.html"
 })
 export class TooltipComponent extends DdsComponent {
   @Input() icon: string = `alert-info-cir`;

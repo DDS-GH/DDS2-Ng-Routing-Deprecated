@@ -3,8 +3,7 @@ import { DdsComponent } from "../helpers/dds.component";
 
 @Component({
   selector: `dds-table`,
-  templateUrl: `./table.component.html`,
-  styleUrls: [`./table.component.scss`]
+  templateUrl: `./table.component.html`
 })
 export class TableComponent extends DdsComponent implements OnChanges {
   @Output() onSort: EventEmitter<any> = new EventEmitter<any>();

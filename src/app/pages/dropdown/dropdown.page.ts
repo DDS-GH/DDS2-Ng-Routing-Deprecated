@@ -1,70 +1,41 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Observable, of, BehaviorSubject } from "rxjs";
+import * as data from "./dropdown.page.json";
+
+interface DGroups {
+  name: string;
+  hidden: boolean;
+  stored: Array<any>;
+  options: Array<any>;
+}
 
 @Component({
   templateUrl: "./dropdown.page.html"
 })
 export class DropdownPageComponent implements OnInit {
-  public dropdownData: any = {
-    stored: [],
-    groups: [
-      {
-        hidden: false,
-        options: [
-          {
-            name: "Alpha Item 0",
-            value: "0",
-            selected: false
-          },
-          {
-            name: "Not Shown Item 0",
-            value: "1",
-            selected: false,
-            hidden: true
-          },
-          {
-            name: "Alpha Item 1",
-            value: "2",
-            selected: false
-          },
-          {
-            name: "Not Shown Item 1",
-            value: "3",
-            selected: false,
-            hidden: true
-          },
-          {
-            name: "Alpha Item 2",
-            value: "4",
-            selected: false
-          }
-        ]
-      },
-      {
-        name: "Other Stuff",
-        options: [
-          {
-            name: "Beta Item 0",
-            value: "5",
-            selected: false
-          },
-          {
-            name: "Beta Item 1",
-            value: "6",
-            selected: false
-          },
-          {
-            name: "Beta Item 2",
-            value: "7",
-            selected: false
-          }
-        ]
-      }
-    ]
-  };
+  @ViewChild(`ddRef`) ddRef!: ElementRef<HTMLElement>;
+  public stored: Array<any> = [];
   public showTags: boolean = false;
+  public groups: Observable<DGroups>[] = [];
+  public groupsArray: DGroups[] = [];
+  public groups$: BehaviorSubject<Array<DGroups>> = new BehaviorSubject<
+    Array<DGroups>
+  >(this.groupsArray);
 
-  // @ts-ignore
   ngOnInit(): void {
-    this.dropdownData.groups = JSON.stringify(this.dropdownData.groups);
+    // this.groups = of(data);
+    data.forEach((d: any) => {
+      this.groups.push(of(d));
+      this.groupsArray.push(d);
+      this.groups$.next(this.groupsArray);
+    });
+  }
+
+  handleToggle(e: any) {
+    this.groupsArray[0].options[1].hidden = !this.groupsArray[0].options[1]
+      .hidden;
+    setTimeout(() => {
+      this.ddRef.reboot();
+    });
   }
 }

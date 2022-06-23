@@ -1,18 +1,48 @@
 <h2>Table</h2>
 <div class="dds__row">
-  <div class="dds__col--2 dds__col--sm-6 dds__col--md-6 dds__mb-3">
+  <div class="dds__col--2 dds__col--sm-12 dds__col--md-12 dds__mb-3">
+    <h3>Note</h3>
+    <p>
+      It is possible to connect the current version of the Table component
+      together with the current Pagination component, however this is ALSO being
+      done by the team and will be released in the coming sprints. For now, you
+      can see an unfinished demonstration of doing that on the
+      <a routerLink="/table-pagination">Table-Pagination</a> page.
+    </p>
     <div class="controlPanel">
       <button role="button" class="dds__button" (click)="handleAdd($event)">
-        Add New Row
+        Add Row
+      </button>
+      <button role="button" class="dds__button" (click)="handleDelete($event)">
+        Delete Row
       </button>
       <button role="button" class="dds__button" (click)="handleSort($event)">
         Col 0: {{ sorting }}
       </button>
+      <button role="button" class="dds__button" (click)="handleSelect($event)">
+        Selected {{selectedIndex}}
+      </button>
+      <button role="button" class="dds__button" (click)="handleSticky($event)">
+        Sticky {{classList.indexOf('sticky') > 0}}
+      </button>
     </div>
+    <dds-messagebar
+      #ddsMbInstance
+      elementId="ddsMessageBar"
+      classList="dds__message-bar--hide"
+      [title]="mb.title"
+      [dismissible]="mb.dismissible"
+      [layout]="mb.layout"
+      [icon]="mb.icon"
+      [variant]="mb.variant"
+    >
+      {{mb.body}}
+    </dds-messagebar>
     <dds-table
       #myTable
       [ddsOptions]="config"
       (onSort)="handleSort($event)"
+      [classList]="classList"
     ></dds-table>
   </div>
 </div>
